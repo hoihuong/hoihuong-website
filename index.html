@@ -3,63 +3,421 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>hoihuong.org - Sắp Trở Lại</title>
+    <title>hoihuong.org - Trang Nhà Tâm Linh</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gentium+Plus:ital,wght@0,400;0,700;1,400;1,700&family=Noto+Serif+SC:wght@400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Gentium Plus', serif;
             min-height: 100vh;
             display: flex;
-            justify-content: center;
-            align-items: center;
-            background: #2c7744;
-            color: #f5f0e1;
-            text-align: center;
-            padding: 20px;
-        }
-        .container {
-            max-width: 800px;
-            padding: 40px;
-            background: rgba(29, 22, 16, 0.7);
-            border-radius: 20px;
-        }
-        h1 {
-            font-size: 3rem;
-            margin-bottom: 15px;
-            color: #f9d423;
-        }
-        p {
-            font-size: 1.4rem;
-            margin: 0 auto 30px;
+            flex-direction: column;
+            background: linear-gradient(135deg, #1a3a20 0%, #2c5d34 100%);
+            color: #f8f6f0;
+            overflow-x: hidden;
+            position: relative;
             line-height: 1.8;
         }
-        .dharma {
-            font-size: 3rem;
-            margin: 20px 0;
-            color: #f9d423;
+
+        /* Watercolor texture overlay */
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200" opacity="0.03"><path fill="%23f8f6f0" d="M50,30 Q70,15 90,40 T130,30 Q160,40 150,80 T170,120 Q140,150 110,140 T70,160 Q30,170 20,130 T5,80 Q15,40 50,30Z"/></svg>');
+            z-index: 0;
+            opacity: 0.3;
         }
+
+        .header {
+            position: relative;
+            padding: 2rem;
+            text-align: center;
+            z-index: 10;
+        }
+
+        .logo {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lotus {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 50% 50%, #f9e6a6 0%, #f9e6a6 25%, transparent 25%),
+                radial-gradient(circle at 50% 50%, #f9e6a6 0%, #f9e6a6 30%, transparent 30%),
+                radial-gradient(circle at 50% 50%, #f9e6a6 0%, #f9e6a6 35%, transparent 35%);
+            border-radius: 50%;
+            animation: rotate 120s linear infinite;
+            box-shadow: 0 0 30px rgba(249, 230, 166, 0.3);
+        }
+
+        .lotus-petal {
+            position: absolute;
+            width: 60px;
+            height: 100px;
+            background: #f9e6a6;
+            border-radius: 50%;
+            top: 10px;
+            left: 30px;
+            transform-origin: center 75px;
+            box-shadow: 0 0 10px rgba(249, 230, 166, 0.5);
+            opacity: 0.8;
+        }
+
+        .lotus-petal:nth-child(1) { transform: rotate(0deg); }
+        .lotus-petal:nth-child(2) { transform: rotate(45deg); }
+        .lotus-petal:nth-child(3) { transform: rotate(90deg); }
+        .lotus-petal:nth-child(4) { transform: rotate(135deg); }
+        .lotus-petal:nth-child(5) { transform: rotate(180deg); }
+        .lotus-petal:nth-child(6) { transform: rotate(225deg); }
+        .lotus-petal:nth-child(7) { transform: rotate(270deg); }
+        .lotus-petal:nth-child(8) { transform: rotate(315deg); }
+
+        h1 {
+            font-size: 3.5rem;
+            margin: 1.5rem 0;
+            font-weight: 700;
+            text-shadow: 0 2px 15px rgba(0, 0, 0, 0.4);
+            letter-spacing: -0.5px;
+            color: #f9e6a6;
+            font-family: 'Noto Serif SC', serif;
+        }
+
+        .vietnamese {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 4.2rem;
+            display: block;
+            margin: 1rem 0;
+            color: #fff;
+            text-shadow: 0 0 15px rgba(249, 230, 166, 0.5);
+            letter-spacing: 2px;
+        }
+
+        .slogan {
+            font-size: 1.8rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            opacity: 0.9;
+            font-weight: 500;
+            color: #e2f0d9;
+            position: relative;
+            padding: 0 1rem;
+        }
+
+        .slogan::before, .slogan::after {
+            content: "❧";
+            position: absolute;
+            color: #f9e6a6;
+            font-size: 1.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .slogan::before {
+            left: -10px;
+        }
+
+        .slogan::after {
+            right: -10px;
+        }
+
+        .dharma-wheel {
+            display: inline-block;
+            font-size: 3rem;
+            margin: 1rem;
+            color: #f9e6a6;
+            text-shadow: 0 0 15px rgba(249, 230, 166, 0.5);
+            animation: spin 40s linear infinite;
+        }
+
+        .content {
+            position: relative;
+            z-index: 5;
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 2rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+        }
+
+        .panel {
+            flex: 1;
+            min-width: 300px;
+            background: rgba(29, 40, 22, 0.7);
+            border-radius: 20px;
+            padding: 2rem;
+            border: 1px solid rgba(210, 180, 140, 0.2);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .panel:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .panel h2 {
+            font-family: 'Noto Serif SC', serif;
+            color: #f9e6a6;
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .panel h2::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 25%;
+            width: 50%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #f9e6a6, transparent);
+        }
+
+        .virtues {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+
+        .virtue {
+            background: rgba(210, 180, 140, 0.15);
+            padding: 1.2rem 2rem;
+            border-radius: 50px;
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #f9e6a6;
+            border: 1px solid rgba(210, 180, 140, 0.3);
+            font-family: 'Noto Serif SC', serif;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+        }
+
+        .virtue:hover {
+            background: rgba(249, 230, 166, 0.2);
+            transform: translateY(-5px);
+        }
+
+        .virtue i {
+            margin-right: 0.8rem;
+            font-size: 1.5rem;
+        }
+
         .contact {
             background: rgba(210, 180, 140, 0.1);
-            max-width: 500px;
-            margin: 30px auto;
-            padding: 20px;
+            max-width: 600px;
+            margin: 3rem auto;
+            padding: 2rem;
             border-radius: 15px;
-            font-size: 1.2rem;
+            border: 1px solid rgba(210, 180, 140, 0.2);
+            text-align: center;
+            font-size: 1.3rem;
+        }
+
+        .contact p {
+            margin: 1rem 0;
+        }
+
+        .contact i {
+            color: #f9e6a6;
+            margin-right: 0.8rem;
+        }
+
+        .sanskrit {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 1.3rem;
+            margin: 3rem auto;
+            font-style: italic;
+            color: #d2b48c;
+            text-align: center;
+            max-width: 800px;
+            padding: 0 1rem;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 2rem;
+            font-size: 1.1rem;
+            color: #a8c4a0;
+            background: rgba(15, 28, 15, 0.5);
+            margin-top: auto;
+        }
+
+        .floating-leaves {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .leaf {
+            position: absolute;
+            display: block;
+            width: 40px;
+            height: 40px;
+            background: rgba(210, 180, 140, 0.2);
+            animation: float 25s linear infinite;
+            bottom: -50px;
+            border-radius: 50% 0;
+            transform: rotate(45deg);
+            opacity: 0.6;
+            filter: blur(1px);
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.6;
+            }
+            90% {
+                opacity: 0.6;
+            }
+            100% {
+                transform: translateY(-100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            .vietnamese { font-size: 3rem; }
+            .slogan { font-size: 1.4rem; }
+            .logo { width: 100px; height: 100px; }
+            .panel { padding: 1.5rem; }
+            .virtue { padding: 1rem 1.5rem; font-size: 1.1rem; }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="dharma">☸</div>
-        <h1>Hội Hướng Tâm</h1>
-        <h1>Nở Hoa Từ Bi & Trí Tuệ</h1>
-        <p>
-            Chúng tôi đang tạo dựng không gian cho sự phát triển tâm linh và kết nối cộng đồng.
-            Trang web mới sẽ sớm ra mắt.
-        </p>
-        <div class="contact">
-            Liên hệ: info@hoihuong.org
+    <div class="floating-leaves" id="leaves-container"></div>
+
+    <div class="header">
+        <div class="logo">
+            <div class="lotus"></div>
+            <div class="lotus-petal"></div>
+            <div class="lotus-petal"></div>
+            <div class="lotus-petal"></div>
+            <div class="lotus-petal"></div>
+            <div class="lotus-petal"></div>
+            <div class="lotus-petal"></div>
+            <div class="lotus-petal"></div>
+            <div class="lotus-petal"></div>
+        </div>
+        
+        <h1><span class="vietnamese">Hội Hướng Tâm</span></h1>
+        
+        <p class="slogan">Nơi gieo hạt từ bi, gặt trái giải thoát</p>
+        
+        <div class="dharma-wheel">☸</div>
+    </div>
+
+    <div class="content">
+        <div class="panel">
+            <h2>Con Đường Tâm Linh</h2>
+            <p>Hội Hướng Tâm là không gian tâm linh dành cho những ai đang tìm kiếm sự an lạc trong tâm hồn và trí tuệ giác ngộ. Chúng tôi hướng đến việc xây dựng cộng đồng cùng nhau tu tập, chia sẻ giáo lý Phật đà.</p>
+            <p>Với phương châm "Từ bi - Trí tuệ - Giải thoát", chúng tôi mong muốn đem lại sự chuyển hóa tâm thức, giúp mỗi cá nhân tìm thấy hạnh phúc chân thật ngay trong đời sống hiện tại.</p>
+        </div>
+        
+        <div class="panel">
+            <h2>Giá Trị Cốt Lõi</h2>
+            <div class="virtues">
+                <div class="virtue"><i class="fas fa-heart"></i> Từ Bi</div>
+                <div class="virtue"><i class="fas fa-brain"></i> Trí Tuệ</div>
+                <div class="virtue"><i class="fas fa-dove"></i> Giải Thoát</div>
+                <div class="virtue"><i class="fas fa-hands-helping"></i> Tình Thương</div>
+                <div class="virtue"><i class="fas fa-peace"></i> An Lạc</div>
+                <div class="virtue"><i class="fas fa-hand-holding-heart"></i> Cho Đi</div>
+            </div>
+            <p>Chúng tôi tin rằng con đường tâm linh bắt đầu từ trái tim biết yêu thương và mở rộng đến trí tuệ thấu hiểu bản chất cuộc đời. Sự giải thoát không phải là trốn chạy thế gian mà là thấy rõ và an trú trong bản tâm thanh tịnh.</p>
         </div>
     </div>
+
+    <div class="contact">
+        <p><i class="fas fa-envelope"></i> Email: info@hoihuong.org</p>
+        <p><i class="fas fa-map-marker-alt"></i> Địa chỉ: Tổ đình Hội Hướng Tâm, Việt Nam</p>
+        <p><i class="fas fa-clock"></i> Giờ mở cửa: Mỗi ngày từ 8:00 - 20:00</p>
+    </div>
+
+    <p class="sanskrit">"सर्वे भवन्तु सुखिनः सर्वे सन्तु निरामयाः। सर्वे भद्राणि पश्यन्तु मा कश्चिद्दुःखभाग्भवेत्॥"<br>Mong tất cả chúng sinh được an vui; mong tất cả chúng sinh được khỏe mạnh; mong tất cả chúng sinh được nhìn thấy điều tốt đẹp; mong không ai phải chịu đau khổ.</p>
+
+    <div class="footer">
+        <p>© 2025 Hội Hướng Tâm - hoihuong.org | Trang web đang trong quá trình hoàn thiện</p>
+        <p>"Chánh niệm là con đường đưa đến bất tử, phóng dật là con đường đưa đến tử vong" - Kinh Pháp Cú</p>
+    </div>
+
+    <script>
+        // Create floating leaves
+        document.addEventListener('DOMContentLoaded', function() {
+            const leafContainer = document.getElementById('leaves-container');
+            const leafCount = 20;
+            
+            for (let i = 0; i < leafCount; i++) {
+                const leaf = document.createElement('div');
+                leaf.classList.add('leaf');
+                
+                // Random properties
+                const size = Math.random() * 30 + 20;
+                const left = Math.random() * 100;
+                const delay = Math.random() * 20;
+                const duration = 20 + Math.random() * 30;
+                const hue = 30 + Math.random() * 20;
+                
+                leaf.style.width = `${size}px`;
+                leaf.style.height = `${size}px`;
+                leaf.style.left = `${left}%`;
+                leaf.style.animationDelay = `${delay}s`;
+                leaf.style.animationDuration = `${duration}s`;
+                leaf.style.backgroundColor = `hsla(${hue}, 40%, 60%, 0.3)`;
+                
+                leafContainer.appendChild(leaf);
+            }
+            
+            // Randomize lotus rotation
+            const lotus = document.querySelector('.lotus');
+            lotus.style.animation = `rotate ${90 + Math.random() * 180}s linear infinite`;
+        });
+    </script>
 </body>
 </html>
