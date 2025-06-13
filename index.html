@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>hoihuong.org - Trang Nhà Tâm Linh</title>
+    <title>Hội Hướng Tâm - Community of Mindfulness</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gentium+Plus:ital,wght@0,400;0,700;1,400;1,700&family=Noto+Serif+SC:wght@400;500;600;700&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -13,13 +13,22 @@
             box-sizing: border-box;
         }
 
+        :root {
+            --gold: #f9e6a6;
+            --dark-green: #1a3a20;
+            --medium-green: #2c5d34;
+            --light-green: #3e7d48;
+            --text-light: #f8f6f0;
+            --text-secondary: #d2b48c;
+        }
+
         body {
             font-family: 'Gentium Plus', serif;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
-            background: linear-gradient(135deg, #1a3a20 0%, #2c5d34 100%);
-            color: #f8f6f0;
+            background: linear-gradient(135deg, var(--dark-green) 0%, var(--medium-green) 100%);
+            color: var(--text-light);
             overflow-x: hidden;
             position: relative;
             line-height: 1.8;
@@ -38,18 +47,40 @@
             opacity: 0.3;
         }
 
+        .language-toggle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 100;
+        }
+
+        .lang-btn {
+            background: rgba(29, 40, 22, 0.7);
+            color: var(--gold);
+            border: 1px solid rgba(210, 180, 140, 0.3);
+            padding: 8px 16px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .lang-btn:hover {
+            background: rgba(249, 230, 166, 0.2);
+        }
+
         .header {
             position: relative;
-            padding: 2rem;
+            padding: 4rem 2rem 2rem;
             text-align: center;
             z-index: 10;
         }
 
-        .logo {
-            width: 120px;
-            height: 120px;
-            margin: 0 auto;
+        .logo-container {
             position: relative;
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 30px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -60,9 +91,9 @@
             width: 100%;
             height: 100%;
             background: 
-                radial-gradient(circle at 50% 50%, #f9e6a6 0%, #f9e6a6 25%, transparent 25%),
-                radial-gradient(circle at 50% 50%, #f9e6a6 0%, #f9e6a6 30%, transparent 30%),
-                radial-gradient(circle at 50% 50%, #f9e6a6 0%, #f9e6a6 35%, transparent 35%);
+                radial-gradient(circle at 50% 50%, var(--gold) 0%, var(--gold) 25%, transparent 25%),
+                radial-gradient(circle at 50% 50%, var(--gold) 0%, var(--gold) 30%, transparent 30%),
+                radial-gradient(circle at 50% 50%, var(--gold) 0%, var(--gold) 35%, transparent 35%);
             border-radius: 50%;
             animation: rotate 120s linear infinite;
             box-shadow: 0 0 30px rgba(249, 230, 166, 0.3);
@@ -72,10 +103,10 @@
             position: absolute;
             width: 60px;
             height: 100px;
-            background: #f9e6a6;
+            background: var(--gold);
             border-radius: 50%;
             top: 10px;
-            left: 30px;
+            left: 45px;
             transform-origin: center 75px;
             box-shadow: 0 0 10px rgba(249, 230, 166, 0.5);
             opacity: 0.8;
@@ -96,7 +127,7 @@
             font-weight: 700;
             text-shadow: 0 2px 15px rgba(0, 0, 0, 0.4);
             letter-spacing: -0.5px;
-            color: #f9e6a6;
+            color: var(--gold);
             font-family: 'Noto Serif SC', serif;
         }
 
@@ -110,6 +141,25 @@
             letter-spacing: 2px;
         }
 
+        .english {
+            font-size: 2.5rem;
+            font-weight: 400;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .english::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 25%;
+            width: 50%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        }
+
         .slogan {
             font-size: 1.8rem;
             max-width: 800px;
@@ -121,28 +171,11 @@
             padding: 0 1rem;
         }
 
-        .slogan::before, .slogan::after {
-            content: "❧";
-            position: absolute;
-            color: #f9e6a6;
-            font-size: 1.5rem;
-            top: 50%;
-            transform: translateY(-50%);
-        }
-
-        .slogan::before {
-            left: -10px;
-        }
-
-        .slogan::after {
-            right: -10px;
-        }
-
         .dharma-wheel {
             display: inline-block;
             font-size: 3rem;
             margin: 1rem;
-            color: #f9e6a6;
+            color: var(--gold);
             text-shadow: 0 0 15px rgba(249, 230, 166, 0.5);
             animation: spin 40s linear infinite;
         }
@@ -178,7 +211,7 @@
 
         .panel h2 {
             font-family: 'Noto Serif SC', serif;
-            color: #f9e6a6;
+            color: var(--gold);
             font-size: 2.2rem;
             margin-bottom: 1.5rem;
             text-align: center;
@@ -193,7 +226,22 @@
             left: 25%;
             width: 50%;
             height: 2px;
-            background: linear-gradient(90deg, transparent, #f9e6a6, transparent);
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        }
+
+        .bilingual-text {
+            margin-bottom: 1.5rem;
+        }
+
+        .vietnamese-text {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .english-text {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            font-style: italic;
         }
 
         .virtues {
@@ -210,12 +258,13 @@
             border-radius: 50px;
             font-size: 1.3rem;
             font-weight: 600;
-            color: #f9e6a6;
+            color: var(--gold);
             border: 1px solid rgba(210, 180, 140, 0.3);
             font-family: 'Noto Serif SC', serif;
             transition: all 0.3s ease;
             display: flex;
             align-items: center;
+            flex-direction: column;
         }
 
         .virtue:hover {
@@ -224,8 +273,8 @@
         }
 
         .virtue i {
-            margin-right: 0.8rem;
-            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            font-size: 1.8rem;
         }
 
         .contact {
@@ -244,7 +293,7 @@
         }
 
         .contact i {
-            color: #f9e6a6;
+            color: var(--gold);
             margin-right: 0.8rem;
         }
 
@@ -253,10 +302,37 @@
             font-size: 1.3rem;
             margin: 3rem auto;
             font-style: italic;
-            color: #d2b48c;
+            color: var(--text-secondary);
             text-align: center;
             max-width: 800px;
             padding: 0 1rem;
+        }
+
+        .social {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 2rem 0;
+        }
+
+        .social a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: rgba(210, 180, 140, 0.1);
+            color: var(--gold);
+            font-size: 1.8rem;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(210, 180, 140, 0.3);
+            text-decoration: none;
+        }
+
+        .social a:hover {
+            background: rgba(249, 230, 166, 0.2);
+            transform: translateY(-5px);
         }
 
         .footer {
@@ -323,8 +399,16 @@
         @media (max-width: 768px) {
             h1 { font-size: 2.5rem; }
             .vietnamese { font-size: 3rem; }
+            .english { font-size: 1.8rem; }
             .slogan { font-size: 1.4rem; }
-            .logo { width: 100px; height: 100px; }
+            .logo-container { width: 120px; height: 120px; }
+            .lotus-petal {
+                width: 45px;
+                height: 80px;
+                top: 15px;
+                left: 37.5px;
+                transform-origin: center 60px;
+            }
             .panel { padding: 1.5rem; }
             .virtue { padding: 1rem 1.5rem; font-size: 1.1rem; }
         }
@@ -333,8 +417,12 @@
 <body>
     <div class="floating-leaves" id="leaves-container"></div>
 
+    <div class="language-toggle">
+        <button class="lang-btn" id="langToggle">English / Tiếng Việt</button>
+    </div>
+
     <div class="header">
-        <div class="logo">
+        <div class="logo-container">
             <div class="lotus"></div>
             <div class="lotus-petal"></div>
             <div class="lotus-petal"></div>
@@ -347,44 +435,91 @@
         </div>
         
         <h1><span class="vietnamese">Hội Hướng Tâm</span></h1>
+        <div class="english">Community of Mindfulness</div>
         
-        <p class="slogan">Nơi gieo hạt từ bi, gặt trái giải thoát</p>
+        <p class="slogan">Nơi gieo hạt từ bi, gặt trái giải thoát | Where seeds of compassion bear fruits of liberation</p>
         
         <div class="dharma-wheel">☸</div>
     </div>
 
     <div class="content">
         <div class="panel">
-            <h2>Con Đường Tâm Linh</h2>
-            <p>Hội Hướng Tâm là không gian tâm linh dành cho những ai đang tìm kiếm sự an lạc trong tâm hồn và trí tuệ giác ngộ. Chúng tôi hướng đến việc xây dựng cộng đồng cùng nhau tu tập, chia sẻ giáo lý Phật đà.</p>
-            <p>Với phương châm "Từ bi - Trí tuệ - Giải thoát", chúng tôi mong muốn đem lại sự chuyển hóa tâm thức, giúp mỗi cá nhân tìm thấy hạnh phúc chân thật ngay trong đời sống hiện tại.</p>
+            <h2>Con Đường Tâm Linh | Spiritual Path</h2>
+            <div class="bilingual-text">
+                <p class="vietnamese-text">Hội Hướng Tâm là không gian tâm linh dành cho những ai đang tìm kiếm sự an lạc trong tâm hồn và trí tuệ giác ngộ. Chúng tôi hướng đến việc xây dựng cộng đồng cùng nhau tu tập, chia sẻ giáo lý Phật đà.</p>
+                <p class="english-text">Hội Hướng Tâm is a spiritual sanctuary for those seeking inner peace and enlightenment. We are dedicated to building a community that practices mindfulness together and shares Buddhist teachings.</p>
+            </div>
+            <div class="bilingual-text">
+                <p class="vietnamese-text">Với phương châm "Từ bi - Trí tuệ - Giải thoát", chúng tôi mong muốn đem lại sự chuyển hóa tâm thức, giúp mỗi cá nhân tìm thấy hạnh phúc chân thật ngay trong đời sống hiện tại.</p>
+                <p class="english-text">With the motto "Compassion - Wisdom - Liberation", we aspire to foster spiritual transformation, helping each individual discover true happiness in the present moment.</p>
+            </div>
         </div>
         
         <div class="panel">
-            <h2>Giá Trị Cốt Lõi</h2>
+            <h2>Giá Trị Cốt Lõi | Core Values</h2>
             <div class="virtues">
-                <div class="virtue"><i class="fas fa-heart"></i> Từ Bi</div>
-                <div class="virtue"><i class="fas fa-brain"></i> Trí Tuệ</div>
-                <div class="virtue"><i class="fas fa-dove"></i> Giải Thoát</div>
-                <div class="virtue"><i class="fas fa-hands-helping"></i> Tình Thương</div>
-                <div class="virtue"><i class="fas fa-peace"></i> An Lạc</div>
-                <div class="virtue"><i class="fas fa-hand-holding-heart"></i> Cho Đi</div>
+                <div class="virtue">
+                    <i class="fas fa-heart"></i>
+                    <div>Từ Bi</div>
+                    <div>Compassion</div>
+                </div>
+                <div class="virtue">
+                    <i class="fas fa-brain"></i>
+                    <div>Trí Tuệ</div>
+                    <div>Wisdom</div>
+                </div>
+                <div class="virtue">
+                    <i class="fas fa-dove"></i>
+                    <div>Giải Thoát</div>
+                    <div>Liberation</div>
+                </div>
+                <div class="virtue">
+                    <i class="fas fa-hands-helping"></i>
+                    <div>Tình Thương</div>
+                    <div>Loving-kindness</div>
+                </div>
+                <div class="virtue">
+                    <i class="fas fa-peace"></i>
+                    <div>An Lạc</div>
+                    <div>Peace</div>
+                </div>
+                <div class="virtue">
+                    <i class="fas fa-hand-holding-heart"></i>
+                    <div>Cho Đi</div>
+                    <div>Generosity</div>
+                </div>
             </div>
-            <p>Chúng tôi tin rằng con đường tâm linh bắt đầu từ trái tim biết yêu thương và mở rộng đến trí tuệ thấu hiểu bản chất cuộc đời. Sự giải thoát không phải là trốn chạy thế gian mà là thấy rõ và an trú trong bản tâm thanh tịnh.</p>
         </div>
     </div>
 
     <div class="contact">
         <p><i class="fas fa-envelope"></i> Email: info@hoihuong.org</p>
-        <p><i class="fas fa-map-marker-alt"></i> Địa chỉ: Tổ đình Hội Hướng Tâm, Việt Nam</p>
-        <p><i class="fas fa-clock"></i> Giờ mở cửa: Mỗi ngày từ 8:00 - 20:00</p>
+        <p><i class="fas fa-map-marker-alt"></i> Địa chỉ / Address: Tổ đình Hội Hướng Tâm, Việt Nam</p>
+        <p><i class="fas fa-clock"></i> Giờ mở cửa / Hours: Mỗi ngày từ 8:00 - 20:00 | Daily 8:00 AM - 8:00 PM</p>
     </div>
 
-    <p class="sanskrit">"सर्वे भवन्तु सुखिनः सर्वे सन्तु निरामयाः। सर्वे भद्राणि पश्यन्तु मा कश्चिद्दुःखभाग्भवेत्॥"<br>Mong tất cả chúng sinh được an vui; mong tất cả chúng sinh được khỏe mạnh; mong tất cả chúng sinh được nhìn thấy điều tốt đẹp; mong không ai phải chịu đau khổ.</p>
+    <div class="social">
+        <a href="https://twitter.com/_hoihuong_" target="_blank" aria-label="Twitter">
+            <i class="fab fa-twitter"></i>
+        </a>
+        <a href="#" target="_blank" aria-label="Facebook">
+            <i class="fab fa-facebook"></i>
+        </a>
+        <a href="#" target="_blank" aria-label="Instagram">
+            <i class="fab fa-instagram"></i>
+        </a>
+        <a href="#" target="_blank" aria-label="YouTube">
+            <i class="fab fa-youtube"></i>
+        </a>
+    </div>
+
+    <p class="sanskrit">"सर्वे भवन्तु सुखिनः सर्वे सन्तु निरामयाः। सर्वे भद्राणि पश्यन्तु मा कश्चिद्दुःखभाग्भवेत्॥"<br>
+    "May all beings be happy; may all beings be healthy; may all beings see what is good; may no one suffer."</p>
 
     <div class="footer">
-        <p>© 2025 Hội Hướng Tâm - hoihuong.org | Trang web đang trong quá trình hoàn thiện</p>
-        <p>"Chánh niệm là con đường đưa đến bất tử, phóng dật là con đường đưa đến tử vong" - Kinh Pháp Cú</p>
+        <p>© 2025 Hội Hướng Tâm - hoihuong.org | Website đang trong quá trình hoàn thiện</p>
+        <p>"Chánh niệm là con đường đưa đến bất tử, phóng dật là con đường đưa đến tử vong"<br>
+        "Mindfulness is the path to immortality, carelessness is the path to death" - Dhammapada</p>
     </div>
 
     <script>
@@ -417,6 +552,15 @@
             // Randomize lotus rotation
             const lotus = document.querySelector('.lotus');
             lotus.style.animation = `rotate ${90 + Math.random() * 180}s linear infinite`;
+            
+            // Language toggle functionality
+            const langToggle = document.getElementById('langToggle');
+            langToggle.addEventListener('click', function() {
+                document.body.classList.toggle('english-mode');
+                langToggle.textContent = document.body.classList.contains('english-mode') 
+                    ? 'Tiếng Việt / English' 
+                    : 'English / Tiếng Việt';
+            });
         });
     </script>
 </body>
