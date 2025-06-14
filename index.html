@@ -23,6 +23,7 @@
             --text-color: #333;
             --lotus-pink: #ff9eb5;
             --lotus-pink-light: #ffc2d1;
+            --lotus-purple: #b19cd9;
         }
         
         body {
@@ -142,31 +143,25 @@
             position: relative;
             width: 80px;
             height: 80px;
-            animation: lotusPulse 4s ease-in-out infinite;
         }
         
-        .lotus-flower::before,
-        .lotus-flower::after {
-            content: "";
+        .lotus-petal {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: radial-gradient(circle, var(--lotus-pink-light) 0%, var(--lotus-pink) 100%);
             border-radius: 50%;
+            background: linear-gradient(135deg, var(--lotus-purple) 0%, var(--lotus-pink) 100%);
             opacity: 0.8;
+            transform-origin: center;
+            animation: lotusPulse 4s ease-in-out infinite;
         }
         
-        .lotus-flower::before {
-            transform: rotate(0deg);
-            clip-path: polygon(50% 0%, 80% 10%, 100% 35%, 100% 70%, 80% 90%, 50% 100%, 20% 90%, 0% 70%, 0% 35%, 20% 10%);
-        }
-        
-        .lotus-flower::after {
-            transform: rotate(45deg);
-            clip-path: polygon(50% 0%, 80% 10%, 100% 35%, 100% 70%, 80% 90%, 50% 100%, 20% 90%, 0% 70%, 0% 35%, 20% 10%);
-        }
+        .lotus-petal:nth-child(1) { transform: rotate(0deg); }
+        .lotus-petal:nth-child(2) { transform: rotate(45deg); }
+        .lotus-petal:nth-child(3) { transform: rotate(90deg); }
+        .lotus-petal:nth-child(4) { transform: rotate(135deg); }
         
         .lotus-center {
             position: absolute;
@@ -178,6 +173,7 @@
             background: radial-gradient(circle, var(--gold) 0%, #d4af37 100%);
             border-radius: 50%;
             z-index: 3;
+            box-shadow: 0 0 10px rgba(230, 199, 138, 0.5);
         }
         
         .logo-text {
@@ -917,9 +913,9 @@
                 right: -70px;
             }
             
-            .lotus-flower {
-                width: 60px;
-                height: 60px;
+            .lotus-petal {
+                width: 50px;
+                height: 50px;
             }
             
             .lotus-center {
@@ -1006,9 +1002,9 @@
                 right: -45px;
             }
             
-            .lotus-flower {
-                width: 40px;
-                height: 40px;
+            .lotus-petal {
+                width: 35px;
+                height: 35px;
             }
             
             .lotus-center {
@@ -1076,12 +1072,20 @@
             <div class="logo-container">
                 <div class="lotus-icon left">
                     <div class="lotus-flower">
+                        <div class="lotus-petal"></div>
+                        <div class="lotus-petal"></div>
+                        <div class="lotus-petal"></div>
+                        <div class="lotus-petal"></div>
                         <div class="lotus-center"></div>
                     </div>
                 </div>
                 <div class="logo-text">Hội Hướng</div>
                 <div class="lotus-icon right">
                     <div class="lotus-flower">
+                        <div class="lotus-petal"></div>
+                        <div class="lotus-petal"></div>
+                        <div class="lotus-petal"></div>
+                        <div class="lotus-petal"></div>
                         <div class="lotus-center"></div>
                     </div>
                 </div>
