@@ -21,7 +21,8 @@
             --dark-brown: #3e2723;
             --light-brown: #5d4037;
             --text-color: #333;
-            --lotus-pink: #ffb7c5;
+            --lotus-pink: #ff9eb5;
+            --lotus-pink-light: #ffc2d1;
         }
         
         body {
@@ -118,31 +119,65 @@
         .logo-container {
             position: relative;
             display: inline-block;
+            margin-bottom: 30px;
         }
         
         .lotus-icon {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            width: 70px;
-            height: 70px;
             z-index: 2;
             animation: lotusFloat 8s ease-in-out infinite;
         }
         
         .lotus-icon.left {
-            left: -85px;
+            left: -100px;
         }
         
         .lotus-icon.right {
-            right: -85px;
+            right: -100px;
         }
         
-        .lotus-icon svg {
+        .lotus-flower {
+            position: relative;
+            width: 80px;
+            height: 80px;
+            animation: lotusPulse 4s ease-in-out infinite;
+        }
+        
+        .lotus-flower::before,
+        .lotus-flower::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
-            fill: var(--lotus-pink);
-            filter: drop-shadow(0 0 8px rgba(255, 105, 180, 0.6));
+            background: radial-gradient(circle, var(--lotus-pink-light) 0%, var(--lotus-pink) 100%);
+            border-radius: 50%;
+            opacity: 0.8;
+        }
+        
+        .lotus-flower::before {
+            transform: rotate(0deg);
+            clip-path: polygon(50% 0%, 80% 10%, 100% 35%, 100% 70%, 80% 90%, 50% 100%, 20% 90%, 0% 70%, 0% 35%, 20% 10%);
+        }
+        
+        .lotus-flower::after {
+            transform: rotate(45deg);
+            clip-path: polygon(50% 0%, 80% 10%, 100% 35%, 100% 70%, 80% 90%, 50% 100%, 20% 90%, 0% 70%, 0% 35%, 20% 10%);
+        }
+        
+        .lotus-center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 30px;
+            height: 30px;
+            background: radial-gradient(circle, var(--gold) 0%, #d4af37 100%);
+            border-radius: 50%;
+            z-index: 3;
         }
         
         .logo-text {
@@ -332,17 +367,47 @@
             animation: titleUnderline 3s ease-in-out infinite;
         }
         
-        .dharma-wheel {
-            width: 60px;
-            height: 60px;
+        .dharma-wheel-container {
+            position: relative;
+            width: 70px;
+            height: 70px;
             animation: rotateDharma 20s linear infinite;
         }
         
-        .dharma-wheel svg {
+        .dharma-wheel {
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
+        }
+        
+        .dharma-wheel .rim {
+            fill: none;
+            stroke: var(--deep-red);
+            stroke-width: 4;
+            stroke-linecap: round;
+        }
+        
+        .dharma-wheel .spoke {
+            fill: none;
+            stroke: var(--gold);
+            stroke-width: 3;
+            stroke-linecap: round;
+        }
+        
+        .dharma-wheel .hub {
             fill: var(--deep-red);
-            opacity: 0.9;
+            stroke: var(--gold);
+            stroke-width: 2;
+        }
+        
+        .dharma-wheel .symbol {
+            fill: var(--gold);
+            font-family: 'Noto Serif SC', serif;
+            font-size: 10px;
+            text-anchor: middle;
+            dominant-baseline: middle;
         }
         
         .hero-content p {
@@ -823,6 +888,12 @@
             100% { transform: translateY(-50%) scale(1) rotate(0deg); }
         }
         
+        @keyframes lotusPulse {
+            0% { transform: scale(1); opacity: 0.9; }
+            50% { transform: scale(1.05); opacity: 1; }
+            100% { transform: scale(1); opacity: 0.9; }
+        }
+        
         /* Responsive Design */
         @media (max-width: 768px) {
             .logo-text {
@@ -839,11 +910,21 @@
             }
             
             .lotus-icon.left {
-                left: -65px;
+                left: -70px;
             }
             
             .lotus-icon.right {
-                right: -65px;
+                right: -70px;
+            }
+            
+            .lotus-flower {
+                width: 60px;
+                height: 60px;
+            }
+            
+            .lotus-center {
+                width: 20px;
+                height: 20px;
             }
             
             .cover-title {
@@ -858,9 +939,9 @@
                 font-size: 2.2rem;
             }
             
-            .dharma-wheel {
-                width: 45px;
-                height: 45px;
+            .dharma-wheel-container {
+                width: 55px;
+                height: 55px;
             }
             
             .tribute-content {
@@ -925,6 +1006,16 @@
                 right: -45px;
             }
             
+            .lotus-flower {
+                width: 40px;
+                height: 40px;
+            }
+            
+            .lotus-center {
+                width: 15px;
+                height: 15px;
+            }
+            
             .hero {
                 flex-direction: column;
                 gap: 30px;
@@ -953,7 +1044,7 @@
                 gap: 15px;
             }
             
-            .dharma-wheel {
+            .dharma-wheel-container {
                 align-self: center;
             }
             
@@ -984,15 +1075,15 @@
             </div>
             <div class="logo-container">
                 <div class="lotus-icon left">
-                    <svg viewBox="0 0 100 100">
-                        <path d="M50,10 Q70,5 85,25 Q95,45 85,65 Q70,85 50,80 Q30,85 15,65 Q5,45 15,25 Q30,5 50,10Z"/>
-                    </svg>
+                    <div class="lotus-flower">
+                        <div class="lotus-center"></div>
+                    </div>
                 </div>
                 <div class="logo-text">Hội Hướng</div>
                 <div class="lotus-icon right">
-                    <svg viewBox="0 0 100 100">
-                        <path d="M50,10 Q70,5 85,25 Q95,45 85,65 Q70,85 50,80 Q30,85 15,65 Q5,45 15,25 Q30,5 50,10Z"/>
-                    </svg>
+                    <div class="lotus-flower">
+                        <div class="lotus-center"></div>
+                    </div>
                 </div>
             </div>
             <div class="subtitle">A Global Movement Rooted in Love and Remembrance</div>
@@ -1009,18 +1100,15 @@
             <div class="hero-content">
                 <div class="section-title-container">
                     <h2 class="section-title">The Catalyst</h2>
-                    <div class="dharma-wheel">
-                        <svg viewBox="0 0 100 100">
-                            <circle cx="50" cy="50" r="45" stroke="currentColor" stroke-width="2" fill="none" />
-                            <line x1="50" y1="5" x2="50" y2="95" stroke="currentColor" stroke-width="2" />
-                            <line x1="50" y1="5" x2="50" y2="95" stroke="currentColor" stroke-width="2" transform="rotate(45 50 50)" />
-                            <line x1="50" y1="5" x2="50" y2="95" stroke="currentColor" stroke-width="2" transform="rotate(90 50 50)" />
-                            <line x1="50" y1="5" x2="50" y2="95" stroke="currentColor" stroke-width="2" transform="rotate(135 50 50)" />
-                            <line x1="50" y1="5" x2="50" y2="95" stroke="currentColor" stroke-width="2" transform="rotate(180 50 50)" />
-                            <line x1="50" y1="5" x2="50" y2="95" stroke="currentColor" stroke-width="2" transform="rotate(225 50 50)" />
-                            <line x1="50" y1="5" x2="50" y2="95" stroke="currentColor" stroke-width="2" transform="rotate(270 50 50)" />
-                            <line x1="50" y1="5" x2="50" y2="95" stroke="currentColor" stroke-width="2" transform="rotate(315 50 50)" />
-                            <circle cx="50" cy="50" r="10" fill="currentColor" />
+                    <div class="dharma-wheel-container">
+                        <svg class="dharma-wheel" viewBox="0 0 100 100">
+                            <circle class="rim" cx="50" cy="50" r="45" />
+                            <line class="spoke" x1="50" y1="5" x2="50" y2="95" />
+                            <line class="spoke" x1="50" y1="5" x2="50" y2="95" transform="rotate(45 50 50)" />
+                            <line class="spoke" x1="50" y1="5" x2="50" y2="95" transform="rotate(90 50 50)" />
+                            <line class="spoke" x1="50" y1="5" x2="50" y2="95" transform="rotate(135 50 50)" />
+                            <circle class="hub" cx="50" cy="50" r="15" />
+                            <text class="symbol" x="50" y="50">☸</text>
                         </svg>
                     </div>
                 </div>
