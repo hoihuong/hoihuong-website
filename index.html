@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Phong Trào Hội Hướng | Nguyên Tâm - Trái Tim Định Hình Tôi</title>
+    <title>Hội Hướng | Nguyên Tâm - Trái Tim Định Hình Tôi</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Gentium+Plus:ital,wght@0,400;0,700;1,400;1,700&family=Noto+Serif+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
@@ -17,13 +17,15 @@
             --gold: #e6c78a;
             --deep-gold: #d4af37;
             --light-gold: #f5e7c1;
-            --soft-red: #a52a2a;
+            --soft-gold: #f8f2e4;
             --cream: #f9f5f0;
             --dark-brown: #3e2723;
             --light-brown: #5d4037;
             --text-color: #333;
             --pure-blue: #87CEEB;
             --lotus-pink: #e6b0aa;
+            --spiritual-green: #2c5d2d;
+            --dark-green: #1a2e1b;
         }
         
         body {
@@ -53,8 +55,8 @@
             left: 0;
             width: 100%;
             height: 40%;
-            background: linear-gradient(to top, #1e5799, #2989d8);
-            opacity: 0.7;
+            background: linear-gradient(to top, var(--dark-green), var(--spiritual-green));
+            opacity: 0.15;
         }
         
         .lotus-flower {
@@ -67,8 +69,8 @@
                 radial-gradient(circle at 50% 50%, var(--lotus-pink) 0%, var(--lotus-pink) 30%, transparent 30%),
                 radial-gradient(circle at 50% 50%, var(--lotus-pink) 0%, var(--lotus-pink) 35%, transparent 35%);
             border-radius: 50%;
-            animation: float 6s ease-in-out infinite;
-            opacity: 0.8;
+            animation: float 8s ease-in-out infinite;
+            opacity: 0.4;
         }
         
         .lotus-flower:nth-child(2) {
@@ -77,7 +79,7 @@
             width: 60px;
             height: 60px;
             animation-delay: 1.5s;
-            opacity: 0.7;
+            opacity: 0.3;
         }
         
         .lotus-flower:nth-child(3) {
@@ -86,7 +88,7 @@
             width: 70px;
             height: 70px;
             animation-delay: 3s;
-            opacity: 0.9;
+            opacity: 0.5;
         }
         
         .lotus-flower:nth-child(4) {
@@ -97,55 +99,14 @@
             animation-delay: 2s;
         }
         
-        .lotus-flower:nth-child(5) {
-            left: 80%;
-            bottom: 9%;
-            width: 55px;
-            height: 55px;
-            animation-delay: 4s;
-        }
-        
         .lotus-leaf {
             position: absolute;
             width: 100px;
             height: 100px;
             bottom: 5%;
-            background: radial-gradient(ellipse at center, #2c5d2d 0%, #1a2e1b 100%);
+            background: radial-gradient(ellipse at center, var(--spiritual-green) 0%, var(--dark-green) 100%);
             border-radius: 50%;
-            opacity: 0.7;
-        }
-        
-        .lotus-leaf:nth-child(6) {
-            left: 10%;
-            bottom: 3%;
-            width: 120px;
-            height: 60px;
-            border-radius: 50%;
-        }
-        
-        .lotus-leaf:nth-child(7) {
-            left: 40%;
-            bottom: 2%;
-            width: 150px;
-            height: 75px;
-        }
-        
-        .lotus-leaf:nth-child(8) {
-            left: 70%;
-            bottom: 4%;
-            width: 90px;
-            height: 45px;
-        }
-        
-        .mountains {
-            position: absolute;
-            bottom: 40%;
-            left: 0;
-            width: 100%;
-            height: 30%;
-            background: linear-gradient(to top, #8c7b6b, #5d4037);
-            clip-path: polygon(0% 100%, 5% 80%, 10% 90%, 15% 70%, 20% 85%, 25% 75%, 30% 95%, 35% 65%, 40% 100%, 45% 60%, 50% 90%, 55% 70%, 60% 100%, 65% 75%, 70% 85%, 75% 65%, 80% 95%, 85% 80%, 90% 100%, 95% 85%, 100% 100%);
-            opacity: 0.4;
+            opacity: 0.1;
         }
         
         .sun {
@@ -156,42 +117,17 @@
             height: 120px;
             background: radial-gradient(circle, var(--deep-gold) 0%, transparent 70%);
             border-radius: 50%;
-            box-shadow: 0 0 60px var(--deep-gold);
-            opacity: 0.8;
-            animation: pulse 8s ease-in-out infinite;
+            box-shadow: 0 0 60px rgba(212, 175, 55, 0.3);
+            opacity: 0.5;
+            animation: pulse 12s ease-in-out infinite;
         }
         
         .cloud {
             position: absolute;
-            background: rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 0.8);
             border-radius: 50%;
-            animation: drift 30s linear infinite;
-        }
-        
-        .cloud:nth-child(1) {
-            top: 20%;
-            left: -100px;
-            width: 120px;
-            height: 60px;
-            animation-duration: 40s;
-        }
-        
-        .cloud:nth-child(2) {
-            top: 30%;
-            right: -100px;
-            width: 150px;
-            height: 70px;
-            animation-duration: 50s;
-            animation-delay: 10s;
-        }
-        
-        .cloud:nth-child(3) {
-            top: 15%;
-            left: 30%;
-            width: 100px;
-            height: 50px;
-            animation-duration: 35s;
-            animation-delay: 5s;
+            animation: drift 50s linear infinite;
+            opacity: 0.3;
         }
         
         .container {
@@ -210,36 +146,27 @@
             overflow: hidden;
         }
         
-        .lotus-container {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 300px;
-            height: 300px;
-            opacity: 0.1;
-            z-index: -1;
-        }
-        
-        .lotus {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background: 
-                radial-gradient(circle at 50% 50%, var(--gold) 0%, var(--gold) 25%, transparent 25%),
-                radial-gradient(circle at 50% 50%, var(--gold) 0%, var(--gold) 30%, transparent 30%),
-                radial-gradient(circle at 50% 50%, var(--gold) 0%, var(--gold) 35%, transparent 35%);
-            border-radius: 50%;
-            animation: rotate 180s linear infinite;
-        }
-        
         .logo-text {
             font-family: 'Noto Serif SC', serif;
             font-size: 4.5rem;
             color: var(--deep-gold);
             margin-bottom: 10px;
             letter-spacing: 3px;
-            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .logo-text::after {
+            content: "";
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            height: 2px;
+            background: var(--deep-gold);
+            opacity: 0.5;
         }
         
         .subtitle {
@@ -250,6 +177,7 @@
             margin: 0 auto 30px;
             font-family: 'Gentium Plus', serif;
             text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+            font-style: italic;
         }
         
         /* Hero Section */
@@ -260,9 +188,9 @@
             align-items: center;
             margin: 40px 0;
             padding: 30px;
-            background: rgba(255, 255, 255, 0.7);
+            background: rgba(255, 255, 255, 0.85);
             border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
             border: 1px solid rgba(230, 199, 138, 0.3);
             backdrop-filter: blur(5px);
             position: relative;
@@ -290,9 +218,9 @@
         .cover-art {
             width: 100%;
             height: 450px;
-            background: linear-gradient(135deg, var(--deep-gold) 0%, var(--light-brown) 100%);
+            background: linear-gradient(135deg, var(--dark-green) 0%, var(--spiritual-green) 100%);
             border-radius: 5px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -304,6 +232,7 @@
             transition: transform 0.5s ease;
             position: relative;
             overflow: hidden;
+            border: 2px solid var(--deep-gold);
         }
         
         .cover-art::before {
@@ -322,9 +251,9 @@
             font-size: 2.8rem;
             margin-bottom: 20px;
             z-index: 2;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
             line-height: 1.3;
             color: var(--light-gold);
+            letter-spacing: 2px;
         }
         
         .cover-subtitle {
@@ -333,6 +262,7 @@
             z-index: 2;
             max-width: 300px;
             color: var(--light-gold);
+            font-style: italic;
         }
         
         .cover-author {
@@ -341,6 +271,7 @@
             font-size: 1.3rem;
             z-index: 2;
             color: var(--light-gold);
+            font-weight: 300;
         }
         
         .hero-content {
@@ -356,6 +287,7 @@
             position: relative;
             display: inline-block;
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+            letter-spacing: 1px;
         }
         
         .section-title::after {
@@ -372,38 +304,42 @@
             margin-bottom: 20px;
             font-size: 1.2rem;
             text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.8);
+            line-height: 1.8;
         }
         
         /* Movement Section */
         .movement {
             padding: 60px 30px;
             text-align: center;
-            background: linear-gradient(rgba(212, 175, 55, 0.85), rgba(139, 0, 0, 0.85)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100" opacity="0.1"><circle cx="50" cy="50" r="5" fill="%23f9f5f0"/></svg>');
-            color: var(--cream);
+            background: rgba(255, 255, 255, 0.85);
+            color: var(--dark-brown);
             margin: 60px 0;
             border-radius: 15px;
             position: relative;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-        }
-        
-        .movement::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100" opacity="0.1"><path d="M50,10 Q60,30 70,20 Q80,40 90,30 Q85,50 95,60 Q75,65 80,80 Q60,75 50,90 Q40,75 20,80 Q25,65 5,60 Q15,50 10,30 Q20,40 30,20 Q40,30 50,10Z" fill="%23f9f5f0"/></svg>');
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(230, 199, 138, 0.3);
+            backdrop-filter: blur(3px);
         }
         
         .global-title {
             font-family: 'Noto Serif SC', serif;
             font-size: 3.5rem;
             margin-bottom: 30px;
-            color: var(--light-gold);
+            color: var(--deep-gold);
             letter-spacing: 2px;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .global-title::after {
+            content: "";
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 3px;
+            background: var(--deep-gold);
         }
         
         .movement-steps {
@@ -415,21 +351,20 @@
         }
         
         .step {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border: 1px solid var(--gold);
+            background: rgba(255, 255, 255, 0.9);
             border-radius: 15px;
             padding: 30px;
             width: 250px;
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(230, 199, 138, 0.3);
         }
         
         .step:hover {
             transform: translateY(-10px);
-            background: rgba(230, 199, 138, 0.15);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
         }
         
         .step::before {
@@ -438,70 +373,78 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 100%;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100" opacity="0.05"><circle cx="50" cy="50" r="40" stroke="%23e6c78a" stroke-width="2" fill="none"/></svg>');
-            z-index: -1;
+            height: 5px;
+            background: var(--deep-gold);
         }
         
         .step-number {
             font-size: 3rem;
-            color: var(--gold);
+            color: var(--deep-gold);
             margin-bottom: 15px;
             font-family: 'Gentium Plus', serif;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            opacity: 0.7;
         }
         
         .step-title {
             font-size: 1.5rem;
             margin-bottom: 15px;
             font-family: 'Noto Serif SC', serif;
-            color: var(--light-gold);
+            color: var(--dark-brown);
         }
         
         .step p {
             font-size: 1.1rem;
-            color: rgba(255, 255, 255, 0.9);
+            color: var(--light-brown);
         }
         
         /* Tribute Section */
         .tribute {
-            background: rgba(255, 255, 255, 0.8);
+            background: rgba(255, 255, 255, 0.9);
             padding: 60px 40px;
             border-radius: 15px;
             margin: 60px 0;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
             border: 1px solid rgba(230, 199, 138, 0.3);
             position: relative;
-            backdrop-filter: blur(3px);
-        }
-        
-        .tribute::before {
-            content: """;
-            position: absolute;
-            top: 30px;
-            left: 30px;
-            font-size: 10rem;
-            color: rgba(212, 175, 55, 0.1);
-            font-family: 'Gentium Plus', serif;
-            line-height: 1;
-            z-index: 0;
+            text-align: center;
+            font-style: italic;
         }
         
         .tribute-content {
-            font-size: 1.4rem;
+            font-size: 1.8rem;
             line-height: 1.9;
             max-width: 900px;
             margin: 0 auto;
             position: relative;
             z-index: 2;
-            font-style: italic;
             color: var(--dark-brown);
-            text-align: center;
+            font-weight: 400;
+            position: relative;
+        }
+        
+        .tribute-content::before,
+        .tribute-content::after {
+            content: """;
+            font-size: 5rem;
+            color: var(--deep-gold);
+            opacity: 0.2;
+            position: absolute;
+            font-family: 'Gentium Plus', serif;
+        }
+        
+        .tribute-content::before {
+            top: -30px;
+            left: -30px;
+        }
+        
+        .tribute-content::after {
+            bottom: -50px;
+            right: -30px;
         }
         
         .tribute-author {
-            text-align: right;
-            margin-top: 30px;
+            text-align: center;
+            margin-top: 40px;
             font-size: 1.3rem;
             font-style: normal;
             color: var(--deep-gold);
@@ -512,12 +455,12 @@
         .cta {
             text-align: center;
             padding: 60px 20px;
-            background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100" opacity="0.05"><path fill="%23d4af37" d="M50,20 Q70,10 85,30 T95,65 Q80,90 50,85 T10,60 Q5,30 30,20 T50,20Z"/></svg>');
+            background: rgba(255, 255, 255, 0.9);
             border-radius: 15px;
             margin: 60px 0;
             position: relative;
             border: 1px solid rgba(230, 199, 138, 0.3);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
         }
         
         .cta-title {
@@ -525,7 +468,6 @@
             font-size: 3rem;
             color: var(--deep-gold);
             margin-bottom: 20px;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
         }
         
         .cta-subtitle {
@@ -550,16 +492,17 @@
             font-family: 'Gentium Plus', serif;
             letter-spacing: 1px;
             margin: 10px;
-            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.2);
             position: relative;
             overflow: hidden;
+            font-weight: 600;
         }
         
         .btn:hover {
             background: transparent;
             color: var(--deep-gold);
             transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.3);
         }
         
         .btn-outline {
@@ -580,7 +523,7 @@
             background: var(--dark-brown);
             color: var(--cream);
             margin-top: 60px;
-            border-top: 5px solid var(--gold);
+            border-top: 5px solid var(--deep-gold);
             position: relative;
         }
         
@@ -638,26 +581,21 @@
         }
         
         /* Animations */
-        @keyframes rotate {
-            from { transform: translate(-50%, -50%) rotate(0deg); }
-            to { transform: translate(-50%, -50%) rotate(360deg); }
-        }
-        
         @keyframes float {
             0% { transform: translateY(0); }
             50% { transform: translateY(-15px); }
             100% { transform: translateY(0); }
         }
         
+        @keyframes pulse {
+            0% { opacity: 0.4; transform: scale(1); }
+            50% { opacity: 0.6; transform: scale(1.05); }
+            100% { opacity: 0.4; transform: scale(1); }
+        }
+        
         @keyframes drift {
             0% { transform: translateX(-100%); }
             100% { transform: translateX(100vw); }
-        }
-        
-        @keyframes pulse {
-            0% { opacity: 0.7; transform: scale(1); }
-            50% { opacity: 0.9; transform: scale(1.05); }
-            100% { opacity: 0.7; transform: scale(1); }
         }
         
         /* Responsive */
@@ -683,7 +621,7 @@
             }
             
             .tribute-content {
-                font-size: 1.2rem;
+                font-size: 1.4rem;
             }
             
             .cta-title {
@@ -706,25 +644,15 @@
     <div class="pure-land-bg">
         <div class="sun"></div>
         <div class="cloud"></div>
-        <div class="cloud"></div>
-        <div class="cloud"></div>
-        <div class="mountains"></div>
         <div class="lotus-pond"></div>
         <div class="lotus-flower"></div>
         <div class="lotus-flower"></div>
         <div class="lotus-flower"></div>
         <div class="lotus-flower"></div>
-        <div class="lotus-flower"></div>
-        <div class="lotus-leaf"></div>
-        <div class="lotus-leaf"></div>
-        <div class="lotus-leaf"></div>
     </div>
     
     <div class="container">
-        <header>
-            <div class="lotus-container">
-                <div class="lotus"></div>
-            </div>
+        <header class="header">
             <div class="logo-text">Hội Hướng</div>
             <div class="subtitle">Một Phong Trào Toàn Cầu Bắt Nguồn Từ Tình Yêu và Sự Tưởng Nhớ</div>
         </header>
