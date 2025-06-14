@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hội Hướng | Nguyên Tâm - Trái Tim Định Hình Tôi</title>
+    <title>Global Hội Hướng Movement | Nguyên Tâm - The Heart That Shaped Me</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Gentium+Plus:ital,wght@0,400;0,700;1,400;1,700&family=Noto+Serif+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
@@ -15,127 +15,38 @@
         
         :root {
             --gold: #e6c78a;
-            --deep-gold: #d4af37;
-            --light-gold: #f5e7c1;
-            --soft-gold: #f8f2e4;
+            --deep-red: #8b0000;
+            --soft-red: #a52a2a;
             --cream: #f9f5f0;
             --dark-brown: #3e2723;
             --light-brown: #5d4037;
             --text-color: #333;
-            --pure-blue: #87CEEB;
-            --lotus-pink: #e6b0aa;
-            --spiritual-green: #2c5d2d;
-            --dark-green: #1a2e1b;
         }
         
         body {
             font-family: 'Gentium Plus', serif;
-            background: linear-gradient(to bottom, #e0f7ff, #f9f5f0);
-            color: var(--dark-brown);
+            background: var(--cream);
+            color: var(--text-color);
             line-height: 1.8;
             overflow-x: hidden;
             position: relative;
-            min-height: 100vh;
         }
         
-        /* Pure Land Background */
-        .pure-land-bg {
-            position: fixed;
+        body::before {
+            content: "";
+            position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200" opacity="0.05"><path fill="%238b0000" d="M100,30 Q130,10 170,30 T180,100 Q190,150 130,170 T50,150 Q10,120 30,70 T100,30Z"/></svg>');
             z-index: -1;
-            overflow: hidden;
-        }
-        
-        .lotus-pond {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 40%;
-            background: linear-gradient(to top, var(--dark-green), var(--spiritual-green));
-            opacity: 0.15;
-        }
-        
-        .lotus-flower {
-            position: absolute;
-            width: 80px;
-            height: 80px;
-            bottom: 5%;
-            background: 
-                radial-gradient(circle at 50% 50%, var(--lotus-pink) 0%, var(--lotus-pink) 25%, transparent 25%),
-                radial-gradient(circle at 50% 50%, var(--lotus-pink) 0%, var(--lotus-pink) 30%, transparent 30%),
-                radial-gradient(circle at 50% 50%, var(--lotus-pink) 0%, var(--lotus-pink) 35%, transparent 35%);
-            border-radius: 50%;
-            animation: float 8s ease-in-out infinite;
-            opacity: 0.4;
-        }
-        
-        .lotus-flower:nth-child(2) {
-            left: 15%;
-            bottom: 8%;
-            width: 60px;
-            height: 60px;
-            animation-delay: 1.5s;
-            opacity: 0.3;
-        }
-        
-        .lotus-flower:nth-child(3) {
-            left: 30%;
-            bottom: 6%;
-            width: 70px;
-            height: 70px;
-            animation-delay: 3s;
-            opacity: 0.5;
-        }
-        
-        .lotus-flower:nth-child(4) {
-            left: 60%;
-            bottom: 7%;
-            width: 65px;
-            height: 65px;
-            animation-delay: 2s;
-        }
-        
-        .lotus-leaf {
-            position: absolute;
-            width: 100px;
-            height: 100px;
-            bottom: 5%;
-            background: radial-gradient(ellipse at center, var(--spiritual-green) 0%, var(--dark-green) 100%);
-            border-radius: 50%;
-            opacity: 0.1;
-        }
-        
-        .sun {
-            position: absolute;
-            top: 15%;
-            right: 15%;
-            width: 120px;
-            height: 120px;
-            background: radial-gradient(circle, var(--deep-gold) 0%, transparent 70%);
-            border-radius: 50%;
-            box-shadow: 0 0 60px rgba(212, 175, 55, 0.3);
-            opacity: 0.5;
-            animation: pulse 12s ease-in-out infinite;
-        }
-        
-        .cloud {
-            position: absolute;
-            background: rgba(255, 255, 255, 0.8);
-            border-radius: 50%;
-            animation: drift 50s linear infinite;
-            opacity: 0.3;
         }
         
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
-            position: relative;
-            z-index: 10;
         }
         
         /* Header Styles */
@@ -146,27 +57,36 @@
             overflow: hidden;
         }
         
+        .lotus-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 300px;
+            height: 300px;
+            opacity: 0.07;
+            z-index: -1;
+        }
+        
+        .lotus {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 50% 50%, var(--gold) 0%, var(--gold) 25%, transparent 25%),
+                radial-gradient(circle at 50% 50%, var(--gold) 0%, var(--gold) 30%, transparent 30%),
+                radial-gradient(circle at 50% 50%, var(--gold) 0%, var(--gold) 35%, transparent 35%);
+            border-radius: 50%;
+            animation: rotate 180s linear infinite;
+        }
+        
         .logo-text {
             font-family: 'Noto Serif SC', serif;
             font-size: 4.5rem;
-            color: var(--deep-gold);
+            color: var(--deep-red);
             margin-bottom: 10px;
             letter-spacing: 3px;
-            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
-            position: relative;
-            display: inline-block;
-        }
-        
-        .logo-text::after {
-            content: "";
-            position: absolute;
-            bottom: 10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80%;
-            height: 2px;
-            background: var(--deep-gold);
-            opacity: 0.5;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
         }
         
         .subtitle {
@@ -175,9 +95,7 @@
             font-weight: 400;
             max-width: 800px;
             margin: 0 auto 30px;
-            font-family: 'Gentium Plus', serif;
-            text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
-            font-style: italic;
+            font-family: 'Noto Serif SC', serif;
         }
         
         /* Hero Section */
@@ -188,24 +106,10 @@
             align-items: center;
             margin: 40px 0;
             padding: 30px;
-            background: rgba(255, 255, 255, 0.85);
+            background: rgba(255, 255, 255, 0.7);
             border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-            border: 1px solid rgba(230, 199, 138, 0.3);
-            backdrop-filter: blur(5px);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .hero::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100" opacity="0.03"><path fill="%23d4af37" d="M50,20 Q70,10 85,30 T95,65 Q80,90 50,85 T10,60 Q5,30 30,20 T50,20Z"/></svg>');
-            z-index: -1;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(139, 0, 0, 0.1);
         }
         
         .book-cover {
@@ -218,21 +122,20 @@
         .cover-art {
             width: 100%;
             height: 450px;
-            background: linear-gradient(135deg, var(--dark-green) 0%, var(--spiritual-green) 100%);
+            background: linear-gradient(135deg, var(--deep-red) 0%, var(--light-brown) 100%);
             border-radius: 5px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            color: var(--light-gold);
+            color: var(--gold);
             padding: 40px;
             text-align: center;
             transform: rotateY(-5deg);
             transition: transform 0.5s ease;
             position: relative;
             overflow: hidden;
-            border: 2px solid var(--deep-gold);
         }
         
         .cover-art::before {
@@ -251,18 +154,15 @@
             font-size: 2.8rem;
             margin-bottom: 20px;
             z-index: 2;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
             line-height: 1.3;
-            color: var(--light-gold);
-            letter-spacing: 2px;
         }
         
         .cover-subtitle {
             font-size: 1.5rem;
-            font-family: 'Gentium Plus', serif;
+            font-family: 'Noto Serif SC', serif;
             z-index: 2;
             max-width: 300px;
-            color: var(--light-gold);
-            font-style: italic;
         }
         
         .cover-author {
@@ -270,8 +170,7 @@
             bottom: 30px;
             font-size: 1.3rem;
             z-index: 2;
-            color: var(--light-gold);
-            font-weight: 300;
+            font-family: 'Gentium Plus', serif;
         }
         
         .hero-content {
@@ -282,12 +181,10 @@
         .section-title {
             font-family: 'Noto Serif SC', serif;
             font-size: 2.5rem;
-            color: var(--deep-gold);
+            color: var(--deep-red);
             margin-bottom: 25px;
             position: relative;
             display: inline-block;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
-            letter-spacing: 1px;
         }
         
         .section-title::after {
@@ -297,49 +194,25 @@
             left: 0;
             width: 80px;
             height: 3px;
-            background: var(--deep-gold);
-        }
-        
-        .hero-content p {
-            margin-bottom: 20px;
-            font-size: 1.2rem;
-            text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.8);
-            line-height: 1.8;
+            background: var(--gold);
         }
         
         /* Movement Section */
         .movement {
             padding: 60px 30px;
             text-align: center;
-            background: rgba(255, 255, 255, 0.85);
-            color: var(--dark-brown);
+            background: linear-gradient(rgba(139, 0, 0, 0.9), rgba(94, 40, 40, 0.9)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100" opacity="0.1"><circle cx="50" cy="50" r="5" fill="%23f9f5f0"/></svg>');
+            color: var(--cream);
             margin: 60px 0;
             border-radius: 15px;
-            position: relative;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-            border: 1px solid rgba(230, 199, 138, 0.3);
-            backdrop-filter: blur(3px);
         }
         
         .global-title {
             font-family: 'Noto Serif SC', serif;
             font-size: 3.5rem;
             margin-bottom: 30px;
-            color: var(--deep-gold);
+            color: var(--gold);
             letter-spacing: 2px;
-            position: relative;
-            display: inline-block;
-        }
-        
-        .global-title::after {
-            content: "";
-            position: absolute;
-            bottom: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 120px;
-            height: 3px;
-            background: var(--deep-gold);
         }
         
         .movement-steps {
@@ -351,122 +224,96 @@
         }
         
         .step {
-            background: rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--gold);
             border-radius: 15px;
             padding: 30px;
             width: 250px;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            border: 1px solid rgba(230, 199, 138, 0.3);
+            transition: transform 0.3s ease;
         }
         
         .step:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-        }
-        
-        .step::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: var(--deep-gold);
+            background: rgba(230, 199, 138, 0.15);
         }
         
         .step-number {
             font-size: 3rem;
-            color: var(--deep-gold);
+            color: var(--gold);
             margin-bottom: 15px;
-            font-family: 'Gentium Plus', serif;
-            opacity: 0.7;
+            font-family: 'Noto Serif SC', serif;
         }
         
         .step-title {
             font-size: 1.5rem;
             margin-bottom: 15px;
             font-family: 'Noto Serif SC', serif;
-            color: var(--dark-brown);
         }
         
         .step p {
-            font-size: 1.1rem;
-            color: var(--light-brown);
+            font-family: 'Gentium Plus', serif;
         }
         
         /* Tribute Section */
         .tribute {
-            background: rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 0.8);
             padding: 60px 40px;
             border-radius: 15px;
             margin: 60px 0;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-            border: 1px solid rgba(230, 199, 138, 0.3);
+            border: 1px solid rgba(139, 0, 0, 0.1);
             position: relative;
-            text-align: center;
-            font-style: italic;
+        }
+        
+        .tribute::before {
+            content: """;
+            position: absolute;
+            top: 30px;
+            left: 30px;
+            font-size: 10rem;
+            color: rgba(139, 0, 0, 0.05);
+            font-family: 'Noto Serif SC', serif;
+            line-height: 1;
         }
         
         .tribute-content {
-            font-size: 1.8rem;
+            font-size: 1.4rem;
             line-height: 1.9;
             max-width: 900px;
             margin: 0 auto;
             position: relative;
             z-index: 2;
+            font-style: italic;
             color: var(--dark-brown);
-            font-weight: 400;
-            position: relative;
-        }
-        
-        .tribute-content::before,
-        .tribute-content::after {
-            content: """;
-            font-size: 5rem;
-            color: var(--deep-gold);
-            opacity: 0.2;
-            position: absolute;
+            text-align: center;
             font-family: 'Gentium Plus', serif;
         }
         
-        .tribute-content::before {
-            top: -30px;
-            left: -30px;
-        }
-        
-        .tribute-content::after {
-            bottom: -50px;
-            right: -30px;
-        }
-        
         .tribute-author {
-            text-align: center;
-            margin-top: 40px;
+            text-align: right;
+            margin-top: 30px;
             font-size: 1.3rem;
             font-style: normal;
-            color: var(--deep-gold);
+            color: var(--deep-red);
             font-weight: 600;
+            font-family: 'Noto Serif SC', serif;
         }
         
         /* Call to Action */
         .cta {
             text-align: center;
             padding: 60px 20px;
-            background: rgba(255, 255, 255, 0.9);
+            background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100" opacity="0.05"><path fill="%238b0000" d="M50,20 Q70,10 85,30 T95,65 Q80,90 50,85 T10,60 Q5,30 30,20 T50,20Z"/></svg>');
             border-radius: 15px;
             margin: 60px 0;
             position: relative;
-            border: 1px solid rgba(230, 199, 138, 0.3);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
         }
         
         .cta-title {
             font-family: 'Noto Serif SC', serif;
             font-size: 3rem;
-            color: var(--deep-gold);
+            color: var(--deep-red);
             margin-bottom: 20px;
         }
         
@@ -477,42 +324,40 @@
             max-width: 700px;
             margin-left: auto;
             margin-right: auto;
+            font-family: 'Gentium Plus', serif;
         }
         
         .btn {
             display: inline-block;
-            background: var(--deep-gold);
+            background: var(--deep-red);
             color: var(--cream);
             padding: 18px 45px;
             font-size: 1.3rem;
             border-radius: 50px;
             text-decoration: none;
             transition: all 0.3s ease;
-            border: 2px solid var(--deep-gold);
-            font-family: 'Gentium Plus', serif;
+            border: 2px solid var(--deep-red);
+            font-family: 'Noto Serif SC', serif;
             letter-spacing: 1px;
             margin: 10px;
-            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.2);
-            position: relative;
-            overflow: hidden;
-            font-weight: 600;
+            box-shadow: 0 5px 15px rgba(139, 0, 0, 0.2);
         }
         
         .btn:hover {
             background: transparent;
-            color: var(--deep-gold);
+            color: var(--deep-red);
             transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.3);
+            box-shadow: 0 8px 25px rgba(139, 0, 0, 0.3);
         }
         
         .btn-outline {
             background: transparent;
-            color: var(--deep-gold);
-            border: 2px solid var(--deep-gold);
+            color: var(--deep-red);
+            border: 2px solid var(--deep-red);
         }
         
         .btn-outline:hover {
-            background: var(--deep-gold);
+            background: var(--deep-red);
             color: var(--cream);
         }
         
@@ -523,18 +368,7 @@
             background: var(--dark-brown);
             color: var(--cream);
             margin-top: 60px;
-            border-top: 5px solid var(--deep-gold);
-            position: relative;
-        }
-        
-        .footer::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100" opacity="0.05"><path d="M50,10 Q60,30 70,20 Q80,40 90,30 Q85,50 95,60 Q75,65 80,80 Q60,75 50,90 Q40,75 20,80 Q25,65 5,60 Q15,50 10,30 Q20,40 30,20 Q40,30 50,10Z" fill="%23e6c78a"/></svg>');
+            border-top: 5px solid var(--gold);
         }
         
         .footer-logo {
@@ -542,7 +376,6 @@
             font-size: 2.5rem;
             color: var(--gold);
             margin-bottom: 20px;
-            position: relative;
         }
         
         .social-links {
@@ -550,7 +383,6 @@
             justify-content: center;
             gap: 20px;
             margin: 30px 0;
-            position: relative;
         }
         
         .social-links a {
@@ -577,25 +409,19 @@
             margin-top: 30px;
             color: rgba(255, 255, 255, 0.7);
             font-size: 1.1rem;
-            position: relative;
+            font-family: 'Gentium Plus', serif;
         }
         
         /* Animations */
+        @keyframes rotate {
+            from { transform: translate(-50%, -50%) rotate(0deg); }
+            to { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+        
         @keyframes float {
             0% { transform: translateY(0); }
             50% { transform: translateY(-15px); }
             100% { transform: translateY(0); }
-        }
-        
-        @keyframes pulse {
-            0% { opacity: 0.4; transform: scale(1); }
-            50% { opacity: 0.6; transform: scale(1.05); }
-            100% { opacity: 0.4; transform: scale(1); }
-        }
-        
-        @keyframes drift {
-            0% { transform: translateX(-100%); }
-            100% { transform: translateX(100vw); }
         }
         
         /* Responsive */
@@ -621,106 +447,89 @@
             }
             
             .tribute-content {
-                font-size: 1.4rem;
+                font-size: 1.2rem;
             }
             
             .cta-title {
                 font-size: 2.2rem;
             }
-            
-            .movement-steps {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .step {
-                width: 100%;
-                max-width: 350px;
-            }
         }
     </style>
 </head>
 <body>
-    <div class="pure-land-bg">
-        <div class="sun"></div>
-        <div class="cloud"></div>
-        <div class="lotus-pond"></div>
-        <div class="lotus-flower"></div>
-        <div class="lotus-flower"></div>
-        <div class="lotus-flower"></div>
-        <div class="lotus-flower"></div>
-    </div>
-    
     <div class="container">
-        <header class="header">
+        <header>
+            <div class="lotus-container">
+                <div class="lotus"></div>
+            </div>
             <div class="logo-text">Hội Hướng</div>
-            <div class="subtitle">Một Phong Trào Toàn Cầu Bắt Nguồn Từ Tình Yêu và Sự Tưởng Nhớ</div>
+            <div class="subtitle">A Global Movement Rooted in Love and Remembrance</div>
         </header>
 
         <div class="hero">
             <div class="book-cover">
                 <div class="cover-art">
                     <div class="cover-title">Nguyên Tâm</div>
-                    <div class="cover-subtitle">Trái Tim Định Hình Tôi</div>
-                    <div class="cover-author">Hồi Ký của Nguyên Thủy</div>
+                    <div class="cover-subtitle">The Heart That Shaped Me</div>
+                    <div class="cover-author">A Memoir by Nguyên Thủy</div>
                 </div>
             </div>
             <div class="hero-content">
-                <h2 class="section-title">Sự Khởi Nguồn</h2>
-                <p>Để tưởng nhớ người mẹ kính yêu của tôi, tình yêu vô bờ bến và tinh thần bất khuất của bà đã trở thành nền tảng cho con người tôi, tôi xin giới thiệu "Nguyên Tâm - Trái Tim Định Hình Tôi".</p>
-                <p>Cuốn hồi ký này không chỉ là hành trình cá nhân; nó là lời mời khám phá sức mạnh chuyển hóa của tình mẫu tử và khả năng định hình cuộc sống qua các thế hệ.</p>
-                <p>Khi chúng tôi chuẩn bị phát hành lời tri ân chân thành này, chúng tôi đứng trước ngưỡng cửa của một phong trào toàn cầu - một phong trào tôn vinh ảnh hưởng sâu sắc của những người đã định hình trái tim và dẫn lối đường đời chúng ta.</p>
-                <p>Phong Trào Hội Hướng sẽ đánh thức thế giới về những kết nối thiêng liêng ràng buộc chúng ta, những di sản nuôi dưỡng chúng ta và tình yêu vượt qua cả cái chết.</p>
+                <h2 class="section-title">The Catalyst</h2>
+                <p>In loving memory of my mother, whose boundless love and unwavering spirit became the foundation of my being, I present "Nguyên Tâm - The Heart That Shaped Me".</p>
+                <p>This memoir is more than a personal journey; it's an invitation to discover the transformative power of maternal love and its capacity to shape lives across generations.</p>
+                <p>As we prepare to release this heartfelt tribute, we stand at the threshold of a global movement - a movement that seeks to honor the profound influence of those who shape our hearts and guide our paths.</p>
+                <p>The Hội Hướng Movement will awaken the world to the sacred connections that bind us, the legacies that sustain us, and the love that transcends even death itself.</p>
             </div>
         </div>
 
         <div class="movement">
-            <h2 class="global-title">Phong Trào Hội Hướng Toàn Cầu</h2>
-            <p>Được sinh ra từ những trang sách "Nguyên Tâm", Phong Trào Hội Hướng sẽ truyền cảm hứng cho sự thức tỉnh toàn cầu về sức mạnh của:</p>
+            <h2 class="global-title">The Global Hội Hướng Movement</h2>
+            <p>Born from the pages of "Nguyên Tâm", the Hội Hướng Movement will inspire a worldwide awakening to the power of:</p>
             
             <div class="movement-steps">
                 <div class="step">
                     <div class="step-number">1</div>
-                    <h3 class="step-title">Sự Tưởng Niệm Thiêng Liêng</h3>
-                    <p>Tôn vinh những người đã định hình cuộc đời chúng ta bằng nghi lễ tri ân</p>
+                    <h3 class="step-title">Sacred Remembrance</h3>
+                    <p>Honoring those who shaped our lives with rituals of gratitude</p>
                 </div>
                 <div class="step">
                     <div class="step-number">2</div>
-                    <h3 class="step-title">Chữa Lành Liên Thế Hệ</h3>
-                    <p>Kết nối quá khứ và tương lai thông qua những câu chuyện chia sẻ</p>
+                    <h3 class="step-title">Intergenerational Healing</h3>
+                    <p>Bridging past and future through shared stories</p>
                 </div>
                 <div class="step">
                     <div class="step-number">3</div>
-                    <h3 class="step-title">Di Sản Từ Bi</h3>
-                    <p>Vun trồng đức hạnh chuyển hóa cộng đồng</p>
+                    <h3 class="step-title">Compassionate Legacy</h3>
+                    <p>Cultivating virtues that transform communities</p>
                 </div>
                 <div class="step">
                     <div class="step-number">4</div>
-                    <h3 class="step-title">Kết Nối Toàn Cầu</h3>
-                    <p>Kết nối trái tim vượt qua văn hóa bằng nhân tính chung</p>
+                    <h3 class="step-title">Global Connection</h3>
+                    <p>Uniting hearts across cultures through shared humanity</p>
                 </div>
             </div>
         </div>
 
         <div class="tribute">
             <div class="tribute-content">
-                "Trong khu vườn trái tim tôi, mẹ tôi đã gieo những hạt giống kiên cường, tưới mát chúng bằng nước mắt hy sinh và nuôi dưỡng chúng bằng ánh sáng mặt trời từ tâm hồn bà. Dù bà đã trở về với đất mẹ, đóa hoa tình yêu của bà vẫn tiếp tục nở rộ theo từng mùa đời tôi, tỏa hương thơm ngát sự hiện diện vĩnh hằng của bà đến thế giới."
-                <div class="tribute-author">— Nguyên Thủy, "Nguyên Tâm - Trái Tim Định Hình Tôi"</div>
+                "True merit lives in the spaces between grand gestures:in steam rising from a shared bowl of cháo,in crayon butterflies drawn by small hands,in the unbearable courage to chant through tears.This is how we turn altars into action—not by escaping the world,but by hallowing its every breath.For in the soil of the mundane,amid bus transfers and grief and bánh bò,the lotus of enlightenment takes root." "For my Beloved mother, my first love, Nguyên Tâm (1947-2024) Who taught us that liberation smells of tiger balm,tastes of bún riêu,and sounds like a lullaby hummed between laundry loads.Your lotus blooms in every act of love we dedicate."
+                <div class="tribute-author">— Nguyên Thủy, "Nguyên Tâm - The Heart That Shaped Me"</div>
             </div>
         </div>
 
         <div class="cta">
-            <h2 class="cta-title">Tham Gia Sự Thức Tỉnh</h2>
-            <p class="cta-subtitle">Hãy là một trong những người đầu tiên biết khi "Nguyên Tâm" được phát hành và Phong Trào Hội Hướng bắt đầu</p>
+            <h2 class="cta-title">Join the Awakening</h2>
+            <p class="cta-subtitle">Be among the first to know when "Nguyên Tâm" is released and the Hội Hướng Movement begins</p>
             
-            <a href="#" class="btn">Thông Báo Cho Tôi Vào Ngày Phát Hành</a>
-            <a href="#" class="btn btn-outline">Chia Sẻ Câu Chuyện Của Bạn</a>
+            <a href="#" class="btn">Notify Me on Release Day</a>
+            <a href="#" class="btn btn-outline">Share Your Story</a>
         </div>
     </div>
 
     <div class="footer">
         <div class="footer-logo">Hội Hướng</div>
-        <p>Phong Trào Toàn Cầu Của Những Di Sản Định Hình Trái Tim</p>
+        <p>The Global Movement of Heart-Shaped Legacies</p>
         
         <div class="social-links">
             <a href="https://twitter.com/_hoihuong_" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
@@ -730,11 +539,12 @@
         </div>
         
         <div class="copyright">
-            &copy; 2025 Phong Trào Hội Hướng Toàn Cầu. "Nguyên Tâm - Trái Tim Định Hình Tôi" của Nguyên Thủy là lời tri ân tình mẫu tử và di sản.
+            &copy; 2025 Hội Hướng Global Movement. "Nguyên Tâm - The Heart That Shaped Me" by Nguyên Thủy is a tribute to maternal love and legacy.
         </div>
     </div>
 
     <script>
+        // Simple animation for the book cover
         document.addEventListener('DOMContentLoaded', function() {
             const cover = document.querySelector('.cover-art');
             
