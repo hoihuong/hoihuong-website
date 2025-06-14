@@ -24,6 +24,10 @@
             --pink-lotus: #f8b7d4;
             --lotus-light: #ffd1e8;
             --lotus-dark: #f4a0c7;
+            --butterfly-brown: #5d4037;
+            --butterfly-black: #2c1e18;
+            --butterfly-spot: #f9f5f0;
+            --clover-green: #2e7d32;
         }
         
         body {
@@ -47,29 +51,6 @@
             z-index: -1;
         }
         
-        .floating-lotuses {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: -1;
-            overflow: hidden;
-        }
-        
-        .lotus-bg {
-            position: absolute;
-            opacity: 0.15;
-            animation: float 25s linear infinite;
-        }
-        
-        .lotus-bg:nth-child(1) { top: 10%; left: 5%; width: 80px; height: 80px; animation-duration: 40s; }
-        .lotus-bg:nth-child(2) { top: 20%; left: 80%; width: 100px; height: 100px; animation-duration: 35s; animation-delay: -10s; }
-        .lotus-bg:nth-child(3) { top: 60%; left: 15%; width: 70px; height: 70px; animation-duration: 45s; animation-delay: -5s; }
-        .lotus-bg:nth-child(4) { top: 75%; left: 70%; width: 90px; height: 90px; animation-duration: 50s; animation-delay: -20s; }
-        .lotus-bg:nth-child(5) { top: 40%; left: 50%; width: 60px; height: 60px; animation-duration: 30s; animation-delay: -15s; }
-        
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -84,29 +65,6 @@
             padding: 50px 20px 30px;
             position: relative;
             overflow: hidden;
-        }
-        
-        .lotus-container {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 300px;
-            height: 300px;
-            opacity: 0.07;
-            z-index: -1;
-        }
-        
-        .lotus {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background: 
-                radial-gradient(circle at 50% 50%, var(--gold) 0%, var(--gold) 25%, transparent 25%),
-                radial-gradient(circle at 50% 50%, var(--gold) 0%, var(--gold) 30%, transparent 30%),
-                radial-gradient(circle at 50% 50%, var(--gold) 0%, var(--gold) 35%, transparent 35%);
-            border-radius: 50%;
-            animation: rotate 180s linear infinite;
         }
         
         .logo-text {
@@ -127,14 +85,69 @@
             font-family: 'Playfair Display', serif;
         }
         
-        /* Butterfly */
+        /* REALISTIC PINK LOTUSES */
+        .lotus-container {
+            position: absolute;
+            top: 10%;
+            left: 10%;
+            width: 150px;
+            height: 150px;
+            animation: floatLotus 20s ease-in-out infinite;
+            z-index: 5;
+        }
+        
+        .lotus {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .lotus-center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 40px;
+            height: 40px;
+            background: radial-gradient(circle, #f9e6a6 0%, #e6bb5c 100%);
+            border-radius: 50%;
+            z-index: 3;
+        }
+        
+        .lotus-petal {
+            position: absolute;
+            width: 60px;
+            height: 30px;
+            border-radius: 50% 50% 0 0;
+            background: radial-gradient(circle at 50% 0%, var(--lotus-light) 0%, var(--lotus-dark) 100%);
+            transform-origin: bottom center;
+        }
+        
+        .lotus-petal:nth-child(1) { top: 35px; left: 45px; transform: rotate(0deg); }
+        .lotus-petal:nth-child(2) { top: 35px; left: 45px; transform: rotate(45deg); }
+        .lotus-petal:nth-child(3) { top: 35px; left: 45px; transform: rotate(90deg); }
+        .lotus-petal:nth-child(4) { top: 35px; left: 45px; transform: rotate(135deg); }
+        .lotus-petal:nth-child(5) { top: 35px; left: 45px; transform: rotate(180deg); }
+        .lotus-petal:nth-child(6) { top: 35px; left: 45px; transform: rotate(225deg); }
+        .lotus-petal:nth-child(7) { top: 35px; left: 45px; transform: rotate(270deg); }
+        .lotus-petal:nth-child(8) { top: 35px; left: 45px; transform: rotate(315deg); }
+        
+        .lotus-petal:nth-child(9) { 
+            top: 30px; left: 45px; 
+            width: 50px;
+            height: 25px;
+            background: radial-gradient(circle at 50% 0%, var(--lotus-light) 0%, var(--lotus-dark) 100%);
+            z-index: 2;
+        }
+        
+        /* BEAUTIFUL BUTTERFLY */
         .butterfly-container {
             position: absolute;
             top: 20%;
             right: 5%;
-            width: 120px;
-            height: 100px;
-            animation: floatButterfly 15s ease-in-out infinite;
+            width: 100px;
+            height: 80px;
+            animation: floatButterfly 14s ease-in-out infinite;
             z-index: 5;
         }
         
@@ -149,64 +162,75 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 8px;
-            height: 40px;
-            background: #3e2723;
-            border-radius: 4px;
+            width: 6px;
+            height: 30px;
+            background: linear-gradient(to bottom, #2c1e18, #5d4037);
+            border-radius: 3px;
             z-index: 2;
         }
         
         .wing {
             position: absolute;
             border-radius: 50%;
+            border: 1px solid rgba(44, 30, 24, 0.3);
         }
         
         .wing.left {
-            top: 15%;
+            top: 10px;
             left: 0;
-            width: 50px;
-            height: 70px;
-            background: radial-gradient(circle at 30% 30%, #5d4037 0%, #3e2723 75%, transparent 75%),
-                        linear-gradient(135deg, #3e2723 20%, #5d4037 80%);
+            width: 45px;
+            height: 60px;
+            background: 
+                radial-gradient(circle at 30% 30%, var(--butterfly-brown) 0%, var(--butterfly-black) 70%),
+                linear-gradient(135deg, var(--butterfly-black) 10%, var(--butterfly-brown) 80%);
             transform: rotate(-10deg);
-            border: 1px solid #3e2723;
             z-index: 1;
+            clip-path: path('M 0,0 Q 45,10 45,30 Q 40,50 25,55 Q 10,60 0,55 Z');
         }
         
         .wing.right {
-            top: 15%;
+            top: 10px;
             right: 0;
-            width: 50px;
-            height: 70px;
-            background: radial-gradient(circle at 70% 30%, #5d4037 0%, #3e2723 75%, transparent 75%),
-                        linear-gradient(225deg, #3e2723 20%, #5d4037 80%);
+            width: 45px;
+            height: 60px;
+            background: 
+                radial-gradient(circle at 70% 30%, var(--butterfly-brown) 0%, var(--butterfly-black) 70%),
+                linear-gradient(225deg, var(--butterfly-black) 10%, var(--butterfly-brown) 80%);
             transform: rotate(10deg);
-            border: 1px solid #3e2723;
             z-index: 1;
+            clip-path: path('M 45,0 Q 0,10 0,30 Q 5,50 20,55 Q 35,60 45,55 Z');
         }
         
         .wing-spot {
             position: absolute;
-            width: 12px;
-            height: 12px;
-            background: #f9f5f0;
+            background: var(--butterfly-spot);
             border-radius: 50%;
             border: 1px solid #d7ccc8;
         }
         
-        .spot-1 { top: 5px; left: 5px; }
-        .spot-2 { top: 25px; right: 5px; }
-        .spot-3 { bottom: 10px; left: 15px; }
-        .spot-4 { bottom: 15px; right: 15px; }
+        .wing.left .wing-spot { 
+            width: 10px;
+            height: 10px;
+        }
         
-        /* Heart Clover */
+        .wing.right .wing-spot { 
+            width: 10px;
+            height: 10px;
+        }
+        
+        .left-spot-1 { top: 15px; left: 10px; }
+        .left-spot-2 { top: 30px; left: 5px; }
+        .right-spot-1 { top: 15px; right: 10px; }
+        .right-spot-2 { top: 30px; right: 5px; }
+        
+        /* HEART-SHAPED CLOVER */
         .clover-container {
             position: absolute;
             bottom: 15%;
             left: 7%;
-            width: 80px;
-            height: 80px;
-            animation: floatClover 12s ease-in-out infinite;
+            width: 70px;
+            height: 70px;
+            animation: floatClover 10s ease-in-out infinite;
             z-index: 5;
         }
         
@@ -218,27 +242,27 @@
         
         .clover-leaf {
             position: absolute;
-            width: 40px;
-            height: 40px;
-            background: #2e7d32;
-            border-radius: 50%;
+            width: 35px;
+            height: 35px;
+            background: var(--clover-green);
             transform: rotate(45deg);
+            border-radius: 0 50% 50% 50%;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
         }
         
-        .leaf-1 { top: 0; left: 20px; }
-        .leaf-2 { top: 20px; left: 0; transform: rotate(135deg); }
-        .leaf-3 { top: 20px; right: 0; transform: rotate(-135deg); }
-        .leaf-4 { bottom: 0; left: 20px; transform: rotate(225deg); }
+        .leaf-1 { top: 10px; left: 17px; }
+        .leaf-2 { top: 10px; left: 17px; transform: rotate(90deg) scaleX(-1); }
         
         .clover-stem {
             position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 5px;
-            height: 30px;
+            top: 45px;
+            left: 35px;
+            width: 4px;
+            height: 20px;
             background: #1b5e20;
-            border-radius: 0 0 2px 2px;
+            transform: rotate(-20deg);
+            border-radius: 2px;
+            z-index: -1;
         }
         
         /* Hero Section */
@@ -547,15 +571,10 @@
         }
         
         /* Animations */
-        @keyframes rotate {
-            from { transform: translate(-50%, -50%) rotate(0deg); }
-            to { transform: translate(-50%, -50%) rotate(360deg); }
-        }
-        
-        @keyframes float {
-            0% { transform: translateY(0) rotate(0deg); opacity: 0.7; }
-            50% { transform: translateY(-20px) rotate(5deg); opacity: 0.9; }
-            100% { transform: translateY(0) rotate(0deg); opacity: 0.7; }
+        @keyframes floatLotus {
+            0% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+            100% { transform: translateY(0) rotate(0deg); }
         }
         
         @keyframes floatButterfly {
@@ -604,53 +623,55 @@
                 font-size: 2.2rem;
             }
             
-            .butterfly-container, .clover-container {
+            .lotus-container, .butterfly-container, .clover-container {
                 display: none;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Background Lotuses -->
-    <div class="floating-lotuses">
-        <div class="lotus-bg" style="background: radial-gradient(circle, var(--lotus-light) 0%, var(--lotus-dark) 70%); border-radius: 50%;"></div>
-        <div class="lotus-bg" style="background: radial-gradient(circle, var(--lotus-light) 0%, var(--lotus-dark) 70%); border-radius: 50%;"></div>
-        <div class="lotus-bg" style="background: radial-gradient(circle, var(--lotus-light) 0%, var(--lotus-dark) 70%); border-radius: 50%;"></div>
-        <div class="lotus-bg" style="background: radial-gradient(circle, var(--lotus-light) 0%, var(--lotus-dark) 70%); border-radius: 50%;"></div>
-        <div class="lotus-bg" style="background: radial-gradient(circle, var(--lotus-light) 0%, var(--lotus-dark) 70%); border-radius: 50%;"></div>
+    <!-- REALISTIC PINK LOTUS -->
+    <div class="lotus-container">
+        <div class="lotus">
+            <div class="lotus-center"></div>
+            <div class="lotus-petal"></div>
+            <div class="lotus-petal"></div>
+            <div class="lotus-petal"></div>
+            <div class="lotus-petal"></div>
+            <div class="lotus-petal"></div>
+            <div class="lotus-petal"></div>
+            <div class="lotus-petal"></div>
+            <div class="lotus-petal"></div>
+            <div class="lotus-petal"></div>
+        </div>
     </div>
     
-    <!-- Butterfly -->
+    <!-- BEAUTIFUL BUTTERFLY -->
     <div class="butterfly-container">
         <div class="butterfly">
             <div class="wing left">
-                <div class="wing-spot spot-1"></div>
-                <div class="wing-spot spot-2"></div>
+                <div class="wing-spot left-spot-1"></div>
+                <div class="wing-spot left-spot-2"></div>
             </div>
             <div class="wing right">
-                <div class="wing-spot spot-3"></div>
-                <div class="wing-spot spot-4"></div>
+                <div class="wing-spot right-spot-1"></div>
+                <div class="wing-spot right-spot-2"></div>
             </div>
             <div class="butterfly-body"></div>
         </div>
     </div>
     
-    <!-- Heart Clover -->
+    <!-- HEART-SHAPED CLOVER -->
     <div class="clover-container">
         <div class="clover">
             <div class="clover-leaf leaf-1"></div>
             <div class="clover-leaf leaf-2"></div>
-            <div class="clover-leaf leaf-3"></div>
-            <div class="clover-leaf leaf-4"></div>
             <div class="clover-stem"></div>
         </div>
     </div>
 
     <div class="container">
         <header>
-            <div class="lotus-container">
-                <div class="lotus"></div>
-            </div>
             <div class="logo-text">Hội Hướng</div>
             <div class="subtitle">A Global Movement Rooted in Love and Remembrance</div>
         </header>
@@ -702,7 +723,7 @@
 
         <div class="tribute">
             <div class="tribute-content">
-                "In the garden of my heart, my mother, my first love planted seeds of compasion and love, watered them with tears of sacrifice, and nurtured them with sunlight from her consciousness. Though she has returned to the earth, the blossoms of her love continue to unfold with each season of my life, perfuming the world with her eternal presence."
+                "In the garden of my heart, my mother planted seeds of resilience, watered them with tears of sacrifice, and nurtured them with sunlight from her soul. Though she has returned to the earth, the blossoms of her love continue to unfold with each season of my life, perfuming the world with her eternal presence."
                 <div class="tribute-author">— Nguyên Thủy, "Nguyên Tâm - The Heart That Shaped Me"</div>
             </div>
         </div>
