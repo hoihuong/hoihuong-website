@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hội Hướng Movement | Pure Land Inspiration</title>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>Phong Trào Hội Hướng | Nguyên Tâm - Trái Tim Định Hình Tôi</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Gentium+Plus:ital,wght@0,400;0,700;1,400;1,700&family=Noto+Serif+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -12,16 +13,31 @@
             box-sizing: border-box;
         }
         
-        body {
-            font-family: 'Cormorant Garamond', serif;
-            min-height: 100vh;
-            background: linear-gradient(to bottom, #0a2a43 0%, #1e3d5a 40%, #2c5d7d 100%);
-            color: #f8f6f0;
-            overflow-x: hidden;
-            position: relative;
+        :root {
+            --gold: #e6c78a;
+            --deep-gold: #d4af37;
+            --light-gold: #f5e7c1;
+            --soft-red: #a52a2a;
+            --cream: #f9f5f0;
+            --dark-brown: #3e2723;
+            --light-brown: #5d4037;
+            --text-color: #333;
+            --pure-blue: #87CEEB;
+            --lotus-pink: #e6b0aa;
         }
         
-        .pure-land {
+        body {
+            font-family: 'Gentium Plus', serif;
+            background: linear-gradient(to bottom, #e0f7ff, #f9f5f0);
+            color: var(--dark-brown);
+            line-height: 1.8;
+            overflow-x: hidden;
+            position: relative;
+            min-height: 100vh;
+        }
+        
+        /* Pure Land Background */
+        .pure-land-bg {
             position: fixed;
             top: 0;
             left: 0;
@@ -31,323 +47,803 @@
             overflow: hidden;
         }
         
-        /* Heavenly Clouds */
-        .cloud {
+        .lotus-pond {
             position: absolute;
-            background: rgba(255, 255, 255, 0.85);
-            border-radius: 50%;
-            filter: blur(25px);
-            animation: float 30s linear infinite;
-        }
-        
-        .cloud-1 { top: 10%; left: 5%; width: 200px; height: 80px; animation-duration: 50s; }
-        .cloud-2 { top: 25%; right: 10%; width: 300px; height: 100px; animation-duration: 60s; animation-delay: -10s; }
-        .cloud-3 { top: 50%; left: 15%; width: 250px; height: 90px; animation-duration: 45s; animation-delay: -5s; }
-        .cloud-4 { bottom: 20%; right: 15%; width: 280px; height: 95px; animation-duration: 55s; animation-delay: -15s; }
-        
-        /* Golden Palace */
-        .palace {
-            position: absolute;
-            bottom: 15%;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 600px;
-            height: 300px;
-            z-index: 5;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 40%;
+            background: linear-gradient(to top, #1e5799, #2989d8);
             opacity: 0.7;
         }
         
-        .palace-roof {
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 400px;
-            height: 150px;
-            background: linear-gradient(45deg, #e6c78a, #d4af37);
-            clip-path: polygon(0% 100%, 10% 0%, 20% 100%, 30% 0%, 40% 100%, 50% 0%, 60% 100%, 70% 0%, 80% 100%, 90% 0%, 100% 100%);
-            box-shadow: 0 0 30px rgba(212, 175, 55, 0.5);
-        }
-        
-        .palace-tower {
-            position: absolute;
-            bottom: 150px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 200px;
-            background: linear-gradient(45deg, #d4af37, #e6c78a);
-            border-radius: 10px 10px 0 0;
-        }
-        
-        .palace-spire {
-            position: absolute;
-            bottom: 350px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 20px;
-            height: 100px;
-            background: linear-gradient(to bottom, #e6c78a, #d4af37);
-            border-radius: 10px 10px 0 0;
-        }
-        
-        /* Golden Lotuses */
-        .lotus {
+        .lotus-flower {
             position: absolute;
             width: 80px;
             height: 80px;
-            filter: drop-shadow(0 0 10px rgba(230, 199, 138, 0.5));
-            animation: floatLotus 20s linear infinite;
-            z-index: 10;
+            bottom: 5%;
+            background: 
+                radial-gradient(circle at 50% 50%, var(--lotus-pink) 0%, var(--lotus-pink) 25%, transparent 25%),
+                radial-gradient(circle at 50% 50%, var(--lotus-pink) 0%, var(--lotus-pink) 30%, transparent 30%),
+                radial-gradient(circle at 50% 50%, var(--lotus-pink) 0%, var(--lotus-pink) 35%, transparent 35%);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+            opacity: 0.8;
         }
         
-        .lotus-1 { bottom: 20%; left: 15%; animation-duration: 25s; }
-        .lotus-2 { bottom: 30%; right: 20%; animation-duration: 30s; animation-delay: -5s; }
-        .lotus-3 { bottom: 10%; left: 30%; animation-duration: 35s; animation-delay: -10s; }
-        .lotus-4 { bottom: 25%; right: 30%; animation-duration: 40s; animation-delay: -15s; }
+        .lotus-flower:nth-child(2) {
+            left: 15%;
+            bottom: 8%;
+            width: 60px;
+            height: 60px;
+            animation-delay: 1.5s;
+            opacity: 0.7;
+        }
         
-        .lotus-petal {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at 50% 50%, #f9e6a6 0%, #d4af37 70%);
-            border-radius: 50%;
+        .lotus-flower:nth-child(3) {
+            left: 30%;
+            bottom: 6%;
+            width: 70px;
+            height: 70px;
+            animation-delay: 3s;
             opacity: 0.9;
         }
         
-        /* Light Rays */
-        .light-ray {
-            position: absolute;
-            background: linear-gradient(to bottom, rgba(255, 255, 255, 0.2), transparent);
-            width: 5px;
-            height: 100vh;
-            top: 0;
-            animation: rayMove 30s linear infinite;
+        .lotus-flower:nth-child(4) {
+            left: 60%;
+            bottom: 7%;
+            width: 65px;
+            height: 65px;
+            animation-delay: 2s;
         }
         
-        .ray-1 { left: 20%; animation-duration: 40s; }
-        .ray-2 { left: 40%; animation-duration: 35s; animation-delay: -10s; }
-        .ray-3 { left: 60%; animation-duration: 45s; animation-delay: -5s; }
-        .ray-4 { left: 80%; animation-duration: 50s; animation-delay: -15s; }
+        .lotus-flower:nth-child(5) {
+            left: 80%;
+            bottom: 9%;
+            width: 55px;
+            height: 55px;
+            animation-delay: 4s;
+        }
         
-        /* Content Container */
+        .lotus-leaf {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            bottom: 5%;
+            background: radial-gradient(ellipse at center, #2c5d2d 0%, #1a2e1b 100%);
+            border-radius: 50%;
+            opacity: 0.7;
+        }
+        
+        .lotus-leaf:nth-child(6) {
+            left: 10%;
+            bottom: 3%;
+            width: 120px;
+            height: 60px;
+            border-radius: 50%;
+        }
+        
+        .lotus-leaf:nth-child(7) {
+            left: 40%;
+            bottom: 2%;
+            width: 150px;
+            height: 75px;
+        }
+        
+        .lotus-leaf:nth-child(8) {
+            left: 70%;
+            bottom: 4%;
+            width: 90px;
+            height: 45px;
+        }
+        
+        .mountains {
+            position: absolute;
+            bottom: 40%;
+            left: 0;
+            width: 100%;
+            height: 30%;
+            background: linear-gradient(to top, #8c7b6b, #5d4037);
+            clip-path: polygon(0% 100%, 5% 80%, 10% 90%, 15% 70%, 20% 85%, 25% 75%, 30% 95%, 35% 65%, 40% 100%, 45% 60%, 50% 90%, 55% 70%, 60% 100%, 65% 75%, 70% 85%, 75% 65%, 80% 95%, 85% 80%, 90% 100%, 95% 85%, 100% 100%);
+            opacity: 0.4;
+        }
+        
+        .sun {
+            position: absolute;
+            top: 15%;
+            right: 15%;
+            width: 120px;
+            height: 120px;
+            background: radial-gradient(circle, var(--deep-gold) 0%, transparent 70%);
+            border-radius: 50%;
+            box-shadow: 0 0 60px var(--deep-gold);
+            opacity: 0.8;
+            animation: pulse 8s ease-in-out infinite;
+        }
+        
+        .cloud {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 50%;
+            animation: drift 30s linear infinite;
+        }
+        
+        .cloud:nth-child(1) {
+            top: 20%;
+            left: -100px;
+            width: 120px;
+            height: 60px;
+            animation-duration: 40s;
+        }
+        
+        .cloud:nth-child(2) {
+            top: 30%;
+            right: -100px;
+            width: 150px;
+            height: 70px;
+            animation-duration: 50s;
+            animation-delay: 10s;
+        }
+        
+        .cloud:nth-child(3) {
+            top: 15%;
+            left: 30%;
+            width: 100px;
+            height: 50px;
+            animation-duration: 35s;
+            animation-delay: 5s;
+        }
+        
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 40px 20px;
+            padding: 20px;
             position: relative;
-            z-index: 20;
-            background: rgba(10, 25, 40, 0.6);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            margin-top: 80px;
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            z-index: 10;
         }
         
+        /* Header Styles */
         .header {
             text-align: center;
-            padding: 40px 20px;
+            padding: 50px 20px 30px;
             position: relative;
+            overflow: hidden;
+        }
+        
+        .lotus-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 300px;
+            height: 300px;
+            opacity: 0.1;
+            z-index: -1;
+        }
+        
+        .lotus {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 50% 50%, var(--gold) 0%, var(--gold) 25%, transparent 25%),
+                radial-gradient(circle at 50% 50%, var(--gold) 0%, var(--gold) 30%, transparent 30%),
+                radial-gradient(circle at 50% 50%, var(--gold) 0%, var(--gold) 35%, transparent 35%);
+            border-radius: 50%;
+            animation: rotate 180s linear infinite;
         }
         
         .logo-text {
             font-family: 'Noto Serif SC', serif;
             font-size: 4.5rem;
-            color: #f9e6a6;
-            margin-bottom: 20px;
+            color: var(--deep-gold);
+            margin-bottom: 10px;
             letter-spacing: 3px;
-            text-shadow: 0 0 20px rgba(212, 175, 55, 0.7);
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
         }
         
         .subtitle {
             font-size: 1.8rem;
-            color: #e2f0d9;
+            color: var(--light-brown);
             font-weight: 400;
             max-width: 800px;
             margin: 0 auto 30px;
-            font-family: 'Cinzel', serif;
+            font-family: 'Gentium Plus', serif;
+            text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
         }
         
-        .dharma-wheel {
-            font-size: 4rem;
-            color: #f9e6a6;
-            margin: 30px 0;
-            animation: spin 60s linear infinite;
-        }
-        
-        .content {
-            max-width: 800px;
-            margin: 0 auto;
+        /* Hero Section */
+        .hero {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            align-items: center;
+            margin: 40px 0;
             padding: 30px;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(230, 199, 138, 0.3);
+            backdrop-filter: blur(5px);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100" opacity="0.03"><path fill="%23d4af37" d="M50,20 Q70,10 85,30 T95,65 Q80,90 50,85 T10,60 Q5,30 30,20 T50,20Z"/></svg>');
+            z-index: -1;
+        }
+        
+        .book-cover {
+            flex: 1;
+            min-width: 300px;
+            position: relative;
+            perspective: 1000px;
+        }
+        
+        .cover-art {
+            width: 100%;
+            height: 450px;
+            background: linear-gradient(135deg, var(--deep-gold) 0%, var(--light-brown) 100%);
+            border-radius: 5px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: var(--light-gold);
+            padding: 40px;
+            text-align: center;
+            transform: rotateY(-5deg);
+            transition: transform 0.5s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cover-art::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(230,199,138,0.1) 0%, rgba(230,199,138,0) 70%);
+            z-index: 1;
+        }
+        
+        .cover-title {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            z-index: 2;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            line-height: 1.3;
+            color: var(--light-gold);
+        }
+        
+        .cover-subtitle {
+            font-size: 1.5rem;
+            font-family: 'Gentium Plus', serif;
+            z-index: 2;
+            max-width: 300px;
+            color: var(--light-gold);
+        }
+        
+        .cover-author {
+            position: absolute;
+            bottom: 30px;
+            font-size: 1.3rem;
+            z-index: 2;
+            color: var(--light-gold);
+        }
+        
+        .hero-content {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .section-title {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 2.5rem;
+            color: var(--deep-gold);
+            margin-bottom: 25px;
+            position: relative;
+            display: inline-block;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        }
+        
+        .section-title::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 80px;
+            height: 3px;
+            background: var(--deep-gold);
+        }
+        
+        .hero-content p {
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+            text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.8);
+        }
+        
+        /* Movement Section */
+        .movement {
+            padding: 60px 30px;
+            text-align: center;
+            background: linear-gradient(rgba(212, 175, 55, 0.85), rgba(139, 0, 0, 0.85)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100" opacity="0.1"><circle cx="50" cy="50" r="5" fill="%23f9f5f0"/></svg>');
+            color: var(--cream);
+            margin: 60px 0;
+            border-radius: 15px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .movement::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100" opacity="0.1"><path d="M50,10 Q60,30 70,20 Q80,40 90,30 Q85,50 95,60 Q75,65 80,80 Q60,75 50,90 Q40,75 20,80 Q25,65 5,60 Q15,50 10,30 Q20,40 30,20 Q40,30 50,10Z" fill="%23f9f5f0"/></svg>');
+        }
+        
+        .global-title {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 3.5rem;
+            margin-bottom: 30px;
+            color: var(--light-gold);
+            letter-spacing: 2px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .movement-steps {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .step {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--gold);
+            border-radius: 15px;
+            padding: 30px;
+            width: 250px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .step:hover {
+            transform: translateY(-10px);
+            background: rgba(230, 199, 138, 0.15);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .step::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100" opacity="0.05"><circle cx="50" cy="50" r="40" stroke="%23e6c78a" stroke-width="2" fill="none"/></svg>');
+            z-index: -1;
+        }
+        
+        .step-number {
+            font-size: 3rem;
+            color: var(--gold);
+            margin-bottom: 15px;
+            font-family: 'Gentium Plus', serif;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        .step-title {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            font-family: 'Noto Serif SC', serif;
+            color: var(--light-gold);
+        }
+        
+        .step p {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        /* Tribute Section */
+        .tribute {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 60px 40px;
+            border-radius: 15px;
+            margin: 60px 0;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(230, 199, 138, 0.3);
+            position: relative;
+            backdrop-filter: blur(3px);
+        }
+        
+        .tribute::before {
+            content: """;
+            position: absolute;
+            top: 30px;
+            left: 30px;
+            font-size: 10rem;
+            color: rgba(212, 175, 55, 0.1);
+            font-family: 'Gentium Plus', serif;
+            line-height: 1;
+            z-index: 0;
+        }
+        
+        .tribute-content {
             font-size: 1.4rem;
             line-height: 1.9;
-            background: rgba(29, 40, 60, 0.5);
-            border-radius: 15px;
-            border: 1px solid rgba(212, 175, 55, 0.2);
-        }
-        
-        .sanskrit {
-            font-family: 'Noto Serif SC', serif;
-            font-size: 1.3rem;
-            margin: 40px 0;
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
             font-style: italic;
-            color: #d4af37;
+            color: var(--dark-brown);
             text-align: center;
         }
         
+        .tribute-author {
+            text-align: right;
+            margin-top: 30px;
+            font-size: 1.3rem;
+            font-style: normal;
+            color: var(--deep-gold);
+            font-weight: 600;
+        }
+        
+        /* Call to Action */
         .cta {
             text-align: center;
-            margin: 50px 0;
+            padding: 60px 20px;
+            background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100" opacity="0.05"><path fill="%23d4af37" d="M50,20 Q70,10 85,30 T95,65 Q80,90 50,85 T10,60 Q5,30 30,20 T50,20Z"/></svg>');
+            border-radius: 15px;
+            margin: 60px 0;
+            position: relative;
+            border: 1px solid rgba(230, 199, 138, 0.3);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+        
+        .cta-title {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 3rem;
+            color: var(--deep-gold);
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        }
+        
+        .cta-subtitle {
+            font-size: 1.5rem;
+            color: var(--light-brown);
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
         }
         
         .btn {
             display: inline-block;
-            background: linear-gradient(45deg, #d4af37, #f9e6a6);
-            color: #0a2a43;
+            background: var(--deep-gold);
+            color: var(--cream);
             padding: 18px 45px;
             font-size: 1.3rem;
             border-radius: 50px;
             text-decoration: none;
             transition: all 0.3s ease;
-            border: none;
-            font-family: 'Cinzel', serif;
+            border: 2px solid var(--deep-gold);
+            font-family: 'Gentium Plus', serif;
             letter-spacing: 1px;
             margin: 10px;
-            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
-            font-weight: 600;
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+            position: relative;
+            overflow: hidden;
         }
         
         .btn:hover {
+            background: transparent;
+            color: var(--deep-gold);
             transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.6);
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            color: var(--deep-gold);
+            border: 2px solid var(--deep-gold);
+        }
+        
+        .btn-outline:hover {
+            background: var(--deep-gold);
+            color: var(--cream);
+        }
+        
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 40px 20px;
+            background: var(--dark-brown);
+            color: var(--cream);
+            margin-top: 60px;
+            border-top: 5px solid var(--gold);
+            position: relative;
+        }
+        
+        .footer::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100" opacity="0.05"><path d="M50,10 Q60,30 70,20 Q80,40 90,30 Q85,50 95,60 Q75,65 80,80 Q60,75 50,90 Q40,75 20,80 Q25,65 5,60 Q15,50 10,30 Q20,40 30,20 Q40,30 50,10Z" fill="%23e6c78a"/></svg>');
+        }
+        
+        .footer-logo {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 2.5rem;
+            color: var(--gold);
+            margin-bottom: 20px;
+            position: relative;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 30px 0;
+            position: relative;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: rgba(230, 199, 138, 0.1);
+            color: var(--gold);
+            font-size: 1.8rem;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(230, 199, 138, 0.3);
+            text-decoration: none;
+        }
+        
+        .social-links a:hover {
+            background: rgba(230, 199, 138, 0.2);
+            transform: translateY(-5px);
+        }
+        
+        .copyright {
+            margin-top: 30px;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1.1rem;
+            position: relative;
         }
         
         /* Animations */
+        @keyframes rotate {
+            from { transform: translate(-50%, -50%) rotate(0deg); }
+            to { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+        
         @keyframes float {
-            0% { transform: translateX(0) translateY(0); }
-            50% { transform: translateX(50px) translateY(-20px); }
-            100% { transform: translateX(0) translateY(0); }
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0); }
         }
         
-        @keyframes floatLotus {
-            0% { transform: translateY(0) rotate(0deg); opacity: 0.8; }
-            50% { transform: translateY(-30px) rotate(10deg); opacity: 1; }
-            100% { transform: translateY(0) rotate(0deg); opacity: 0.8; }
+        @keyframes drift {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100vw); }
         }
         
-        @keyframes rayMove {
-            0% { transform: translateY(-100%); }
-            100% { transform: translateY(100%); }
-        }
-        
-        @keyframes spin {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
+        @keyframes pulse {
+            0% { opacity: 0.7; transform: scale(1); }
+            50% { opacity: 0.9; transform: scale(1.05); }
+            100% { opacity: 0.7; transform: scale(1); }
         }
         
         /* Responsive */
         @media (max-width: 768px) {
-            .logo-text { font-size: 3rem; }
-            .subtitle { font-size: 1.4rem; }
-            .palace { width: 90%; }
-            .palace-roof { width: 80%; }
-            .container { margin-top: 40px; }
+            .logo-text {
+                font-size: 3rem;
+            }
+            
+            .subtitle {
+                font-size: 1.4rem;
+            }
+            
+            .cover-title {
+                font-size: 2.2rem;
+            }
+            
+            .global-title {
+                font-size: 2.5rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .tribute-content {
+                font-size: 1.2rem;
+            }
+            
+            .cta-title {
+                font-size: 2.2rem;
+            }
+            
+            .movement-steps {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .step {
+                width: 100%;
+                max-width: 350px;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="pure-land">
-        <!-- Heavenly Clouds -->
-        <div class="cloud cloud-1"></div>
-        <div class="cloud cloud-2"></div>
-        <div class="cloud cloud-3"></div>
-        <div class="cloud cloud-4"></div>
-        
-        <!-- Golden Palace -->
-        <div class="palace">
-            <div class="palace-tower"></div>
-            <div class="palace-spire"></div>
-            <div class="palace-roof"></div>
-        </div>
-        
-        <!-- Golden Lotuses -->
-        <div class="lotus lotus-1">
-            <div class="lotus-petal"></div>
-        </div>
-        <div class="lotus lotus-2">
-            <div class="lotus-petal"></div>
-        </div>
-        <div class="lotus lotus-3">
-            <div class="lotus-petal"></div>
-        </div>
-        <div class="lotus lotus-4">
-            <div class="lotus-petal"></div>
-        </div>
-        
-        <!-- Light Rays -->
-        <div class="light-ray ray-1"></div>
-        <div class="light-ray ray-2"></div>
-        <div class="light-ray ray-3"></div>
-        <div class="light-ray ray-4"></div>
+    <div class="pure-land-bg">
+        <div class="sun"></div>
+        <div class="cloud"></div>
+        <div class="cloud"></div>
+        <div class="cloud"></div>
+        <div class="mountains"></div>
+        <div class="lotus-pond"></div>
+        <div class="lotus-flower"></div>
+        <div class="lotus-flower"></div>
+        <div class="lotus-flower"></div>
+        <div class="lotus-flower"></div>
+        <div class="lotus-flower"></div>
+        <div class="lotus-leaf"></div>
+        <div class="lotus-leaf"></div>
+        <div class="lotus-leaf"></div>
     </div>
     
     <div class="container">
-        <div class="header">
-            <div class="logo-text">Hội Hướng</div>
-            <div class="subtitle">A Global Movement Rooted in Love and Remembrance</div>
-            <div class="dharma-wheel">☸</div>
-        </div>
-        
-        <div class="content">
-            <p>In the serene Pure Land of Amitābha Buddha, we find inspiration for our journey. This celestial realm, depicted in Mahayana Buddhism, represents the ultimate destination of peace and enlightenment - a place where lotus blossoms bloom in golden ponds and celestial palaces shine with divine light.</p>
-            
-            <p>Just as the Pure Land offers refuge to all beings, Hội Hướng seeks to create a sanctuary of compassion and wisdom in our world. Our movement draws from this vision to cultivate:</p>
-            
-            <ul style="margin: 20px 0 20px 40px;">
-                <li>Boundless compassion that embraces all beings</li>
-                <li>Wisdom that illuminates the path to liberation</li>
-                <li>Pure intentions that create positive karma</li>
-                <li>Mindfulness that transforms every moment</li>
-            </ul>
-            
-            <p>The lotus flowers you see represent our spiritual journey - born in muddy waters yet rising unstained to bloom in radiant beauty. Each petal symbolizes a virtue we cultivate: compassion, wisdom, patience, diligence, generosity, morality, and meditative concentration.</p>
-            
-            <div class="sanskrit">
-                "सर्वे भवन्तु सुखिनः सर्वे सन्तु निरामयाः।"<br>
-                "May all beings be happy; may all beings be healthy."
+        <header>
+            <div class="lotus-container">
+                <div class="lotus"></div>
             </div>
+            <div class="logo-text">Hội Hướng</div>
+            <div class="subtitle">Một Phong Trào Toàn Cầu Bắt Nguồn Từ Tình Yêu và Sự Tưởng Nhớ</div>
+        </header>
+
+        <div class="hero">
+            <div class="book-cover">
+                <div class="cover-art">
+                    <div class="cover-title">Nguyên Tâm</div>
+                    <div class="cover-subtitle">Trái Tim Định Hình Tôi</div>
+                    <div class="cover-author">Hồi Ký của Nguyên Thủy</div>
+                </div>
+            </div>
+            <div class="hero-content">
+                <h2 class="section-title">Sự Khởi Nguồn</h2>
+                <p>Để tưởng nhớ người mẹ kính yêu của tôi, tình yêu vô bờ bến và tinh thần bất khuất của bà đã trở thành nền tảng cho con người tôi, tôi xin giới thiệu "Nguyên Tâm - Trái Tim Định Hình Tôi".</p>
+                <p>Cuốn hồi ký này không chỉ là hành trình cá nhân; nó là lời mời khám phá sức mạnh chuyển hóa của tình mẫu tử và khả năng định hình cuộc sống qua các thế hệ.</p>
+                <p>Khi chúng tôi chuẩn bị phát hành lời tri ân chân thành này, chúng tôi đứng trước ngưỡng cửa của một phong trào toàn cầu - một phong trào tôn vinh ảnh hưởng sâu sắc của những người đã định hình trái tim và dẫn lối đường đời chúng ta.</p>
+                <p>Phong Trào Hội Hướng sẽ đánh thức thế giới về những kết nối thiêng liêng ràng buộc chúng ta, những di sản nuôi dưỡng chúng ta và tình yêu vượt qua cả cái chết.</p>
+            </div>
+        </div>
+
+        <div class="movement">
+            <h2 class="global-title">Phong Trào Hội Hướng Toàn Cầu</h2>
+            <p>Được sinh ra từ những trang sách "Nguyên Tâm", Phong Trào Hội Hướng sẽ truyền cảm hứng cho sự thức tỉnh toàn cầu về sức mạnh của:</p>
             
-            <p>As we build this global movement, we invite you to join us in creating a Pure Land on Earth - a world transformed by loving-kindness and awakened consciousness.</p>
+            <div class="movement-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3 class="step-title">Sự Tưởng Niệm Thiêng Liêng</h3>
+                    <p>Tôn vinh những người đã định hình cuộc đời chúng ta bằng nghi lễ tri ân</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3 class="step-title">Chữa Lành Liên Thế Hệ</h3>
+                    <p>Kết nối quá khứ và tương lai thông qua những câu chuyện chia sẻ</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3 class="step-title">Di Sản Từ Bi</h3>
+                    <p>Vun trồng đức hạnh chuyển hóa cộng đồng</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3 class="step-title">Kết Nối Toàn Cầu</h3>
+                    <p>Kết nối trái tim vượt qua văn hóa bằng nhân tính chung</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="tribute">
+            <div class="tribute-content">
+                "Trong khu vườn trái tim tôi, mẹ tôi đã gieo những hạt giống kiên cường, tưới mát chúng bằng nước mắt hy sinh và nuôi dưỡng chúng bằng ánh sáng mặt trời từ tâm hồn bà. Dù bà đã trở về với đất mẹ, đóa hoa tình yêu của bà vẫn tiếp tục nở rộ theo từng mùa đời tôi, tỏa hương thơm ngát sự hiện diện vĩnh hằng của bà đến thế giới."
+                <div class="tribute-author">— Nguyên Thủy, "Nguyên Tâm - Trái Tim Định Hình Tôi"</div>
+            </div>
+        </div>
+
+        <div class="cta">
+            <h2 class="cta-title">Tham Gia Sự Thức Tỉnh</h2>
+            <p class="cta-subtitle">Hãy là một trong những người đầu tiên biết khi "Nguyên Tâm" được phát hành và Phong Trào Hội Hướng bắt đầu</p>
+            
+            <a href="#" class="btn">Thông Báo Cho Tôi Vào Ngày Phát Hành</a>
+            <a href="#" class="btn btn-outline">Chia Sẻ Câu Chuyện Của Bạn</a>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="footer-logo">Hội Hướng</div>
+        <p>Phong Trào Toàn Cầu Của Những Di Sản Định Hình Trái Tim</p>
+        
+        <div class="social-links">
+            <a href="https://twitter.com/_hoihuong_" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
         </div>
         
-        <div class="cta">
-            <a href="#" class="btn">Join the Movement</a>
-            <a href="#" class="btn">Learn More</a>
+        <div class="copyright">
+            &copy; 2025 Phong Trào Hội Hướng Toàn Cầu. "Nguyên Tâm - Trái Tim Định Hình Tôi" của Nguyên Thủy là lời tri ân tình mẫu tử và di sản.
         </div>
     </div>
 
     <script>
-        // Add floating animation to palace
         document.addEventListener('DOMContentLoaded', function() {
-            const palace = document.querySelector('.palace');
+            const cover = document.querySelector('.cover-art');
             
-            setInterval(() => {
-                const y = Math.sin(Date.now() / 8000) * 10;
-                palace.style.transform = `translateX(-50%) translateY(${y}px)`;
-            }, 50);
-            
-            // Add shimmer to palace
-            setInterval(() => {
-                const opacity = 0.6 + Math.random() * 0.3;
-                palace.style.opacity = opacity;
-            }, 2000);
-            
-            // Animate lotuses with slight variations
-            document.querySelectorAll('.lotus').forEach((lotus, i) => {
-                const delay = i * 2;
-                lotus.style.animationDelay = `${delay}s`;
+            cover.addEventListener('mouseenter', function() {
+                this.style.transform = 'rotateY(0deg)';
             });
+            
+            cover.addEventListener('mouseleave', function() {
+                this.style.transform = 'rotateY(-5deg)';
+            });
+            
+            // Animate elements on scroll
+            const animateOnScroll = () => {
+                const elements = document.querySelectorAll('.step, .tribute');
+                
+                elements.forEach(el => {
+                    const position = el.getBoundingClientRect().top;
+                    const screenPosition = window.innerHeight / 1.3;
+                    
+                    if(position < screenPosition) {
+                        el.style.opacity = '1';
+                        el.style.transform = 'translateY(0)';
+                    }
+                });
+            };
+            
+            // Set initial state
+            document.querySelectorAll('.step, .tribute').forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(30px)';
+                el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+            });
+            
+            // Listen for scroll
+            window.addEventListener('scroll', animateOnScroll);
+            // Initial check
+            animateOnScroll();
         });
     </script>
 </body>
