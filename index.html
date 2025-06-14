@@ -21,6 +21,7 @@
             --dark-brown: #3e2723;
             --light-brown: #5d4037;
             --text-color: #333;
+            --lotus-pink: #ffb7c5;
         }
         
         body {
@@ -114,6 +115,36 @@
             animation: innerGlow 8s ease-in-out infinite alternate;
         }
         
+        .logo-container {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .lotus-icon {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 70px;
+            height: 70px;
+            z-index: 2;
+            animation: lotusFloat 8s ease-in-out infinite;
+        }
+        
+        .lotus-icon.left {
+            left: -85px;
+        }
+        
+        .lotus-icon.right {
+            right: -85px;
+        }
+        
+        .lotus-icon svg {
+            width: 100%;
+            height: 100%;
+            fill: var(--lotus-pink);
+            filter: drop-shadow(0 0 8px rgba(255, 105, 180, 0.6));
+        }
+        
         .logo-text {
             font-family: 'Noto Serif SC', serif;
             font-size: 5rem;
@@ -125,6 +156,7 @@
                 0 4px 8px rgba(0, 0, 0, 0.1);
             animation: titleGlow 6s ease-in-out infinite alternate;
             position: relative;
+            display: inline-block;
         }
         
         .logo-text::after {
@@ -272,19 +304,18 @@
             min-width: 350px;
         }
         
-        .hero-content p {
-            font-size: 1.2rem;
-            margin-bottom: 25px;
-            line-height: 1.9;
-            text-align: justify;
-            color: var(--dark-brown);
+        .section-title-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+            margin-bottom: 35px;
+            gap: 25px;
         }
         
         .section-title {
             font-family: 'Noto Serif SC', serif;
             font-size: 2.8rem;
             color: var(--deep-red);
-            margin-bottom: 35px;
             position: relative;
             display: inline-block;
         }
@@ -299,6 +330,27 @@
             background: linear-gradient(90deg, var(--gold), var(--deep-red), var(--gold));
             border-radius: 2px;
             animation: titleUnderline 3s ease-in-out infinite;
+        }
+        
+        .dharma-wheel {
+            width: 60px;
+            height: 60px;
+            animation: rotateDharma 20s linear infinite;
+        }
+        
+        .dharma-wheel svg {
+            width: 100%;
+            height: 100%;
+            fill: var(--deep-red);
+            opacity: 0.9;
+        }
+        
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 25px;
+            line-height: 1.9;
+            text-align: justify;
+            color: var(--dark-brown);
         }
         
         /* Enhanced Movement Section */
@@ -759,6 +811,18 @@
             100% { transform: translateY(0px) rotate(360deg); opacity: 0.3; }
         }
         
+        /* New Animations */
+        @keyframes rotateDharma {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        @keyframes lotusFloat {
+            0% { transform: translateY(-50%) scale(1) rotate(0deg); }
+            50% { transform: translateY(-50%) scale(1.1) rotate(5deg); }
+            100% { transform: translateY(-50%) scale(1) rotate(0deg); }
+        }
+        
         /* Responsive Design */
         @media (max-width: 768px) {
             .logo-text {
@@ -767,6 +831,19 @@
             
             .subtitle {
                 font-size: 1.5rem;
+            }
+            
+            .lotus-icon {
+                width: 50px;
+                height: 50px;
+            }
+            
+            .lotus-icon.left {
+                left: -65px;
+            }
+            
+            .lotus-icon.right {
+                right: -65px;
             }
             
             .cover-title {
@@ -779,6 +856,11 @@
             
             .section-title {
                 font-size: 2.2rem;
+            }
+            
+            .dharma-wheel {
+                width: 45px;
+                height: 45px;
             }
             
             .tribute-content {
@@ -830,6 +912,19 @@
                 font-size: 1.3rem;
             }
             
+            .lotus-icon {
+                width: 35px;
+                height: 35px;
+            }
+            
+            .lotus-icon.left {
+                left: -45px;
+            }
+            
+            .lotus-icon.right {
+                right: -45px;
+            }
+            
             .hero {
                 flex-direction: column;
                 gap: 30px;
@@ -850,6 +945,16 @@
             
             .cover-subtitle {
                 font-size: 1.3rem;
+            }
+            
+            .section-title-container {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+            
+            .dharma-wheel {
+                align-self: center;
             }
             
             .global-title {
@@ -873,11 +978,23 @@
 </head>
 <body>
     <div class="container">
-        <header>
+        <header class="header">
             <div class="lotus-container">
                 <div class="lotus"></div>
             </div>
-            <div class="logo-text">Hội Hướng</div>
+            <div class="logo-container">
+                <div class="lotus-icon left">
+                    <svg viewBox="0 0 100 100">
+                        <path d="M50,10 Q70,5 85,25 Q95,45 85,65 Q70,85 50,80 Q30,85 15,65 Q5,45 15,25 Q30,5 50,10Z"/>
+                    </svg>
+                </div>
+                <div class="logo-text">Hội Hướng</div>
+                <div class="lotus-icon right">
+                    <svg viewBox="0 0 100 100">
+                        <path d="M50,10 Q70,5 85,25 Q95,45 85,65 Q70,85 50,80 Q30,85 15,65 Q5,45 15,25 Q30,5 50,10Z"/>
+                    </svg>
+                </div>
+            </div>
             <div class="subtitle">A Global Movement Rooted in Love and Remembrance</div>
         </header>
 
@@ -890,7 +1007,23 @@
                 </div>
             </div>
             <div class="hero-content">
-                <h2 class="section-title">The Catalyst</h2>
+                <div class="section-title-container">
+                    <h2 class="section-title">The Catalyst</h2>
+                    <div class="dharma-wheel">
+                        <svg viewBox="0 0 100 100">
+                            <circle cx="50" cy="50" r="45" stroke="currentColor" stroke-width="2" fill="none" />
+                            <line x1="50" y1="5" x2="50" y2="95" stroke="currentColor" stroke-width="2" />
+                            <line x1="50" y1="5" x2="50" y2="95" stroke="currentColor" stroke-width="2" transform="rotate(45 50 50)" />
+                            <line x1="50" y1="5" x2="50" y2="95" stroke="currentColor" stroke-width="2" transform="rotate(90 50 50)" />
+                            <line x1="50" y1="5" x2="50" y2="95" stroke="currentColor" stroke-width="2" transform="rotate(135 50 50)" />
+                            <line x1="50" y1="5" x2="50" y2="95" stroke="currentColor" stroke-width="2" transform="rotate(180 50 50)" />
+                            <line x1="50" y1="5" x2="50" y2="95" stroke="currentColor" stroke-width="2" transform="rotate(225 50 50)" />
+                            <line x1="50" y1="5" x2="50" y2="95" stroke="currentColor" stroke-width="2" transform="rotate(270 50 50)" />
+                            <line x1="50" y1="5" x2="50" y2="95" stroke="currentColor" stroke-width="2" transform="rotate(315 50 50)" />
+                            <circle cx="50" cy="50" r="10" fill="currentColor" />
+                        </svg>
+                    </div>
+                </div>
                 <p>In loving memory of my mother, this is my love letter to the woman who taught me that love itself can be both salvation and suffering, and that sometimes the greatest courage is found not in fighting back, but in continuing to love despite everything that tries to stop you. I present "Nguyên Tâm - The Heart That Shaped Me".</p>
                 <p>This memoir is more than my mother's journey; it's an invitation to discover the transformative power of maternal love and its capacity to shape lives across generations.</p>
                 <p>As we prepare to release this heartfelt tribute, we stand at the threshold of a global movement - a movement that seeks to honor the profound influence of those who shape our hearts and guide our paths.</p>
