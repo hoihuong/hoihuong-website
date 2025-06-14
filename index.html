@@ -21,6 +21,8 @@
             --dark-brown: #3e2723;
             --light-brown: #5d4037;
             --text-color: #333;
+            --pink-lotus: #f48fb1;
+            --deep-pink: #e91e63;
         }
         
         body {
@@ -114,11 +116,36 @@
             animation: innerGlow 8s ease-in-out infinite alternate;
         }
         
+        /* Pink Lotus Bookends */
+        .title-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 20px;
+        }
+        
+        .lotus-bookend {
+            width: 80px;
+            height: 80px;
+            position: relative;
+            animation: lotusFloat 6s ease-in-out infinite alternate;
+        }
+        
+        .lotus-bookend svg {
+            width: 100%;
+            height: 100%;
+            filter: drop-shadow(0 4px 12px rgba(244, 143, 177, 0.4));
+        }
+        
+        .lotus-bookend.left {
+            animation-delay: -3s;
+        }
+        
         .logo-text {
             font-family: 'Noto Serif SC', serif;
             font-size: 5rem;
             color: var(--deep-red);
-            margin-bottom: 20px;
             letter-spacing: 4px;
             text-shadow: 
                 0 0 20px rgba(139, 0, 0, 0.3),
@@ -141,7 +168,7 @@
         
         .subtitle {
             font-size: 1.9rem;
-            color: var(--light-brown);
+            color: var(--gold);
             font-weight: 400;
             max-width: 800px;
             margin: 0 auto 40px;
@@ -649,8 +676,8 @@
         
         .social-links a {
             display: inline-flex;
-            align-items: center;
-            justify-content: center;
+            align-items
+justify-content: center;
             width: 70px;
             height: 70px;
             border-radius: 50%;
