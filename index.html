@@ -21,6 +21,8 @@
             --dark-brown: #3e2723;
             --light-brown: #5d4037;
             --text-color: #333;
+            --ornament-gold: #e6c78a;
+            --ornament-shadow: rgba(115, 74, 18, 0.3);
         }
         
         body {
@@ -32,7 +34,7 @@
             position: relative;
         }
         
-        /* Background with mandala patterns */
+        /* Enhanced Background with mandala patterns */
         body::before {
             content: "";
             position: fixed;
@@ -41,10 +43,10 @@
             width: 100%;
             height: 100%;
             background: 
-                radial-gradient(circle at 20% 20%, rgba(230,199,138,0.03) 0%, transparent 50%),
-                radial-gradient(circle at 80% 40%, rgba(139,0,0,0.02) 0%, transparent 50%),
-                radial-gradient(circle at 40% 80%, rgba(230,199,138,0.03) 0%, transparent 50%),
-                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400" opacity="0.015"><path fill="%23e6c78a" d="M200,50 Q280,20 350,80 Q380,160 320,240 Q240,280 160,240 Q100,160 140,80 Q180,40 200,50Z M200,120 Q240,100 280,140 Q300,180 260,220 Q220,240 180,220 Q140,180 160,140 Q180,120 200,120Z"/></svg>');
+                radial-gradient(circle at 20% 20%, rgba(230,199,138,0.04) 0%, transparent 50%),
+                radial-gradient(circle at 80% 40%, rgba(139,0,0,0.03) 0%, transparent 50%),
+                radial-gradient(circle at 40% 80%, rgba(230,199,138,0.04) 0%, transparent 50%),
+                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400" opacity="0.02"><path fill="%23e6c78a" d="M200,50 Q280,20 350,80 Q380,160 320,240 Q240,280 160,240 Q100,160 140,80 Q180,40 200,50Z M200,120 Q240,100 280,140 Q300,180 260,220 Q220,240 180,220 Q140,180 160,140 Q180,120 200,120Z"/></svg>');
             z-index: -2;
             pointer-events: none;
         }
@@ -69,24 +71,25 @@
             padding: 20px;
         }
         
-        /* Header with mandala background */
+        /* Enhanced Header with mandala background */
         .header {
             text-align: center;
-            padding: 80px 20px 60px;
+            padding: 100px 20px 80px;
             position: relative;
             overflow: hidden;
         }
         
-        /* Mandala background - RESTORED */
+        /* Refined Mandala background */
         .mandala-container {
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 500px;
-            height: 500px;
+            width: 600px;
+            height: 600px;
             opacity: 0.08;
             z-index: -1;
+            filter: blur(1px);
         }
         
         .mandala {
@@ -107,8 +110,8 @@
             position: absolute;
             top: 50%;
             left: 50%;
-            width: 200px;
-            height: 200px;
+            width: 220px;
+            height: 220px;
             transform: translate(-50%, -50%);
             background: radial-gradient(circle, var(--gold) 0%, transparent 70%);
             border-radius: 50%;
@@ -119,11 +122,12 @@
             position: relative;
             display: inline-block;
             margin-bottom: 30px;
+            padding: 0 30px;
         }
         
         .logo-text {
             font-family: 'Noto Serif SC', serif;
-            font-size: 5rem;
+            font-size: 5.5rem;
             color: var(--deep-red);
             margin-bottom: 20px;
             letter-spacing: 4px;
@@ -141,14 +145,14 @@
             bottom: -15px;
             left: 50%;
             transform: translateX(-50%);
-            width: 200px;
+            width: 220px;
             height: 2px;
             background: linear-gradient(90deg, transparent, var(--gold), transparent);
             animation: underlineGlow 4s ease-in-out infinite;
         }
         
         .subtitle {
-            font-size: 1.9rem;
+            font-size: 2rem;
             color: var(--light-brown);
             font-weight: 400;
             max-width: 800px;
@@ -156,6 +160,28 @@
             font-family: 'Noto Serif SC', serif;
             opacity: 0.9;
             text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: relative;
+            padding: 0 20px;
+        }
+        
+        /* Golden Ornament Top and Bottom */
+        .ornament-top, .ornament-bottom {
+            position: absolute;
+            left: 0;
+            width: 100%;
+            height: 40px;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 20" preserveAspectRatio="none"><path d="M0,10 Q25,0 50,10 T100,10" fill="none" stroke="%23e6c78a" stroke-width="0.8" opacity="0.7"/></svg>');
+            background-repeat: repeat-x;
+            z-index: 2;
+        }
+        
+        .ornament-top {
+            top: 0;
+        }
+        
+        .ornament-bottom {
+            bottom: 0;
+            transform: rotate(180deg);
         }
         
         /* Enhanced Hero Section */
@@ -164,17 +190,18 @@
             flex-wrap: wrap;
             gap: 50px;
             align-items: center;
-            margin: 60px 0;
-            padding: 50px;
+            margin: 80px 0;
+            padding: 60px;
             background: 
-                linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.7) 100%);
+                linear-gradient(135deg, rgba(255, 255, 255, 0.92) 0%, rgba(255, 255, 255, 0.75) 100%);
             border-radius: 25px;
             box-shadow: 
                 0 20px 60px rgba(0, 0, 0, 0.1),
                 inset 0 1px 0 rgba(255, 255, 255, 0.8);
             border: 1px solid rgba(230, 199, 138, 0.3);
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(12px);
             position: relative;
+            overflow: hidden;
         }
         
         .hero::before {
@@ -189,7 +216,20 @@
             background: linear-gradient(45deg, var(--gold), transparent, var(--deep-red), transparent, var(--gold));
             mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
             mask-composite: exclude;
-            opacity: 0.3;
+            opacity: 0.2;
+        }
+        
+        /* Corner ornaments */
+        .hero::after {
+            content: "";
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            right: 20px;
+            bottom: 20px;
+            border: 1px solid rgba(230, 199, 138, 0.2);
+            border-radius: 15px;
+            pointer-events: none;
         }
         
         .book-cover {
@@ -197,6 +237,7 @@
             min-width: 350px;
             position: relative;
             perspective: 1200px;
+            transform-style: preserve-3d;
         }
         
         .cover-art {
@@ -208,7 +249,8 @@
             box-shadow: 
                 0 25px 50px rgba(0, 0, 0, 0.3),
                 0 10px 20px rgba(139, 0, 0, 0.2),
-                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+                inset 0 1px 0 rgba(255, 255, 255, 0.1),
+                inset 0 -2px 4px rgba(0, 0, 0, 0.3);
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -220,6 +262,7 @@
             transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
             overflow: hidden;
+            border: 1px solid rgba(230, 199, 138, 0.2);
         }
         
         .cover-art::before {
@@ -235,6 +278,22 @@
             animation: coverShimmer 8s ease-in-out infinite;
         }
         
+        /* Embossed effect */
+        .cover-art::after {
+            content: "";
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            right: 10px;
+            bottom: 10px;
+            border: 1px solid rgba(230, 199, 138, 0.1);
+            border-radius: 8px;
+            box-shadow: 
+                inset 0 0 20px rgba(0, 0, 0, 0.2),
+                inset 0 0 10px rgba(0, 0, 0, 0.3);
+            pointer-events: none;
+        }
+        
         .cover-art:hover {
             transform: rotateY(0deg) rotateX(0deg) scale(1.02);
             box-shadow: 
@@ -244,7 +303,7 @@
         
         .cover-title {
             font-family: 'Noto Serif SC', serif;
-            font-size: 3.2rem;
+            font-size: 3.5rem;
             margin-bottom: 25px;
             z-index: 2;
             text-shadow: 
@@ -252,15 +311,19 @@
                 0 4px 8px rgba(0, 0, 0, 0.3);
             line-height: 1.2;
             animation: textGlow 4s ease-in-out infinite alternate;
+            letter-spacing: 1px;
+            font-weight: 600;
         }
         
         .cover-subtitle {
-            font-size: 1.6rem;
+            font-size: 1.8rem;
             font-family: 'Noto Serif SC', serif;
             z-index: 2;
             max-width: 300px;
             opacity: 0.95;
             text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            font-weight: 500;
+            margin-bottom: 10px;
         }
         
         .cover-author {
@@ -271,27 +334,30 @@
             font-family: 'Gentium Plus', serif;
             opacity: 0.9;
             text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            letter-spacing: 1px;
         }
         
         .hero-content {
             flex: 1;
             min-width: 350px;
+            position: relative;
         }
         
         .section-title-container {
             position: relative;
             display: flex;
             align-items: center;
-            margin-bottom: 35px;
+            margin-bottom: 40px;
             gap: 25px;
         }
         
         .section-title {
             font-family: 'Noto Serif SC', serif;
-            font-size: 2.8rem;
+            font-size: 3rem;
             color: var(--deep-red);
             position: relative;
             display: inline-block;
+            font-weight: 600;
         }
         
         .section-title::after {
@@ -350,27 +416,41 @@
         }
         
         .hero-content p {
-            font-size: 1.2rem;
-            margin-bottom: 25px;
+            font-size: 1.25rem;
+            margin-bottom: 30px;
             line-height: 1.9;
             text-align: justify;
             color: var(--dark-brown);
+            position: relative;
+            padding-left: 20px;
+        }
+        
+        .hero-content p::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 8px;
+            height: calc(100% - 16px);
+            width: 4px;
+            background: linear-gradient(to bottom, var(--gold), var(--deep-red), var(--gold));
+            border-radius: 2px;
         }
         
         /* Enhanced Movement Section */
         .movement {
-            padding: 80px 40px;
+            padding: 100px 40px;
             text-align: center;
             background: 
                 linear-gradient(135deg, rgba(139, 0, 0, 0.95) 0%, rgba(94, 40, 40, 0.9) 100%);
             color: var(--cream);
-            margin: 80px 0;
+            margin: 100px 0;
             border-radius: 25px;
             box-shadow: 
                 0 20px 40px rgba(0, 0, 0, 0.2),
                 inset 0 1px 0 rgba(255, 255, 255, 0.1);
             position: relative;
             overflow: hidden;
+            border: 1px solid rgba(230, 199, 138, 0.3);
         }
         
         .movement::before {
@@ -384,9 +464,45 @@
             animation: movementGlow 15s ease-in-out infinite;
         }
         
+        /* Corner ornaments for movement section */
+        .movement-corner {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            z-index: 2;
+        }
+        
+        .movement-corner.tl {
+            top: 20px;
+            left: 20px;
+            border-top: 2px solid var(--gold);
+            border-left: 2px solid var(--gold);
+        }
+        
+        .movement-corner.tr {
+            top: 20px;
+            right: 20px;
+            border-top: 2px solid var(--gold);
+            border-right: 2px solid var(--gold);
+        }
+        
+        .movement-corner.bl {
+            bottom: 20px;
+            left: 20px;
+            border-bottom: 2px solid var(--gold);
+            border-left: 2px solid var(--gold);
+        }
+        
+        .movement-corner.br {
+            bottom: 20px;
+            right: 20px;
+            border-bottom: 2px solid var(--gold);
+            border-right: 2px solid var(--gold);
+        }
+        
         .global-title {
             font-family: 'Noto Serif SC', serif;
-            font-size: 4rem;
+            font-size: 4.2rem;
             margin-bottom: 40px;
             color: var(--gold);
             letter-spacing: 3px;
@@ -395,15 +511,17 @@
                 0 4px 8px rgba(0, 0, 0, 0.3);
             position: relative;
             z-index: 2;
+            font-weight: 600;
         }
         
         .movement > p {
-            font-size: 1.4rem;
+            font-size: 1.5rem;
             max-width: 800px;
-            margin: 0 auto 50px;
+            margin: 0 auto 60px;
             opacity: 0.95;
             position: relative;
             z-index: 2;
+            line-height: 1.9;
         }
         
         .movement-steps {
@@ -422,10 +540,13 @@
             backdrop-filter: blur(15px);
             border: 1px solid rgba(230, 199, 138, 0.4);
             border-radius: 20px;
-            padding: 40px;
+            padding: 40px 30px;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
             overflow: hidden;
+            box-shadow: 
+                inset 0 0 15px rgba(0, 0, 0, 0.1),
+                0 5px 15px rgba(0, 0, 0, 0.1);
         }
         
         .step::before {
@@ -449,31 +570,33 @@
         }
         
         .step:hover::before {
-            opacity: 1;
+            opacity: 0.5;
         }
         
         .step-number {
-            font-size: 3.5rem;
+            font-size: 3.8rem;
             color: var(--gold);
             margin-bottom: 20px;
             font-family: 'Noto Serif SC', serif;
             text-shadow: 0 0 20px rgba(230, 199, 138, 0.5);
             position: relative;
             z-index: 2;
+            font-weight: 700;
         }
         
         .step-title {
-            font-size: 1.6rem;
-            margin-bottom: 20px;
+            font-size: 1.7rem;
+            margin-bottom: 25px;
             font-family: 'Noto Serif SC', serif;
             position: relative;
             z-index: 2;
+            font-weight: 600;
         }
         
         .step p {
             font-family: 'Gentium Plus', serif;
-            font-size: 1.1rem;
-            line-height: 1.7;
+            font-size: 1.15rem;
+            line-height: 1.8;
             position: relative;
             z-index: 2;
         }
@@ -482,9 +605,9 @@
         .tribute {
             background: 
                 linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.85) 100%);
-            padding: 80px 50px;
+            padding: 90px 50px;
             border-radius: 25px;
-            margin: 80px 0;
+            margin: 100px 0;
             box-shadow: 
                 0 25px 50px rgba(0, 0, 0, 0.08),
                 inset 0 1px 0 rgba(255, 255, 255, 0.8);
@@ -494,7 +617,7 @@
         }
         
         .tribute::before {
-            content: "“";  /* Fixed quotation mark */
+            content: "“";
             position: absolute;
             top: 40px;
             left: 40px;
@@ -506,7 +629,7 @@
         }
         
         .tribute::after {
-            content: "”";  /* Fixed quotation mark */
+            content: "”";
             position: absolute;
             bottom: 40px;
             right: 40px;
@@ -519,7 +642,7 @@
         }
         
         .tribute-content {
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             line-height: 2;
             max-width: 1000px;
             margin: 0 auto;
@@ -535,7 +658,7 @@
         .tribute-author {
             text-align: right;
             margin-top: 40px;
-            font-size: 1.4rem;
+            font-size: 1.5rem;
             font-style: normal;
             color: var(--deep-red);
             font-weight: 600;
@@ -557,11 +680,11 @@
         /* Enhanced Call to Action */
         .cta {
             text-align: center;
-            padding: 80px 40px;
+            padding: 100px 40px;
             background: 
                 linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(249, 245, 240, 0.9) 100%);
             border-radius: 25px;
-            margin: 80px 0;
+            margin: 100px 0;
             position: relative;
             box-shadow: 
                 0 20px 40px rgba(0, 0, 0, 0.08),
@@ -583,18 +706,19 @@
         
         .cta-title {
             font-family: 'Noto Serif SC', serif;
-            font-size: 3.5rem;
+            font-size: 3.8rem;
             color: var(--deep-red);
             margin-bottom: 30px;
             text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             position: relative;
             z-index: 2;
+            font-weight: 600;
         }
         
         .cta-subtitle {
-            font-size: 1.6rem;
+            font-size: 1.7rem;
             color: var(--light-brown);
-            margin-bottom: 50px;
+            margin-bottom: 60px;
             max-width: 700px;
             margin-left: auto;
             margin-right: auto;
@@ -608,8 +732,8 @@
             display: inline-block;
             background: linear-gradient(135deg, var(--deep-red) 0%, #6d0000 100%);
             color: var(--cream);
-            padding: 22px 50px;
-            font-size: 1.4rem;
+            padding: 24px 55px;
+            font-size: 1.5rem;
             border-radius: 50px;
             text-decoration: none;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -623,6 +747,7 @@
             position: relative;
             z-index: 2;
             overflow: hidden;
+            font-weight: 500;
         }
         
         .btn::before {
@@ -668,11 +793,11 @@
         /* Enhanced Footer */
         .footer {
             text-align: center;
-            padding: 60px 40px;
+            padding: 80px 40px 60px;
             background: 
                 linear-gradient(135deg, var(--dark-brown) 0%, #2c1810 100%);
             color: var(--cream);
-            margin-top: 80px;
+            margin-top: 100px;
             border-top: 5px solid var(--gold);
             position: relative;
             box-shadow: inset 0 1px 0 rgba(230, 199, 138, 0.2);
@@ -680,41 +805,46 @@
         
         .footer-logo {
             font-family: 'Noto Serif SC', serif;
-            font-size: 3rem;
+            font-size: 3.5rem;
             color: var(--gold);
             margin-bottom: 25px;
             text-shadow: 0 0 20px rgba(230, 199, 138, 0.4);
+            font-weight: 600;
         }
         
         .footer p {
             margin-bottom: 20px;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             opacity: 0.9;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
         }
         
         .social-links {
             display: flex;
             justify-content: center;
-            gap: 25px;
-            margin: 40px 0;
+            gap: 30px;
+            margin: 50px 0;
         }
         
         .social-links a {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 70px;
-            height: 70px;
+            width: 80px;
+            height: 80px;
             border-radius: 50%;
             background: 
                 linear-gradient(135deg, rgba(230, 199, 138, 0.15) 0%, rgba(230, 199, 138, 0.05) 100%);
             color: var(--gold);
-            font-size: 2rem;
+            font-size: 2.2rem;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             border: 2px solid rgba(230, 199, 138, 0.3);
             text-decoration: none;
             position: relative;
             overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
         
         .social-links a::before {
@@ -744,9 +874,9 @@
         }
         
         .copyright {
-            margin-top: 40px;
+            margin-top: 50px;
             color: rgba(255, 255, 255, 0.7);
-            font-size: 1.1rem;
+            font-size: 1.15rem;
             font-family: 'Gentium Plus', serif;
             line-height: 1.6;
             max-width: 800px;
@@ -754,7 +884,7 @@
             margin-right: auto;
         }
         
-        /* Mandala Animations - RESTORED */
+        /* Mandala Animations */
         @keyframes sacredRotate {
             from { transform: translate(-50%, -50%) rotate(0deg); }
             to { transform: translate(-50%, -50%) rotate(360deg); }
@@ -819,82 +949,82 @@
         /* Responsive Design */
         @media (max-width: 768px) {
             .logo-text {
-                font-size: 3.5rem;
+                font-size: 4rem;
             }
             
             .subtitle {
-                font-size: 1.5rem;
+                font-size: 1.6rem;
             }
             
             .cover-title {
-                font-size: 2.5rem;
-            }
-            
-            .global-title {
                 font-size: 2.8rem;
             }
             
+            .global-title {
+                font-size: 3rem;
+            }
+            
             .section-title {
-                font-size: 2.2rem;
+                font-size: 2.4rem;
             }
             
             .dharma-wheel-container {
-                width: 55px;
-                height: 55px;
+                width: 60px;
+                height: 60px;
             }
             
             .tribute-content {
-                font-size: 1.3rem;
+                font-size: 1.4rem;
             }
             
             .cta-title {
-                font-size: 2.5rem;
+                font-size: 2.8rem;
             }
             
             .hero, .movement, .tribute, .cta {
-                padding: 40px 20px;
-                margin: 40px 0;
+                padding: 40px 25px;
+                margin: 60px 0;
             }
             
             .movement-steps {
                 grid-template-columns: 1fr;
-                gap: 30px;
+                gap: 35px;
             }
             
             .btn {
-                padding: 18px 35px;
-                font-size: 1.2rem;
-                margin: 10px;
+                padding: 20px 40px;
+                font-size: 1.3rem;
+                margin: 12px;
             }
             
             .mandala-container {
-                width: 300px;
-                height: 300px;
+                width: 350px;
+                height: 350px;
             }
             
             .cover-art {
-                height: 400px;
-                padding: 30px;
+                height: 420px;
+                padding: 35px;
             }
             
             .tribute::before, .tribute::after {
-                font-size: 8rem;
+                font-size: 9rem;
             }
         }
         
         @media (max-width: 480px) {
             .logo-text {
-                font-size: 2.8rem;
+                font-size: 3.2rem;
                 letter-spacing: 2px;
             }
             
             .subtitle {
-                font-size: 1.3rem;
+                font-size: 1.4rem;
             }
             
             .hero {
                 flex-direction: column;
-                gap: 30px;
+                gap: 40px;
             }
             
             .book-cover {
@@ -902,22 +1032,22 @@
             }
             
             .cover-art {
-                height: 350px;
-                padding: 20px;
+                height: 380px;
+                padding: 25px;
             }
             
             .cover-title {
-                font-size: 2rem;
+                font-size: 2.3rem;
             }
             
             .cover-subtitle {
-                font-size: 1.3rem;
+                font-size: 1.4rem;
             }
             
             .section-title-container {
                 flex-direction: column;
                 align-items: flex-start;
-                gap: 15px;
+                gap: 20px;
             }
             
             .dharma-wheel-container {
@@ -925,20 +1055,20 @@
             }
             
             .global-title {
-                font-size: 2.2rem;
+                font-size: 2.5rem;
             }
             
             .step {
-                padding: 30px 20px;
+                padding: 35px 25px;
             }
             
             .tribute-content {
-                font-size: 1.2rem;
+                font-size: 1.3rem;
                 line-height: 1.8;
             }
             
             .tribute::before, .tribute::after {
-                font-size: 6rem;
+                font-size: 7rem;
             }
         }
     </style>
@@ -946,7 +1076,7 @@
 <body>
     <div class="container">
         <header class="header">
-            <!-- Mandala Background - RESTORED -->
+            <!-- Enhanced Mandala Background -->
             <div class="mandala-container">
                 <div class="mandala"></div>
             </div>
@@ -955,6 +1085,10 @@
                 <div class="logo-text">Hội Hướng</div>
             </div>
             <div class="subtitle">A Global Movement Rooted in Love and Remembrance</div>
+            
+            <!-- Golden ornaments -->
+            <div class="ornament-top"></div>
+            <div class="ornament-bottom"></div>
         </header>
 
         <div class="hero">
@@ -988,6 +1122,12 @@
         </div>
 
         <div class="movement">
+            <!-- Corner ornaments -->
+            <div class="movement-corner tl"></div>
+            <div class="movement-corner tr"></div>
+            <div class="movement-corner bl"></div>
+            <div class="movement-corner br"></div>
+            
             <h2 class="global-title">The Global Hội Hướng Movement</h2>
             <p>Born from the pages of "Nguyên Tâm - The Heart That Shaped Me", the Hội Hướng Movement will inspire a worldwide awakening to the power of:</p>
             
