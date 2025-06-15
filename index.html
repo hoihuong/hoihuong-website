@@ -7,8 +7,138 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Gentium+Plus:ital,wght@0,400;0,700;1,400;1,700&family=Noto+Serif+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* ... (keep all existing styles) ... */
-
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --gold: #e6c78a;
+            --deep-red: #8b0000;
+            --soft-red: #a52a2a;
+            --cream: #f9f5f0;
+            --dark-brown: #3e2723;
+            --light-brown: #5d4037;
+            --text-color: #333;
+            --lotus-pink: #ff9eb5;
+            --lotus-pink-light: #ffc2d1;
+            --lotus-purple: #b19cd9;
+        }
+        
+        body {
+            font-family: 'Gentium Plus', serif;
+            background: linear-gradient(135deg, var(--cream) 0%, #f5f0e8 50%, var(--cream) 100%);
+            color: var(--text-color);
+            line-height: 1.8;
+            overflow-x: hidden;
+            position: relative;
+        }
+        
+        /* Enhanced background with subtle lotus patterns */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 20%, rgba(230,199,138,0.03) 0%, transparent 50%),
+                radial-gradient(circle at 80% 40%, rgba(139,0,0,0.02) 0%, transparent 50%),
+                radial-gradient(circle at 40% 80%, rgba(230,199,138,0.03) 0%, transparent 50%),
+                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400" opacity="0.015"><path fill="%23e6c78a" d="M200,50 Q280,20 350,80 Q380,160 320,240 Q240,280 160,240 Q100,160 140,80 Q180,40 200,50Z M200,120 Q240,100 280,140 Q300,180 260,220 Q220,240 180,220 Q140,180 160,140 Q180,120 200,120Z"/></svg>');
+            z-index: -2;
+            pointer-events: none;
+        }
+        
+        /* Floating particles animation */
+        body::after {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="1000" viewBox="0 0 1000 1000"><circle cx="100" cy="100" r="1" fill="%23e6c78a" opacity="0.3"><animate attributeName="cy" values="100;900;100" dur="15s" repeatCount="indefinite"/></circle><circle cx="300" cy="200" r="1.5" fill="%238b0000" opacity="0.2"><animate attributeName="cy" values="200;800;200" dur="18s" repeatCount="indefinite"/></circle><circle cx="700" cy="150" r="1" fill="%23e6c78a" opacity="0.25"><animate attributeName="cy" values="150;850;150" dur="20s" repeatCount="indefinite"/></circle><circle cx="500" cy="300" r="1" fill="%235d4037" opacity="0.2"><animate attributeName="cy" values="300;700;300" dur="16s" repeatCount="indefinite"/></circle></svg>');
+            z-index: -1;
+            pointer-events: none;
+            animation: gentleFloat 25s ease-in-out infinite;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Enhanced Header with lotus mandala */
+        .header {
+            text-align: center;
+            padding: 80px 20px 60px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .lotus-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 500px;
+            height: 500px;
+            opacity: 0.08;
+            z-index: -1;
+        }
+        
+        .lotus {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(ellipse at center, transparent 30%, var(--gold) 35%, transparent 40%),
+                radial-gradient(ellipse at center, transparent 40%, var(--gold) 45%, transparent 50%),
+                radial-gradient(ellipse at center, transparent 50%, var(--gold) 55%, transparent 60%),
+                radial-gradient(ellipse at center, transparent 60%, var(--deep-red) 65%, transparent 70%);
+            border-radius: 50%;
+            animation: sacredRotate 120s linear infinite;
+        }
+        
+        .lotus::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 200px;
+            height: 200px;
+            transform: translate(-50%, -50%);
+            background: radial-gradient(circle, var(--gold) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: innerGlow 8s ease-in-out infinite alternate;
+        }
+        
+        .logo-container {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 30px;
+        }
+        
+        .lotus-icon {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 2;
+            animation: lotusFloat 8s ease-in-out infinite;
+        }
+        
+        .lotus-icon.left {
+            left: -100px;
+        }
+        
+        .lotus-icon.right {
+            right: -100px;
+        }
+        
         /* IMPROVED LOTUS FLOWER DESIGN */
         .lotus-profile {
             position: relative;
@@ -53,7 +183,7 @@
             animation: lotusPulse 4s ease-in-out infinite;
         }
         
-        /* New petal positions for circular arrangement */
+        /* Fixed petal positions for circular arrangement */
         .lotus-petal:nth-child(1) { 
             top: 10px; left: 22px; 
             transform: rotate(0deg);
@@ -111,36 +241,1169 @@
                 0 0 5px rgba(255, 215, 0, 0.6);
         }
         
+        .logo-text {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 5rem;
+            color: var(--deep-red);
+            margin-bottom: 20px;
+            letter-spacing: 4px;
+            text-shadow: 
+                0 0 20px rgba(139, 0, 0, 0.3),
+                0 4px 8px rgba(0, 0, 0, 0.1);
+            animation: titleGlow 6s ease-in-out infinite alternate;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .logo-text::after {
+            content: "";
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            animation: underlineGlow 4s ease-in-out infinite;
+        }
+        
+        .subtitle {
+            font-size: 1.9rem;
+            color: var(--light-brown);
+            font-weight: 400;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            font-family: 'Noto Serif SC', serif;
+            opacity: 0.9;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Enhanced Hero Section */
+        .hero {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 50px;
+            align-items: center;
+            margin: 60px 0;
+            padding: 50px;
+            background: 
+                linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.7) 100%),
+                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100" opacity="0.03"><path fill="%23e6c78a" d="M50,10 Q70,5 85,25 Q95,45 85,65 Q70,85 50,80 Q30,85 15,65 Q5,45 15,25 Q30,5 50,10Z"/></svg>');
+            border-radius: 25px;
+            box-shadow: 
+                0 20px 60px rgba(0, 0, 0, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(230, 199, 138, 0.3);
+            backdrop-filter: blur(10px);
+            position: relative;
+        }
+        
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 25px;
+            padding: 2px;
+            background: linear-gradient(45deg, var(--gold), transparent, var(--deep-red), transparent, var(--gold));
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask-composite: exclude;
+            opacity: 0.3;
+        }
+        
+        .book-cover {
+            flex: 1;
+            min-width: 350px;
+            position: relative;
+            perspective: 1200px;
+        }
+        
+        .cover-art {
+            width: 100%;
+            height: 500px;
+            background: 
+                linear-gradient(135deg, var(--deep-red) 0%, #6d0000 50%, var(--light-brown) 100%),
+                radial-gradient(circle at 30% 30%, rgba(230,199,138,0.2) 0%, transparent 60%);
+            border-radius: 12px;
+            box-shadow: 
+                0 25px 50px rgba(0, 0, 0, 0.3),
+                0 10px 20px rgba(139, 0, 0, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: var(--gold);
+            padding: 50px;
+            text-align: center;
+            transform: rotateY(-8deg) rotateX(2deg);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cover-art::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: 
+                radial-gradient(circle at 40% 40%, rgba(230,199,138,0.15) 0%, transparent 50%),
+                linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.05) 50%, transparent 70%);
+            animation: coverShimmer 8s ease-in-out infinite;
+        }
+        
+        .cover-art:hover {
+            transform: rotateY(0deg) rotateX(0deg) scale(1.02);
+            box-shadow: 
+                0 30px 60px rgba(0, 0, 0, 0.4),
+                0 15px 30px rgba(139, 0, 0, 0.3);
+        }
+        
+        .cover-title {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 3.2rem;
+            margin-bottom: 25px;
+            z-index: 2;
+            text-shadow: 
+                0 0 20px rgba(230, 199, 138, 0.5),
+                0 4px 8px rgba(0, 0, 0, 0.3);
+            line-height: 1.2;
+            animation: textGlow 4s ease-in-out infinite alternate;
+        }
+        
+        .cover-subtitle {
+            font-size: 1.6rem;
+            font-family: 'Noto Serif SC', serif;
+            z-index: 2;
+            max-width: 300px;
+            opacity: 0.95;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .cover-author {
+            position: absolute;
+            bottom: 40px;
+            font-size: 1.4rem;
+            z-index: 2;
+            font-family: 'Gentium Plus', serif;
+            opacity: 0.9;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .hero-content {
+            flex: 1;
+            min-width: 350px;
+        }
+        
+        .section-title-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+            margin-bottom: 35px;
+            gap: 25px;
+        }
+        
+        .section-title {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 2.8rem;
+            color: var(--deep-red);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: "";
+            position: absolute;
+            bottom: -15px;
+            left: 0;
+            width: 120px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--gold), var(--deep-red), var(--gold));
+            border-radius: 2px;
+            animation: titleUnderline 3s ease-in-out infinite;
+        }
+        
+        .dharma-wheel-container {
+            position: relative;
+            width: 70px;
+            height: 70px;
+            animation: rotateDharma 20s linear infinite;
+        }
+        
+        .dharma-wheel {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .dharma-wheel .rim {
+            fill: none;
+            stroke: var(--deep-red);
+            stroke-width: 4;
+            stroke-linecap: round;
+        }
+        
+        .dharma-wheel .spoke {
+            fill: none;
+            stroke: var(--gold);
+            stroke-width: 3;
+            stroke-linecap: round;
+        }
+        
+        .dharma-wheel .hub {
+            fill: var(--deep-red);
+            stroke: var(--gold);
+            stroke-width: 2;
+        }
+        
+        .dharma-wheel .symbol {
+            fill: var(--gold);
+            font-family: 'Noto Serif SC', serif;
+            font-size: 10px;
+            text-anchor: middle;
+            dominant-baseline: middle;
+        }
+        
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 25px;
+            line-height: 1.9;
+            text-align: justify;
+            color: var(--dark-brown);
+        }
+        
+        /* Enhanced Movement Section */
+        .movement {
+            padding: 80px 40px;
+            text-align: center;
+            background: 
+                linear-gradient(135deg, rgba(139, 0, 0, 0.95) 0%, rgba(94, 40, 40, 0.9) 100%),
+                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200" opacity="0.1"><circle cx="100" cy="100" r="3" fill="%23f9f5f0"><animate attributeName="r" values="3;8;3" dur="4s" repeatCount="indefinite"/></circle><circle cx="50" cy="50" r="2" fill="%23e6c78a"><animate attributeName="r" values="2;6;2" dur="3s" repeatCount="indefinite"/></circle><circle cx="150" cy="150" r="2.5" fill="%23f9f5f0"><animate attributeName="r" values="2.5;7;2.5" dur="5s" repeatCount="indefinite"/></circle></svg>');
+            color: var(--cream);
+            margin: 80px 0;
+            border-radius: 25px;
+            box-shadow: 
+                0 20px 40px rgba(0, 0, 0, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .movement::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(230,199,138,0.1) 0%, transparent 70%);
+            animation: movementGlow 15s ease-in-out infinite;
+        }
+        
+        .global-title {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 4rem;
+            margin-bottom: 40px;
+            color: var(--gold);
+            letter-spacing: 3px;
+            text-shadow: 
+                0 0 30px rgba(230, 199, 138, 0.6),
+                0 4px 8px rgba(0, 0, 0, 0.3);
+            position: relative;
+            z-index: 2;
+        }
+        
+        .movement > p {
+            font-size: 1.4rem;
+            max-width: 800px;
+            margin: 0 auto 50px;
+            opacity: 0.95;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .movement-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            margin: 60px 0;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .step {
+            background: 
+                linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.05) 100%),
+                rgba(230, 199, 138, 0.08);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(230, 199, 138, 0.4);
+            border-radius: 20px;
+            padding: 40px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .step::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(230,199,138,0.2) 0%, transparent 50%, rgba(139,0,0,0.1) 100%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        
+        .step:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 
+                0 25px 50px rgba(0, 0, 0, 0.3),
+                0 10px 20px rgba(230, 199, 138, 0.2);
+            border-color: var(--gold);
+        }
+        
+        .step:hover::before {
+            opacity: 1;
+        }
+        
+        .step-number {
+            font-size: 3.5rem;
+            color: var(--gold);
+            margin-bottom: 20px;
+            font-family: 'Noto Serif SC', serif;
+            text-shadow: 0 0 20px rgba(230, 199, 138, 0.5);
+            position: relative;
+            z-index: 2;
+        }
+        
+        .step-title {
+            font-size: 1.6rem;
+            margin-bottom: 20px;
+            font-family: 'Noto Serif SC', serif;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .step p {
+            font-family: 'Gentium Plus', serif;
+            font-size: 1.1rem;
+            line-height: 1.7;
+            position: relative;
+            z-index: 2;
+        }
+        
+        /* Enhanced Tribute Section - FIXED */
+        .tribute {
+            background: 
+                linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.85) 100%),
+                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100" opacity="0.02"><path fill="%238b0000" d="M50,20 Q70,10 85,30 Q90,50 70,70 Q50,80 30,70 Q10,50 15,30 Q30,10 50,20Z"/></svg>');
+            padding: 80px 50px;
+            border-radius: 25px;
+            margin: 80px 0;
+            box-shadow: 
+                0 25px 50px rgba(0, 0, 0, 0.08),
+                inset 0 1px 0 rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(230, 199, 138, 0.2);
+            position: relative;
+            backdrop-filter: blur(10px);
+        }
+        
+        .tribute::before {
+            content: "“";  /* Fixed quotation mark */
+            position: absolute;
+            top: 40px;
+            left: 40px;
+            font-size: 12rem;
+            color: rgba(139, 0, 0, 0.06);
+            font-family: 'Noto Serif SC', serif;
+            line-height: 1;
+            z-index: 1;
+        }
+        
+        .tribute::after {
+            content: "”";  /* Fixed quotation mark */
+            position: absolute;
+            bottom: 40px;
+            right: 40px;
+            font-size: 12rem;
+            color: rgba(139, 0, 0, 0.06);
+            font-family: 'Noto Serif SC', serif;
+            line-height: 1;
+            transform: rotate(180deg);
+            z-index: 1;
+        }
+        
+        .tribute-content {
+            font-size: 1.5rem;
+            line-height: 2;
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 3;
+            font-style: italic;
+            color: var(--dark-brown);
+            text-align: center;
+            font-family: 'Gentium Plus', serif;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+        }
+        
+        .tribute-author {
+            text-align: right;
+            margin-top: 40px;
+            font-size: 1.4rem;
+            font-style: normal;
+            color: var(--deep-red);
+            font-weight: 600;
+            font-family: 'Noto Serif SC', serif;
+            position: relative;
+            z-index: 3;
+        }
+        
+        .tribute-author::before {
+            content: "";
+            position: absolute;
+            top: -20px;
+            right: 0;
+            width: 100px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--gold));
+        }
+        
+        /* Enhanced Call to Action */
+        .cta {
+            text-align: center;
+            padding: 80px 40px;
+            background: 
+                linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(249, 245, 240, 0.9) 100%),
+                radial-gradient(circle at 50% 50%, rgba(230,199,138,0.05) 0%, transparent 70%);
+            border-radius: 25px;
+            margin: 80px 0;
+            position: relative;
+            box-shadow: 
+                0 20px 40px rgba(0, 0, 0, 0.08),
+                inset 0 1px 0 rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(230, 199, 138, 0.3);
+            overflow: hidden;
+        }
+        
+        .cta::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400" opacity="0.03"><path fill="%23e6c78a" d="M200,50 Q280,20 350,100 Q380,180 300,250 Q220,280 140,250 Q60,180 90,100 Q160,20 200,50Z"/></svg>');
+            animation: ctaPattern 20s linear infinite;
+        }
+        
+        .cta-title {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 3.5rem;
+            color: var(--deep-red);
+            margin-bottom: 30px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 2;
+        }
+        
+        .cta-subtitle {
+            font-size: 1.6rem;
+            color: var(--light-brown);
+            margin-bottom: 50px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            font-family: 'Gentium Plus', serif;
+            line-height: 1.8;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--deep-red) 0%, #6d0000 100%);
+            color: var(--cream);
+            padding: 22px 50px;
+            font-size: 1.4rem;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 2px solid var(--deep-red);
+            font-family: 'Noto Serif SC', serif;
+            letter-spacing: 1px;
+            margin: 15px;
+            box-shadow: 
+                0 8px 25px rgba(139, 0, 0, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            position: relative;
+            z-index: 2;
+            overflow: hidden;
+        }
+        
+        .btn::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.6s ease;
+        }
+        
+        .btn:hover::before {
+            left: 100%;
+        }
+        
+        .btn:hover {
+            background: linear-gradient(135deg, #a00000 0%, var(--deep-red) 100%);
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 
+                0 15px 35px rgba(139, 0, 0, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            color: var(--deep-red);
+            border: 2px solid var(--deep-red);
+            box-shadow: 
+                0 8px 25px rgba(139, 0, 0, 0.15),
+                inset 0 1px 0 rgba(139, 0, 0, 0.1);
+        }
+        
+        .btn-outline:hover {
+            background: linear-gradient(135deg, var(--deep-red) 0%, #6d0000 100%);
+            color: var(--cream);
+            box-shadow: 
+                0 15px 35px rgba(139, 0, 0, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        }
+        
+        /* Enhanced Footer */
+        .footer {
+            text-align: center;
+            padding: 60px 40px;
+            background: 
+                linear-gradient(135deg, var(--dark-brown) 0%, #2c1810 100%),
+                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100" opacity="0.05"><circle cx="50" cy="50" r="20" fill="none" stroke="%23e6c78a" stroke-width="1"/><circle cx="50" cy="50" r="10" fill="none" stroke="%23e6c78a" stroke-width="0.5"/></svg>');
+            color: var(--cream);
+            margin-top: 80px;
+            border-top: 5px solid var(--gold);
+            position: relative;
+            box-shadow: inset 0 1px 0 rgba(230, 199, 138, 0.2);
+        }
+        
+        .footer-logo {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 3rem;
+            color: var(--gold);
+            margin-bottom: 25px;
+            text-shadow: 0 0 20px rgba(230, 199, 138, 0.4);
+        }
+        
+        .footer p {
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin: 40px 0;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: 
+                linear-gradient(135deg, rgba(230, 199, 138, 0.15) 0%, rgba(230, 199, 138, 0.05) 100%);
+            color: var(--gold);
+            font-size: 2rem;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 2px solid rgba(230, 199, 138, 0.3);
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .social-links a::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle, rgba(230,199,138,0.2) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        
+        .social-links a:hover::before {
+            opacity: 1;
+        }
+        
+        .social-links a:hover {
+            background: 
+                linear-gradient(135deg, rgba(230, 199, 138, 0.25) 0%, rgba(230, 199, 138, 0.1) 100%);
+            transform: translateY(-8px) scale(1.1);
+            border-color: var(--gold);
+            box-shadow: 
+                0 10px 20px rgba(230, 199, 138, 0.3),
+                0 0 30px rgba(230, 199, 138, 0.2);
+        }
+        
+        .copyright {
+            margin-top: 40px;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1.1rem;
+            font-family: 'Gentium Plus', serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Enhanced Animations */
+        @keyframes sacredRotate {
+            from { transform: translate(-50%, -50%) rotate(0deg); }
+            to { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+        
+        @keyframes innerGlow {
+            0% { opacity: 0.3; transform: translate(-50%, -50%) scale(1); }
+            100% { opacity: 0.7; transform: translate(-50%, -50%) scale(1.1); }
+        }
+        
+        @keyframes titleGlow {
+            0% { text-shadow: 0 0 20px rgba(139, 0, 0, 0.3), 0 4px 8px rgba(0, 0, 0, 0.1); }
+            100% { text-shadow: 0 0 40px rgba(139, 0, 0, 0.5), 0 4px 8px rgba(0, 0, 0, 0.1); }
+        }
+        
+        @keyframes underlineGlow {
+            0% { opacity: 0.5; transform: translateX(-50%) scaleX(0.8); }
+            50% { opacity: 1; transform: translateX(-50%) scaleX(1.2); }
+            100% { opacity: 0.5; transform: translateX(-50%) scaleX(0.8); }
+        }
+        
+        @keyframes coverShimmer {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            50% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+            100% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+        }
+        
+        @keyframes textGlow {
+            0% { text-shadow: 0 0 20px rgba(230, 199, 138, 0.5), 0 4px 8px rgba(0, 0, 0, 0.3); }
+            100% { text-shadow: 0 0 40px rgba(230, 199, 138, 0.8), 0 4px 8px rgba(0, 0, 0, 0.3); }
+        }
+        
+        @keyframes titleUnderline {
+            0% { width: 120px; opacity: 0.7; }
+            50% { width: 160px; opacity: 1; }
+            100% { width: 120px; opacity: 0.7; }
+        }
+        
+        @keyframes movementGlow {
+            0% { transform: rotate(0deg) scale(1); opacity: 0.1; }
+            50% { transform: rotate(180deg) scale(1.1); opacity: 0.2; }
+            100% { transform: rotate(360deg) scale(1); opacity: 0.1; }
+        }
+        
+        @keyframes ctaPattern {
+            0% { transform: rotate(0deg) scale(1); }
+            100% { transform: rotate(360deg) scale(1); }
+        }
+        
+        @keyframes gentleFloat {
+            0% { transform: translateY(0px) rotate(0deg); opacity: 0.3; }
+            33% { transform: translateY(-10px) rotate(120deg); opacity: 0.5; }
+            66% { transform: translateY(5px) rotate(240deg); opacity: 0.3; }
+            100% { transform: translateY(0px) rotate(360deg); opacity: 0.3; }
+        }
+        
+        /* New Animations */
+        @keyframes rotateDharma {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        @keyframes lotusFloat {
+            0% { transform: translateY(-50%) scale(1) rotate(0deg); }
+            50% { transform: translateY(-50%) scale(1.1) rotate(5deg); }
+            100% { transform: translateY(-50%) scale(1) rotate(0deg); }
+        }
+        
         /* New animation for petals */
         @keyframes lotusPulse {
             0%, 100% { 
-                transform: rotate(var(--rotate)) scale(1) translateY(0);
+                transform: scale(1) translateY(0);
                 opacity: 0.95;
             }
             50% { 
-                transform: rotate(var(--rotate)) scale(1.05) translateY(-2px);
+                transform: scale(1.05) translateY(-2px);
                 opacity: 1;
             }
         }
         
-        /* ... (keep all other styles) ... */
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .logo-text {
+                font-size: 3.5rem;
+            }
+            
+            .subtitle {
+                font-size: 1.5rem;
+            }
+            
+            .lotus-icon {
+                width: 50px;
+                height: 50px;
+            }
+            
+            .lotus-icon.left {
+                left: -70px;
+            }
+            
+            .lotus-icon.right {
+                right: -70px;
+            }
+            
+            .lotus-petal {
+                width: 30px;
+                height: 18px;
+            }
+            
+            .lotus-center {
+                width: 15px;
+                height: 15px;
+                top: 25px;
+                left: 20px;
+            }
+            
+            .cover-title {
+                font-size: 2.5rem;
+            }
+            
+            .global-title {
+                font-size: 2.8rem;
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
+            }
+            
+            .dharma-wheel-container {
+                width: 55px;
+                height: 55px;
+            }
+            
+            .tribute-content {
+                font-size: 1.3rem;
+            }
+            
+            .cta-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero, .movement, .tribute, .cta {
+                padding: 40px 20px;
+                margin: 40px 0;
+            }
+            
+            .movement-steps {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .btn {
+                padding: 18px 35px;
+                font-size: 1.2rem;
+                margin: 10px;
+            }
+            
+            .lotus-container {
+                width: 300px;
+                height: 300px;
+            }
+            
+            .cover-art {
+                height: 400px;
+                padding: 30px;
+            }
+            
+            .tribute::before, .tribute::after {
+                font-size: 8rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .logo-text {
+                font-size: 2.8rem;
+                letter-spacing: 2px;
+            }
+            
+            .subtitle {
+                font-size: 1.3rem;
+            }
+            
+            .lotus-icon {
+                width: 35px;
+                height: 35px;
+            }
+            
+            .lotus-icon.left {
+                left: -45px;
+            }
+            
+            .lotus-icon.right {
+                right: -45px;
+            }
+            
+            .lotus-petal {
+                width: 20px;
+                height: 12px;
+            }
+            
+            .lotus-center {
+                width: 10px;
+                height: 10px;
+                top: 17px;
+                left: 13px;
+            }
+            
+            .lotus-stem {
+                height: 35px;
+            }
+            
+            .lotus-leaf {
+                width: 35px;
+                height: 20px;
+            }
+            
+            .hero {
+                flex-direction: column;
+                gap: 30px;
+            }
+            
+            .book-cover {
+                min-width: 280px;
+            }
+            
+            .cover-art {
+                height: 350px;
+                padding: 20px;
+            }
+            
+            .cover-title {
+                font-size: 2rem;
+            }
+            
+            .cover-subtitle {
+                font-size: 1.3rem;
+            }
+            
+            .section-title-container {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+            
+            .dharma-wheel-container {
+                align-self: center;
+            }
+            
+            .global-title {
+                font-size: 2.2rem;
+            }
+            
+            .step {
+                padding: 30px 20px;
+            }
+            
+            .tribute-content {
+                font-size: 1.2rem;
+                line-height: 1.8;
+            }
+            
+            .tribute::before, .tribute::after {
+                font-size: 6rem;
+            }
+        }
     </style>
 </head>
 <body>
-    <!-- ... (keep all existing HTML) ... -->
+    <div class="container">
+        <header class="header">
+            <div class="lotus-container">
+                <div class="lotus"></div>
+            </div>
+            <div class="logo-container">
+                <div class="lotus-icon left">
+                    <div class="lotus-profile">
+                        <div class="lotus-stem"></div>
+                        <div class="lotus-leaf"></div>
+                        <div class="lotus-petal"></div>
+                        <div class="lotus-petal"></div>
+                        <div class="lotus-petal"></div>
+                        <div class="lotus-petal"></div>
+                        <div class="lotus-petal"></div>
+                        <div class="lotus-petal"></div>
+                        <div class="lotus-petal"></div>
+                        <div class="lotus-petal"></div>
+                        <div class="lotus-center"></div>
+                    </div>
+                </div>
+                <div class="logo-text">Hội Hướng</div>
+                <div class="lotus-icon right">
+                    <div class="lotus-profile">
+                        <div class="lotus-stem"></div>
+                        <div class="lotus-leaf"></div>
+                        <div class="lotus-petal"></div>
+                        <div class="lotus-petal"></div>
+                        <div class="lotus-petal"></div>
+                        <div class="lotus-petal"></div>
+                        <div class="lotus-petal"></div>
+                        <div class="lotus-petal"></div>
+                        <div class="lotus-petal"></div>
+                        <div class="lotus-petal"></div>
+                        <div class="lotus-center"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="subtitle">A Global Movement Rooted in Love and Remembrance</div>
+        </header>
+
+        <div class="hero">
+            <div class="book-cover">
+                <div class="cover-art">
+                    <div class="cover-title">Nguyên Tâm</div>
+                    <div class="cover-subtitle">The Heart That Shaped Me</div>
+                    <div class="cover-author">A Memoir by Nguyên Thủy</div>
+                </div>
+            </div>
+            <div class="hero-content">
+                <div class="section-title-container">
+                    <h2 class="section-title">The Catalyst</h2>
+                    <div class="dharma-wheel-container">
+                        <svg class="dharma-wheel" viewBox="0 0 100 100">
+                            <circle class="rim" cx="50" cy="50" r="45" />
+                            <line class="spoke" x1="50" y1="5" x2="50" y2="95" />
+                            <line class="spoke" x1="50" y1="5" x2="50" y2="95" transform="rotate(45 50 50)" />
+                            <line class="spoke" x1="50" y1="5" x2="50" y2="95" transform="rotate(90 50 50)" />
+                            <line class="spoke" x1="50" y1="5" x2="50" y2="95" transform="rotate(135 50 50)" />
+                            <circle class="hub" cx="50" cy="50" r="15" />
+                            <text class="symbol" x="50" y="50">☸</text>
+                        </svg>
+                    </div>
+                </div>
+                <p>In loving memory of my mother, this is my love letter to the woman who taught me that love itself can be both salvation and suffering, and that sometimes the greatest courage is found not in fighting back, but in continuing to love despite everything that tries to stop you. I present "Nguyên Tâm - The Heart That Shaped Me".</p>
+                <p>This memoir is more than my mother's journey; it's an invitation to discover the transformative power of maternal love and its capacity to shape lives across generations.</p>
+                <p>As we prepare to release this heartfelt tribute, we stand at the threshold of a global movement - a movement that seeks to honor the profound influence of those who shape our hearts and guide our paths.</p>
+                <p>The Hội Hướng Movement will awaken the world to the sacred connections that bind us, the legacies that sustain us, and the love that transcends even death itself.</p>
+            </div>
+        </div>
+
+        <div class="movement">
+            <h2 class="global-title">The Global Hội Hướng Movement</h2>
+            <p>Born from the pages of "Nguyên Tâm - The Heart That Shaped Me", the Hội Hướng Movement will inspire a worldwide awakening to the power of:</p>
+            
+            <div class="movement-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3 class="step-title">Sacred Remembrance</h3>
+                    <p>Honoring those who shaped our lives with rituals of gratitude</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3 class="step-title">Intergenerational Healing</h3>
+                    <p>Bridging past and future through shared stories</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3 class="step-title">Compassionate Legacy</h3>
+                    <p>Cultivating virtues that transform communities</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3 class="step-title">Global Connection</h3>
+                    <p>Uniting hearts across cultures through shared humanity</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="tribute">
+            <div class="tribute-content">
+                "True merit lives in the spaces between grand gestures: in steam rising from a shared bowl of cháo, in crayon butterflies drawn by small hands, in the unbearable courage to chant through tears. This is how we turn altars into action—not by escaping the world, but by hallowing its every breath. For in the soil of the mundane, amid bus transfers and grief and bánh bò, the lotus of enlightenment takes root." 
+                "For my Beloved mother, my first love, Nguyên Tâm (1947-2024) Who taught us that liberation smells of tiger balm, tastes of bún riêu, and sounds like a lullaby hummed between laundry loads. Your lotus blooms in every act of love we dedicate."
+                <div class="tribute-author">— Nguyên Thủy, "Nguyên Tâm - The Heart That Shaped Me"</div>
+            </div>
+        </div>
+
+        <div class="cta">
+            <h2 class="cta-title">Join the Awakening</h2>
+            <p class="cta-subtitle">Be among the first to know when "Nguyên Tâm - The Heart That Shaped Me" is released and the Hội Hướng Movement begins</p>
+            
+            <a href="#" class="btn">Notify Me on Release Day</a>
+            <a href="#" class="btn btn-outline">Share Your Story</a>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="footer-logo">Hội Hướng</div>
+        <p>The Global Movement of Heart-Shaped Legacies</p>
+        
+        <div class="social-links">
+            <a href="https://twitter.com/_hoihuong_" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        </div>
+        
+        <div class="copyright">
+            &copy; 2025 Hội Hướng Global Movement. "Nguyên Tâm - The Heart That Shaped Me" by Nguyên Thủy is a tribute to maternal love and legacy.
+        </div>
+    </div>
 
     <script>
-        // ... (keep all existing JavaScript) ... 
-        
-        // Add petal rotation variables
+        // Enhanced animations and interactions
         document.addEventListener('DOMContentLoaded', function() {
-            const petals = document.querySelectorAll('.lotus-petal');
-            const rotations = [0, 45, 90, 135, 180, 225, 270, 315];
+            const cover = document.querySelector('.cover-art');
+            const steps = document.querySelectorAll('.step');
+            const buttons = document.querySelectorAll('.btn');
             
-            petals.forEach((petal, index) => {
-                petal.style.setProperty('--rotate', `${rotations[index]}deg`);
+            // Enhanced book cover interaction
+            cover.addEventListener('mouseenter', function() {
+                this.style.transform = 'rotateY(0deg) rotateX(0deg) scale(1.02)';
+            });
+            
+            cover.addEventListener('mouseleave', function() {
+                this.style.transform = 'rotateY(-8deg) rotateX(2deg) scale(1)';
+            });
+            
+            // Staggered step animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry, index) => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => {
+                            entry.target.style.opacity = '1';
+                            entry.target.style.transform = 'translateY(0) scale(1)';
+                        }, index * 200);
+                    }
+                });
+            }, observerOptions);
+            
+            // Observe steps and other elements
+            steps.forEach((step, index) => {
+                step.style.opacity = '0';
+                step.style.transform = 'translateY(50px) scale(0.9)';
+                step.style.transition = 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
+                observer.observe(step);
+            });
+            
+            // Enhanced button interactions
+            buttons.forEach(button => {
+                button.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-5px) scale(1.05)';
+                });
+                
+                button.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+                
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Create ripple effect
+                    const ripple = document.createElement('span');
+                    const rect = this.getBoundingClientRect();
+                    const size = Math.max(rect.width, rect.height);
+                    const x = e.clientX - rect.left - size / 2;
+                    const y = e.clientY - rect.top - size / 2;
+                    
+                    ripple.style.cssText = `
+                        position: absolute;
+                        width: ${size}px;
+                        height: ${size}px;
+                        left: ${x}px;
+                        top: ${y}px;
+                        background: rgba(255, 255, 255, 0.5);
+                        border-radius: 50%;
+                        transform: scale(0);
+                        animation: ripple 0.6s ease-out;
+                        pointer-events: none;
+                    `;
+                    
+                    this.appendChild(ripple);
+                    
+                    setTimeout(() => {
+                        ripple.remove();
+                    }, 600);
+                });
+            });
+            
+            // Smooth scroll for internal links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+            
+            // Parallax effect for background elements
+            window.addEventListener('scroll', () => {
+                const scrolled = window.pageYOffset;
+                const parallaxElements = document.querySelectorAll('.lotus-container');
+                
+                parallaxElements.forEach(element => {
+                    const speed = 0.5;
+                    element.style.transform = `translate(-50%, -50%) translateY(${scrolled * speed}px)`;
+                });
             });
         });
+        
+        // Add CSS for ripple animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes ripple {
+                to {
+                    transform: scale(2);
+                    opacity: 0;
+                }
+            }
+            
+            .btn {
+                position: relative;
+                overflow: hidden;
+            }
+        `;
+        document.head.appendChild(style);
     </script>
 </body>
 </html>
