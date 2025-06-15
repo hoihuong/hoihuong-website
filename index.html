@@ -18,13 +18,12 @@
             --deep-red: #8b0000;
             --soft-red: #a52a2a;
             --cream: #f7f1e5; /* Creamier background */
+            --cream-dark: #e8dfcf;
             --dark-brown: #3e2723;
             --light-brown: #5d4037;
             --text-color: #333;
             --parchment: #f9f5f0;
             --parchment-border: #d7c9b1;
-            --gold-light: #f0e3c8;
-            --cream-dark: #e8dfcf;
         }
         
         body {
@@ -34,10 +33,6 @@
             line-height: 1.8;
             overflow-x: hidden;
             position: relative;
-            background-image: 
-                radial-gradient(circle at 90% 10%, rgba(230,199,138,0.03) 0%, transparent 20%),
-                radial-gradient(circle at 10% 90%, rgba(139,0,0,0.02) 0%, transparent 20%);
-            background-attachment: fixed;
         }
         
         /* Background with mandala patterns */
@@ -384,6 +379,10 @@
             fill: none;
             stroke: var(--gold);
             stroke-width: 2;
+        }
+        
+        .dharma-wheel .spoke-cap {
+            fill: var(--gold);
         }
         
         .hero-content p {
@@ -1123,15 +1122,33 @@
                     <h2 class="section-title">The Catalyst</h2>
                     <div class="dharma-wheel-container">
                         <svg class="dharma-wheel" viewBox="0 0 100 100">
+                            <!-- Authentic Dharma Wheel Design -->
                             <circle class="rim" cx="50" cy="50" r="45" />
-                            <line class="spoke" x1="50" y1="5" x2="50" y2="95" />
-                            <line class="spoke" x1="50" y1="5" x2="50" y2="95" transform="rotate(45 50 50)" />
-                            <line class="spoke" x1="50" y1="5" x2="50" y2="95" transform="rotate(90 50 50)" />
-                            <line class="spoke" x1="50" y1="5" x2="50" y2="95" transform="rotate(135 50 50)" />
-                            <line class="spoke" x1="50" y1="5" x2="50" y2="95" transform="rotate(180 50 50)" />
-                            <line class="spoke" x1="50" y1="5" x2="50" y2="95" transform="rotate(225 50 50)" />
-                            <line class="spoke" x1="50" y1="5" x2="50" y2="95" transform="rotate(270 50 50)" />
-                            <line class="spoke" x1="50" y1="5" x2="50" y2="95" transform="rotate(315 50 50)" />
+                            <!-- Spokes with caps -->
+                            <line class="spoke" x1="50" y1="50" x2="50" y2="5" />
+                            <circle class="spoke-cap" cx="50" cy="5" r="3" />
+                            
+                            <line class="spoke" x1="50" y1="50" x2="95" y2="50" />
+                            <circle class="spoke-cap" cx="95" cy="50" r="3" />
+                            
+                            <line class="spoke" x1="50" y1="50" x2="50" y2="95" />
+                            <circle class="spoke-cap" cx="50" cy="95" r="3" />
+                            
+                            <line class="spoke" x1="50" y1="50" x2="5" y2="50" />
+                            <circle class="spoke-cap" cx="5" cy="50" r="3" />
+                            
+                            <line class="spoke" x1="50" y1="50" x2="75" y2="25" />
+                            <circle class="spoke-cap" cx="75" cy="25" r="3" />
+                            
+                            <line class="spoke" x1="50" y1="50" x2="75" y2="75" />
+                            <circle class="spoke-cap" cx="75" cy="75" r="3" />
+                            
+                            <line class="spoke" x1="50" y1="50" x2="25" y2="75" />
+                            <circle class="spoke-cap" cx="25" cy="75" r="3" />
+                            
+                            <line class="spoke" x1="50" y1="50" x2="25" y2="25" />
+                            <circle class="spoke-cap" cx="25" cy="25" r="3" />
+                            
                             <circle class="inner-circle" cx="50" cy="50" r="15" />
                             <circle class="hub" cx="50" cy="50" r="8" />
                         </svg>
@@ -1202,15 +1219,33 @@
         <div class="dharma-divider">
             <div class="dharma-centerpiece">
                 <svg class="dharma-wheel" viewBox="0 0 100 100">
+                    <!-- Authentic Dharma Wheel Design -->
                     <circle class="rim" cx="50" cy="50" r="45" />
-                    <line class="spoke" x1="50" y1="5" x2="50" y2="95" />
-                    <line class="spoke" x1="50" y1="5" x2="50" y2="95" transform="rotate(45 50 50)" />
-                    <line class="spoke" x1="50" y1="5" x2="50" y2="95" transform="rotate(90 50 50)" />
-                    <line class="spoke" x1="50" y1="5" x2="50" y2="95" transform="rotate(135 50 50)" />
-                    <line class="spoke" x1="50" y1="5" x2="50" y2="95" transform="rotate(180 50 50)" />
-                    <line class="spoke" x1="50" y1="5" x2="50" y2="95" transform="rotate(225 50 50)" />
-                    <line class="spoke" x1="50" y1="5" x2="50" y2="95" transform="rotate(270 50 50)" />
-                    <line class="spoke" x1="50" y1="5" x2="50" y2="95" transform="rotate(315 50 50)" />
+                    <!-- Spokes with caps -->
+                    <line class="spoke" x1="50" y1="50" x2="50" y2="5" />
+                    <circle class="spoke-cap" cx="50" cy="5" r="3" />
+                    
+                    <line class="spoke" x1="50" y1="50" x2="95" y2="50" />
+                    <circle class="spoke-cap" cx="95" cy="50" r="3" />
+                    
+                    <line class="spoke" x1="50" y1="50" x2="50" y2="95" />
+                    <circle class="spoke-cap" cx="50" cy="95" r="3" />
+                    
+                    <line class="spoke" x1="50" y1="50" x2="5" y2="50" />
+                    <circle class="spoke-cap" cx="5" cy="50" r="3" />
+                    
+                    <line class="spoke" x1="50" y1="50" x2="75" y2="25" />
+                    <circle class="spoke-cap" cx="75" cy="25" r="3" />
+                    
+                    <line class="spoke" x1="50" y1="50" x2="75" y2="75" />
+                    <circle class="spoke-cap" cx="75" cy="75" r="3" />
+                    
+                    <line class="spoke" x1="50" y1="50" x2="25" y2="75" />
+                    <circle class="spoke-cap" cx="25" cy="75" r="3" />
+                    
+                    <line class="spoke" x1="50" y1="50" x2="25" y2="25" />
+                    <circle class="spoke-cap" cx="25" cy="25" r="3" />
+                    
                     <circle class="inner-circle" cx="50" cy="50" r="15" />
                     <circle class="hub" cx="50" cy="50" r="8" />
                 </svg>
