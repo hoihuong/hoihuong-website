@@ -137,6 +137,7 @@
             animation: titleGlow 6s ease-in-out infinite alternate;
             position: relative;
             display: inline-block;
+            font-weight: 600;
         }
         
         .logo-text::after {
@@ -1069,6 +1070,11 @@
             
             .tribute::before, .tribute::after {
                 font-size: 7rem;
+            }
+            
+            /* Hide paragraph accent on mobile */
+            .hero-content p::before {
+                display: none;
             }
         }
     </style>
