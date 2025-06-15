@@ -959,7 +959,7 @@
             to { transform: rotate(360deg); }
         }
         
-        /* Responsive Design */
+        /* Responsive Design - MOBILE FIXES ADDED HERE */
         @media (max-width: 768px) {
             .logo-text {
                 font-size: 3.5rem;
@@ -1043,6 +1043,7 @@
             .hero {
                 flex-direction: column;
                 gap: 30px;
+                padding: 30px 15px; /* Reduced padding for better spacing */
             }
             
             .book-cover {
@@ -1062,14 +1063,35 @@
                 font-size: 1.3rem;
             }
             
+            /* CATALYST SECTION FIXES */
             .section-title-container {
                 flex-direction: column;
                 align-items: flex-start;
                 gap: 15px;
+                margin-bottom: 25px;
+            }
+            
+            .section-title {
+                font-size: 2.3rem; /* Larger font for mobile */
             }
             
             .dharma-wheel-container {
                 align-self: center;
+                width: 50px; /* Slightly smaller for mobile */
+                height: 50px;
+            }
+            
+            .hero-content p {
+                font-size: 1.4rem; /* Larger font size for readability */
+                line-height: 2; /* Increased line height */
+                padding-left: 15px; /* Adjusted spacing */
+                margin-bottom: 20px;
+                text-align: left; /* Left-aligned for better mobile reading */
+            }
+            
+            .hero-content p::before {
+                top: 8px; /* Adjusted position */
+                bottom: 8px;
             }
             
             .global-title {
