@@ -139,37 +139,89 @@
             right: -100px;
         }
         
-        .lotus-flower {
+        /* Profile view lotus flower */
+        .lotus-profile {
             position: relative;
             width: 80px;
             height: 80px;
         }
         
-        .lotus-petal {
+        .lotus-stem {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--lotus-purple) 0%, var(--lotus-pink) 100%);
-            opacity: 0.8;
-            transform-origin: center;
-            animation: lotusPulse 4s ease-in-out infinite;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 8px;
+            height: 50px;
+            background: linear-gradient(to top, #4a752c, #7cb15e);
+            border-radius: 4px;
+            z-index: 1;
         }
         
-        .lotus-petal:nth-child(1) { transform: rotate(0deg); }
-        .lotus-petal:nth-child(2) { transform: rotate(45deg); }
-        .lotus-petal:nth-child(3) { transform: rotate(90deg); }
-        .lotus-petal:nth-child(4) { transform: rotate(135deg); }
+        .lotus-leaf {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            width: 50px;
+            height: 30px;
+            background: linear-gradient(to right, #5d8c46, #7cb15e);
+            border-radius: 50% 0 50% 50%;
+            transform: translateX(-50%) rotate(15deg);
+            z-index: 0;
+        }
+        
+        .lotus-petal {
+            position: absolute;
+            width: 40px;
+            height: 25px;
+            border-radius: 50%;
+            background: linear-gradient(to bottom, var(--lotus-pink-light), var(--lotus-pink));
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            z-index: 2;
+        }
+        
+        .lotus-petal:nth-child(1) {
+            top: 15px;
+            left: 20px;
+            transform: rotate(-20deg);
+        }
+        
+        .lotus-petal:nth-child(2) {
+            top: 10px;
+            left: 30px;
+            transform: rotate(10deg);
+        }
+        
+        .lotus-petal:nth-child(3) {
+            top: 20px;
+            left: 40px;
+            transform: rotate(30deg);
+        }
+        
+        .lotus-petal:nth-child(4) {
+            top: 35px;
+            left: 35px;
+            transform: rotate(50deg);
+        }
+        
+        .lotus-petal:nth-child(5) {
+            top: 40px;
+            left: 20px;
+            transform: rotate(70deg);
+        }
+        
+        .lotus-petal:nth-child(6) {
+            top: 30px;
+            left: 5px;
+            transform: rotate(-10deg);
+        }
         
         .lotus-center {
             position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 30px;
-            height: 30px;
+            top: 30px;
+            left: 25px;
+            width: 20px;
+            height: 20px;
             background: radial-gradient(circle, var(--gold) 0%, #d4af37 100%);
             border-radius: 50%;
             z-index: 3;
@@ -914,13 +966,15 @@
             }
             
             .lotus-petal {
-                width: 50px;
-                height: 50px;
+                width: 30px;
+                height: 18px;
             }
             
             .lotus-center {
-                width: 20px;
-                height: 20px;
+                width: 15px;
+                height: 15px;
+                top: 25px;
+                left: 20px;
             }
             
             .cover-title {
@@ -1003,13 +1057,24 @@
             }
             
             .lotus-petal {
-                width: 35px;
-                height: 35px;
+                width: 20px;
+                height: 12px;
             }
             
             .lotus-center {
-                width: 15px;
-                height: 15px;
+                width: 10px;
+                height: 10px;
+                top: 17px;
+                left: 13px;
+            }
+            
+            .lotus-stem {
+                height: 35px;
+            }
+            
+            .lotus-leaf {
+                width: 35px;
+                height: 20px;
             }
             
             .hero {
@@ -1071,7 +1136,11 @@
             </div>
             <div class="logo-container">
                 <div class="lotus-icon left">
-                    <div class="lotus-flower">
+                    <div class="lotus-profile">
+                        <div class="lotus-stem"></div>
+                        <div class="lotus-leaf"></div>
+                        <div class="lotus-petal"></div>
+                        <div class="lotus-petal"></div>
                         <div class="lotus-petal"></div>
                         <div class="lotus-petal"></div>
                         <div class="lotus-petal"></div>
@@ -1081,7 +1150,11 @@
                 </div>
                 <div class="logo-text">Hội Hướng</div>
                 <div class="lotus-icon right">
-                    <div class="lotus-flower">
+                    <div class="lotus-profile">
+                        <div class="lotus-stem"></div>
+                        <div class="lotus-leaf"></div>
+                        <div class="lotus-petal"></div>
+                        <div class="lotus-petal"></div>
                         <div class="lotus-petal"></div>
                         <div class="lotus-petal"></div>
                         <div class="lotus-petal"></div>
