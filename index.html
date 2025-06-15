@@ -80,52 +80,13 @@
         /* Mandala background - RESTORED */
         .mandala-container {
             position: absolute;
-            opacity: 0.08;
-            z-index: -1;
-            pointer-events: none;
-        }
-        
-        /* Header mandala */
-        .header-mandala {
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
             width: 500px;
             height: 500px;
-        }
-        
-        /* Hero section mandala */
-        .hero-mandala {
-            top: 20%;
-            right: 5%;
-            width: 200px;
-            height: 200px;
-        }
-        
-        /* Movement section mandala */
-        .movement-mandala {
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 600px;
-            height: 600px;
-        }
-        
-        /* Tribute section mandala */
-        .tribute-mandala {
-            top: 20%;
-            left: 5%;
-            width: 250px;
-            height: 250px;
-        }
-        
-        /* CTA section mandala */
-        .cta-mandala {
-            bottom: 20%;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 300px;
-            height: 300px;
+            opacity: 0.08;
+            z-index: -1;
         }
         
         .mandala {
@@ -146,8 +107,8 @@
             position: absolute;
             top: 50%;
             left: 50%;
-            width: 40%;
-            height: 40%;
+            width: 200px;
+            height: 200px;
             transform: translate(-50%, -50%);
             background: radial-gradient(circle, var(--gold) 0%, transparent 70%);
             border-radius: 50%;
@@ -795,8 +756,8 @@
         
         /* Mandala Animations - RESTORED */
         @keyframes sacredRotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
+            from { transform: translate(-50%, -50%) rotate(0deg); }
+            to { transform: translate(-50%, -50%) rotate(360deg); }
         }
         
         @keyframes innerGlow {
@@ -985,8 +946,8 @@
 <body>
     <div class="container">
         <header class="header">
-            <!-- Header Mandala -->
-            <div class="mandala-container header-mandala">
+            <!-- Mandala Background - RESTORED -->
+            <div class="mandala-container">
                 <div class="mandala"></div>
             </div>
             
@@ -997,11 +958,6 @@
         </header>
 
         <div class="hero">
-            <!-- Hero Section Mandala -->
-            <div class="mandala-container hero-mandala">
-                <div class="mandala"></div>
-            </div>
-            
             <div class="book-cover">
                 <div class="cover-art">
                     <div class="cover-title">Nguyên Tâm</div>
@@ -1032,11 +988,6 @@
         </div>
 
         <div class="movement">
-            <!-- Movement Section Mandala -->
-            <div class="mandala-container movement-mandala">
-                <div class="mandala"></div>
-            </div>
-            
             <h2 class="global-title">The Global Hội Hướng Movement</h2>
             <p>Born from the pages of "Nguyên Tâm - The Heart That Shaped Me", the Hội Hướng Movement will inspire a worldwide awakening to the power of:</p>
             
@@ -1065,11 +1016,6 @@
         </div>
 
         <div class="tribute">
-            <!-- Tribute Section Mandala -->
-            <div class="mandala-container tribute-mandala">
-                <div class="mandala"></div>
-            </div>
-            
             <div class="tribute-content">
                 "True merit lives in the spaces between grand gestures: in steam rising from a shared bowl of cháo, in crayon butterflies drawn by small hands, in the unbearable courage to chant through tears. This is how we turn altars into action—not by escaping the world, but by hallowing its every breath. For in the soil of the mundane, amid bus transfers and grief and bánh bò, the lotus of enlightenment takes root." 
                 "For my Beloved mother, my first love, Nguyên Tâm (1947-2024) Who taught us that liberation smells of tiger balm, tastes of bún riêu, and sounds like a lullaby hummed between laundry loads. Your lotus blooms in every act of love we dedicate."
@@ -1078,11 +1024,6 @@
         </div>
 
         <div class="cta">
-            <!-- CTA Section Mandala -->
-            <div class="mandala-container cta-mandala">
-                <div class="mandala"></div>
-            </div>
-            
             <h2 class="cta-title">Join the Awakening</h2>
             <p class="cta-subtitle">Be among the first to know when "Nguyên Tâm - The Heart That Shaped Me" is released and the Hội Hướng Movement begins</p>
             
@@ -1210,7 +1151,7 @@
                 
                 parallaxElements.forEach(element => {
                     const speed = 0.5;
-                    element.style.transform += ` translateY(${scrolled * speed}px)`;
+                    element.style.transform = `translate(-50%, -50%) translateY(${scrolled * speed}px)`;
                 });
             });
         });
