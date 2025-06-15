@@ -23,6 +23,7 @@
             --text-color: #333;
             --parchment: #f9f5f0;
             --parchment-border: #d7c9b1;
+            --gold-light: #f0e3c8;
         }
         
         body {
@@ -32,6 +33,10 @@
             line-height: 1.8;
             overflow-x: hidden;
             position: relative;
+            background-image: 
+                radial-gradient(circle at 90% 10%, rgba(230,199,138,0.03) 0%, transparent 20%),
+                radial-gradient(circle at 10% 90%, rgba(139,0,0,0.02) 0%, transparent 20%);
+            background-attachment: fixed;
         }
         
         /* Background with mandala patterns */
@@ -158,6 +163,19 @@
             font-family: 'Noto Serif SC', serif;
             opacity: 0.9;
             text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: relative;
+            padding-bottom: 20px;
+        }
+        
+        .subtitle::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
         }
         
         /* Enhanced Hero Section */
@@ -169,14 +187,15 @@
             margin: 60px 0;
             padding: 50px;
             background: 
-                linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.7) 100%);
+                linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.85) 100%);
             border-radius: 25px;
             box-shadow: 
-                0 20px 60px rgba(0, 0, 0, 0.1),
+                0 20px 60px rgba(0, 0, 0, 0.05),
                 inset 0 1px 0 rgba(255, 255, 255, 0.8);
             border: 1px solid rgba(230, 199, 138, 0.3);
             backdrop-filter: blur(10px);
             position: relative;
+            overflow: hidden;
         }
         
         .hero::before {
@@ -186,12 +205,8 @@
             left: 0;
             right: 0;
             bottom: 0;
-            border-radius: 25px;
-            padding: 2px;
-            background: linear-gradient(45deg, var(--gold), transparent, var(--deep-red), transparent, var(--gold));
-            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            mask-composite: exclude;
-            opacity: 0.3;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200" opacity="0.05"><path d="M20,20 Q40,10 50,30 Q60,10 80,20 Q90,40 70,50 Q90,60 80,80 Q60,90 50,70 Q40,90 20,80 Q10,60 30,50 Q10,40 20,20Z" fill="%238b0000"/></svg>');
+            z-index: -1;
         }
         
         .book-cover {
@@ -208,8 +223,8 @@
                 linear-gradient(135deg, var(--deep-red) 0%, #6d0000 50%, var(--light-brown) 100%);
             border-radius: 12px;
             box-shadow: 
-                0 25px 50px rgba(0, 0, 0, 0.3),
-                0 10px 20px rgba(139, 0, 0, 0.2),
+                0 25px 50px rgba(0, 0, 0, 0.2),
+                0 10px 20px rgba(139, 0, 0, 0.15),
                 inset 0 1px 0 rgba(255, 255, 255, 0.1);
             display: flex;
             flex-direction: column;
@@ -235,13 +250,27 @@
                 radial-gradient(circle at 40% 40%, rgba(230,199,138,0.15) 0%, transparent 50%),
                 linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.05) 50%, transparent 70%);
             animation: coverShimmer 8s ease-in-out infinite;
+            z-index: 1;
+        }
+        
+        .cover-art::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100" opacity="0.1"><path d="M50,5 a45,45 0 1,0 0,90 a45,45 0 1,0 0,-90" fill="none" stroke="%23e6c78a" stroke-width="0.5"/><circle cx="50" cy="50" r="15" fill="none" stroke="%23e6c78a" stroke-width="0.5"/></svg>');
+            background-size: 200px 200px;
+            background-position: center;
+            z-index: 1;
         }
         
         .cover-art:hover {
             transform: rotateY(0deg) rotateX(0deg) scale(1.02);
             box-shadow: 
-                0 30px 60px rgba(0, 0, 0, 0.4),
-                0 15px 30px rgba(139, 0, 0, 0.3);
+                0 30px 60px rgba(0, 0, 0, 0.25),
+                0 15px 30px rgba(139, 0, 0, 0.2);
         }
         
         .cover-title {
@@ -254,6 +283,7 @@
                 0 4px 8px rgba(0, 0, 0, 0.3);
             line-height: 1.2;
             animation: textGlow 4s ease-in-out infinite alternate;
+            letter-spacing: 1px;
         }
         
         .cover-subtitle {
@@ -263,6 +293,8 @@
             max-width: 300px;
             opacity: 0.95;
             text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            letter-spacing: 0.5px;
+            font-weight: 500;
         }
         
         .cover-author {
@@ -273,6 +305,8 @@
             font-family: 'Gentium Plus', serif;
             opacity: 0.9;
             text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            letter-spacing: 0.5px;
+            font-style: italic;
         }
         
         .hero-content {
@@ -294,6 +328,7 @@
             color: var(--deep-red);
             position: relative;
             display: inline-block;
+            letter-spacing: 0.5px;
         }
         
         .section-title::after {
@@ -326,7 +361,7 @@
         .dharma-wheel .rim {
             fill: none;
             stroke: var(--deep-red);
-            stroke-width: 4;
+            stroke-width: 5;
             stroke-linecap: round;
         }
         
@@ -343,20 +378,25 @@
             stroke-width: 2;
         }
         
-        .dharma-wheel .symbol {
-            fill: var(--gold);
-            font-family: 'Noto Serif SC', serif;
-            font-size: 10px;
-            text-anchor: middle;
-            dominant-baseline: middle;
-        }
-        
         .hero-content p {
             font-size: 1.2rem;
             margin-bottom: 25px;
             line-height: 1.9;
             text-align: justify;
             color: var(--dark-brown);
+            position: relative;
+            padding-left: 20px;
+        }
+        
+        .hero-content p::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 10px;
+            bottom: 10px;
+            width: 3px;
+            background: linear-gradient(to bottom, var(--gold), var(--deep-red), var(--gold));
+            border-radius: 2px;
         }
         
         /* Enhanced Movement Section */
@@ -364,7 +404,8 @@
             padding: 80px 40px;
             text-align: center;
             background: 
-                linear-gradient(135deg, rgba(139, 0, 0, 0.95) 0%, rgba(94, 40, 40, 0.9) 100%);
+                linear-gradient(135deg, rgba(139, 0, 0, 0.95) 0%, rgba(94, 40, 40, 0.9) 100%),
+                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100" opacity="0.05"><circle cx="50" cy="50" r="3" fill="%23ffffff"/></svg>');
             color: var(--cream);
             margin: 80px 0;
             border-radius: 25px;
@@ -373,6 +414,7 @@
                 inset 0 1px 0 rgba(255, 255, 255, 0.1);
             position: relative;
             overflow: hidden;
+            border: 1px solid rgba(230, 199, 138, 0.3);
         }
         
         .movement::before {
@@ -406,6 +448,8 @@
             opacity: 0.95;
             position: relative;
             z-index: 2;
+            font-weight: 500;
+            line-height: 1.9;
         }
         
         .movement-steps {
@@ -470,6 +514,7 @@
             font-family: 'Noto Serif SC', serif;
             position: relative;
             z-index: 2;
+            letter-spacing: 0.5px;
         }
         
         .step p {
@@ -709,7 +754,9 @@
             text-align: center;
             padding: 80px 40px 60px;
             background: 
-                linear-gradient(135deg, var(--deep-red) 0%, #6d0000 100%);
+                linear-gradient(135deg, rgba(139, 0, 0, 0.95) 0%, rgba(94, 40, 40, 0.9) 100%),
+                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100" opacity="0.05"><circle cx="50" cy="50" r="3" fill="%23ffffff"/></svg>');
+            background-size: 100px 100px;
             color: var(--cream);
             margin-top: 80px;
             border-top: 5px solid var(--gold);
@@ -760,16 +807,15 @@
             width: 70px;
             height: 70px;
             border-radius: 50%;
-            background: 
-                linear-gradient(135deg, rgba(230, 199, 138, 0.15) 0%, rgba(230, 199, 138, 0.05) 100%);
-            color: var(--gold);
+            background: var(--cream);
+            color: var(--deep-red);
             font-size: 2rem;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            border: 2px solid rgba(230, 199, 138, 0.3);
+            border: 2px solid var(--gold);
             text-decoration: none;
             position: relative;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
         
         .social-links a::before {
@@ -789,10 +835,9 @@
         }
         
         .social-links a:hover {
-            background: 
-                linear-gradient(135deg, rgba(230, 199, 138, 0.25) 0%, rgba(230, 199, 138, 0.1) 100%);
+            background: var(--gold);
+            color: var(--deep-red);
             transform: translateY(-8px) scale(1.1);
-            border-color: var(--gold);
             box-shadow: 
                 0 10px 20px rgba(230, 199, 138, 0.3),
                 0 0 30px rgba(230, 199, 138, 0.2);
@@ -1017,8 +1062,11 @@
                             <line class="spoke" x1="50" y1="5" x2="50" y2="95" transform="rotate(45 50 50)" />
                             <line class="spoke" x1="50" y1="5" x2="50" y2="95" transform="rotate(90 50 50)" />
                             <line class="spoke" x1="50" y1="5" x2="50" y2="95" transform="rotate(135 50 50)" />
-                            <circle class="hub" cx="50" cy="50" r="15" />
-                            <text class="symbol" x="50" y="50">☸</text>
+                            <line class="spoke" x1="50" y1="5" x2="50" y2="95" transform="rotate(180 50 50)" />
+                            <line class="spoke" x1="50" y1="5" x2="50" y2="95" transform="rotate(225 50 50)" />
+                            <line class="spoke" x1="50" y1="5" x2="50" y2="95" transform="rotate(270 50 50)" />
+                            <line class="spoke" x1="50" y1="5" x2="50" y2="95" transform="rotate(315 50 50)" />
+                            <circle class="hub" cx="50" cy="50" r="10" />
                         </svg>
                     </div>
                 </div>
@@ -1084,7 +1132,7 @@
         </div>
     </div>
 
-    <!-- Deep Red Footer -->
+    <!-- Enhanced Deep Red Footer -->
     <div class="footer">
         <div class="footer-logo">Hội Hướng</div>
         <p>The Global Movement of Heart-Shaped Legacies</p>
