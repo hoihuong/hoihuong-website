@@ -17,18 +17,19 @@
             --gold: #e6c78a;
             --deep-red: #8b0000;
             --soft-red: #a52a2a;
-            --cream: #f9f5f0;
+            --cream: #f7f1e5; /* Creamier background */
             --dark-brown: #3e2723;
             --light-brown: #5d4037;
             --text-color: #333;
             --parchment: #f9f5f0;
             --parchment-border: #d7c9b1;
             --gold-light: #f0e3c8;
+            --cream-dark: #e8dfcf;
         }
         
         body {
             font-family: 'Gentium Plus', serif;
-            background: linear-gradient(135deg, var(--cream) 0%, #f5f0e8 50%, var(--cream) 100%);
+            background: linear-gradient(135deg, var(--cream) 0%, var(--cream-dark) 50%, var(--cream) 100%);
             color: var(--text-color);
             line-height: 1.8;
             overflow-x: hidden;
@@ -187,7 +188,7 @@
             margin: 60px 0;
             padding: 50px;
             background: 
-                linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.85) 100%);
+                linear-gradient(135deg, rgba(247, 241, 229, 0.95) 0%, rgba(247, 241, 229, 0.85) 100%); /* Creamier background */
             border-radius: 25px;
             box-shadow: 
                 0 20px 60px rgba(0, 0, 0, 0.05),
@@ -221,7 +222,7 @@
             height: 500px;
             background: 
                 linear-gradient(135deg, var(--deep-red) 0%, #6d0000 50%, var(--light-brown) 100%),
-                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100" opacity="0.05"><circle cx="50" cy="50" r="3" fill="%23ffffff"/></svg>');
+                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100" opacity="0.05"><rect x="10" y="10" width="15" height="15" fill="%23ffffff" opacity="0.2"/><rect x="40" y="40" width="15" height="15" fill="%23ffffff" opacity="0.2"/><rect x="70" y="70" width="15" height="15" fill="%23ffffff" opacity="0.2"/></svg>'); /* Square texture */
             border-radius: 12px;
             box-shadow: 
                 0 25px 50px rgba(0, 0, 0, 0.2),
@@ -412,7 +413,7 @@
             text-align: center;
             background: 
                 linear-gradient(135deg, rgba(139, 0, 0, 0.95) 0%, rgba(94, 40, 40, 0.9) 100%),
-                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100" opacity="0.05"><circle cx="50" cy="50" r="3" fill="%23ffffff"/></svg>');
+                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100" opacity="0.05"><rect x="10" y="10" width="15" height="15" fill="%23ffffff" opacity="0.2"/><rect x="40" y="40" width="15" height="15" fill="%23ffffff" opacity="0.2"/><rect x="70" y="70" width="15" height="15" fill="%23ffffff" opacity="0.2"/></svg>'); /* Square texture */
             color: var(--cream);
             margin: 80px 0;
             border-radius: 25px;
@@ -535,7 +536,7 @@
         /* Enhanced Tribute Section - Parchment Design */
         .tribute {
             background: 
-                linear-gradient(135deg, rgba(249, 245, 230, 0.95) 0%, rgba(245, 240, 220, 0.9) 100%),
+                linear-gradient(135deg, rgba(247, 241, 229, 0.95) 0%, rgba(247, 241, 229, 0.9) 100%), /* Creamier background */
                 url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200" opacity="0.05"><path d="M0,0 L200,0 L200,200 L0,200 Z" fill="none" stroke="%23a52a2a" stroke-width="1"/><path d="M20,20 L180,20 L180,180 L20,180 Z" fill="none" stroke="%23a52a2a" stroke-width="0.5"/></svg>');
             padding: 80px 50px;
             border-radius: 12px;
@@ -627,7 +628,7 @@
             text-align: center;
             padding: 100px 40px;
             background: 
-                linear-gradient(135deg, rgba(249, 245, 230, 0.95) 0%, rgba(245, 240, 220, 0.9) 100%),
+                linear-gradient(135deg, rgba(247, 241, 229, 0.95) 0%, rgba(247, 241, 229, 0.9) 100%), /* Creamier background */
                 url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200" opacity="0.05"><path d="M0,0 L200,0 L200,200 L0,200 Z" fill="none" stroke="%23a52a2a" stroke-width="1"/><path d="M20,20 L180,20 L180,180 L20,180 Z" fill="none" stroke="%23a52a2a" stroke-width="0.5"/></svg>');
             border-radius: 12px;
             margin: 80px 0;
@@ -699,7 +700,7 @@
             display: inline-block;
             background: 
                 linear-gradient(135deg, var(--deep-red) 0%, #6d0000 100%),
-                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100" opacity="0.05"><circle cx="50" cy="50" r="3" fill="%23ffffff"/></svg>');
+                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100" opacity="0.05"><rect x="10" y="10" width="15" height="15" fill="%23ffffff" opacity="0.2"/><rect x="40" y="40" width="15" height="15" fill="%23ffffff" opacity="0.2"/><rect x="70" y="70" width="15" height="15" fill="%23ffffff" opacity="0.2"/></svg>'); /* Square texture */
             color: var(--cream);
             padding: 22px 50px;
             font-size: 1.4rem;
@@ -743,8 +744,8 @@
         
         .btn-outline {
             background: 
-                transparent,
-                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100" opacity="0.05"><circle cx="50" cy="50" r="3" fill="%238b0000"/></svg>');
+                var(--cream),
+                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100" opacity="0.05"><rect x="10" y="10" width="15" height="15" fill="%238b0000" opacity="0.2"/><rect x="40" y="40" width="15" height="15" fill="%238b0000" opacity="0.2"/><rect x="70" y="70" width="15" height="15" fill="%238b0000" opacity="0.2"/></svg>'); /* Square texture */
             color: var(--deep-red);
             border: 2px solid var(--deep-red);
             box-shadow: 
@@ -802,7 +803,7 @@
             padding: 80px 40px 60px;
             background: 
                 linear-gradient(135deg, rgba(139, 0, 0, 0.95) 0%, rgba(94, 40, 40, 0.9) 100%),
-                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100" opacity="0.05"><circle cx="50" cy="50" r="3" fill="%23ffffff"/></svg>');
+                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100" opacity="0.05"><rect x="10" y="10" width="15" height="15" fill="%23ffffff" opacity="0.2"/><rect x="40" y="40" width="15" height="15" fill="%23ffffff" opacity="0.2"/><rect x="70" y="70" width="15" height="15" fill="%23ffffff" opacity="0.2"/></svg>'); /* Square texture */
             background-size: 100px 100px;
             color: var(--cream);
             margin-top: 80px;
