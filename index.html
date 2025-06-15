@@ -220,7 +220,8 @@
             width: 100%;
             height: 500px;
             background: 
-                linear-gradient(135deg, var(--deep-red) 0%, #6d0000 50%, var(--light-brown) 100%);
+                linear-gradient(135deg, var(--deep-red) 0%, #6d0000 50%, var(--light-brown) 100%),
+                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100" opacity="0.05"><circle cx="50" cy="50" r="3" fill="%23ffffff"/></svg>');
             border-radius: 12px;
             box-shadow: 
                 0 25px 50px rgba(0, 0, 0, 0.2),
@@ -374,6 +375,12 @@
         
         .dharma-wheel .hub {
             fill: var(--deep-red);
+            stroke: var(--gold);
+            stroke-width: 2;
+        }
+        
+        .dharma-wheel .inner-circle {
+            fill: none;
             stroke: var(--gold);
             stroke-width: 2;
         }
@@ -690,7 +697,9 @@
         
         .btn {
             display: inline-block;
-            background: linear-gradient(135deg, var(--deep-red) 0%, #6d0000 100%);
+            background: 
+                linear-gradient(135deg, var(--deep-red) 0%, #6d0000 100%),
+                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100" opacity="0.05"><circle cx="50" cy="50" r="3" fill="%23ffffff"/></svg>');
             color: var(--cream);
             padding: 22px 50px;
             font-size: 1.4rem;
@@ -733,7 +742,9 @@
         }
         
         .btn-outline {
-            background: transparent;
+            background: 
+                transparent,
+                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100" opacity="0.05"><circle cx="50" cy="50" r="3" fill="%238b0000"/></svg>');
             color: var(--deep-red);
             border: 2px solid var(--deep-red);
             box-shadow: 
@@ -749,7 +760,43 @@
                 inset 0 1px 0 rgba(255, 255, 255, 0.3);
         }
         
-        /* Enhanced Footer - Deep Red Theme */
+        /* Centerpiece Dharma Wheel */
+        .dharma-divider {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 300px;
+            position: relative;
+            margin: 60px 0;
+        }
+        
+        .dharma-divider .dharma-centerpiece {
+            width: 220px;
+            height: 220px;
+            animation: rotateDharma 40s linear infinite;
+        }
+        
+        .dharma-divider::before, 
+        .dharma-divider::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            width: 30%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        }
+        
+        .dharma-divider::before {
+            left: 0;
+            transform: translateY(-50%);
+        }
+        
+        .dharma-divider::after {
+            right: 0;
+            transform: translateY(-50%);
+        }
+        
+        /* Enhanced Deep Red Footer */
         .footer {
             text-align: center;
             padding: 80px 40px 60px;
@@ -971,6 +1018,15 @@
                 height: 400px;
                 padding: 30px;
             }
+            
+            .dharma-divider {
+                height: 200px;
+            }
+            
+            .dharma-divider .dharma-centerpiece {
+                width: 160px;
+                height: 160px;
+            }
         }
         
         @media (max-width: 480px) {
@@ -1027,6 +1083,15 @@
                 font-size: 1.2rem;
                 line-height: 1.8;
             }
+            
+            .dharma-divider {
+                height: 150px;
+            }
+            
+            .dharma-divider .dharma-centerpiece {
+                width: 120px;
+                height: 120px;
+            }
         }
     </style>
 </head>
@@ -1066,7 +1131,8 @@
                             <line class="spoke" x1="50" y1="5" x2="50" y2="95" transform="rotate(225 50 50)" />
                             <line class="spoke" x1="50" y1="5" x2="50" y2="95" transform="rotate(270 50 50)" />
                             <line class="spoke" x1="50" y1="5" x2="50" y2="95" transform="rotate(315 50 50)" />
-                            <circle class="hub" cx="50" cy="50" r="10" />
+                            <circle class="inner-circle" cx="50" cy="50" r="15" />
+                            <circle class="hub" cx="50" cy="50" r="8" />
                         </svg>
                     </div>
                 </div>
@@ -1128,6 +1194,25 @@
                 
                 <a href="#" class="btn">Notify Me on Release Day</a>
                 <a href="#" class="btn btn-outline">Share Your Story</a>
+            </div>
+        </div>
+        
+        <!-- Centerpiece Dharma Wheel -->
+        <div class="dharma-divider">
+            <div class="dharma-centerpiece">
+                <svg class="dharma-wheel" viewBox="0 0 100 100">
+                    <circle class="rim" cx="50" cy="50" r="45" />
+                    <line class="spoke" x1="50" y1="5" x2="50" y2="95" />
+                    <line class="spoke" x1="50" y1="5" x2="50" y2="95" transform="rotate(45 50 50)" />
+                    <line class="spoke" x1="50" y1="5" x2="50" y2="95" transform="rotate(90 50 50)" />
+                    <line class="spoke" x1="50" y1="5" x2="50" y2="95" transform="rotate(135 50 50)" />
+                    <line class="spoke" x1="50" y1="5" x2="50" y2="95" transform="rotate(180 50 50)" />
+                    <line class="spoke" x1="50" y1="5" x2="50" y2="95" transform="rotate(225 50 50)" />
+                    <line class="spoke" x1="50" y1="5" x2="50" y2="95" transform="rotate(270 50 50)" />
+                    <line class="spoke" x1="50" y1="5" x2="50" y2="95" transform="rotate(315 50 50)" />
+                    <circle class="inner-circle" cx="50" cy="50" r="15" />
+                    <circle class="hub" cx="50" cy="50" r="8" />
+                </svg>
             </div>
         </div>
     </div>
