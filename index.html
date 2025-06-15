@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Global Hội Hướng Movement | Nguyên Tâm - The Heart That Shaped Me</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Gentium+Plus:ital,wght@0,400;0,700;1,400;1,700&family=Noto+Serif+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Gentium+Plus:ital,wght@0,400;0,700;1,400;1;700&family=Noto+Serif+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -21,9 +21,6 @@
             --dark-brown: #3e2723;
             --light-brown: #5d4037;
             --text-color: #333;
-            --lotus-pink: #ff9eb5;
-            --lotus-pink-light: #ffc2d1;
-            --lotus-purple: #b19cd9;
         }
         
         body {
@@ -35,7 +32,7 @@
             position: relative;
         }
         
-        /* Enhanced background with subtle lotus patterns */
+        /* Enhanced background with subtle patterns */
         body::before {
             content: "";
             position: fixed;
@@ -46,8 +43,7 @@
             background: 
                 radial-gradient(circle at 20% 20%, rgba(230,199,138,0.03) 0%, transparent 50%),
                 radial-gradient(circle at 80% 40%, rgba(139,0,0,0.02) 0%, transparent 50%),
-                radial-gradient(circle at 40% 80%, rgba(230,199,138,0.03) 0%, transparent 50%),
-                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400" opacity="0.015"><path fill="%23e6c78a" d="M200,50 Q280,20 350,80 Q380,160 320,240 Q240,280 160,240 Q100,160 140,80 Q180,40 200,50Z M200,120 Q240,100 280,140 Q300,180 260,220 Q220,240 180,220 Q140,180 160,140 Q180,120 200,120Z"/></svg>');
+                radial-gradient(circle at 40% 80%, rgba(230,199,138,0.03) 0%, transparent 50%);
             z-index: -2;
             pointer-events: none;
         }
@@ -72,7 +68,7 @@
             padding: 20px;
         }
         
-        /* Enhanced Header with lotus mandala */
+        /* Enhanced Header with Dharma Wheel */
         .header {
             text-align: center;
             padding: 80px 20px 60px;
@@ -80,41 +76,27 @@
             overflow: hidden;
         }
         
-        .lotus-container {
+        .mandala-container {
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
             width: 500px;
             height: 500px;
-            opacity: 0.08;
+            opacity: 0.05;
             z-index: -1;
-        }
-        
-        .lotus {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background: 
-                radial-gradient(ellipse at center, transparent 30%, var(--gold) 35%, transparent 40%),
-                radial-gradient(ellipse at center, transparent 40%, var(--gold) 45%, transparent 50%),
-                radial-gradient(ellipse at center, transparent 50%, var(--gold) 55%, transparent 60%),
-                radial-gradient(ellipse at center, transparent 60%, var(--deep-red) 65%, transparent 70%);
-            border-radius: 50%;
             animation: sacredRotate 120s linear infinite;
         }
         
-        .lotus::before {
-            content: "";
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 200px;
-            height: 200px;
-            transform: translate(-50%, -50%);
-            background: radial-gradient(circle, var(--gold) 0%, transparent 70%);
+        .mandala {
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle, transparent 30%, var(--gold) 35%, transparent 40%),
+                radial-gradient(circle, transparent 40%, var(--gold) 45%, transparent 50%),
+                radial-gradient(circle, transparent 50%, var(--gold) 55%, transparent 60%),
+                radial-gradient(circle, transparent 60%, var(--deep-red) 65%, transparent 70%);
             border-radius: 50%;
-            animation: innerGlow 8s ease-in-out infinite alternate;
         }
         
         .logo-container {
@@ -123,122 +105,77 @@
             margin-bottom: 30px;
         }
         
-        .lotus-icon {
+        .dharma-icon {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
             z-index: 2;
-            animation: lotusFloat 8s ease-in-out infinite;
-        }
-        
-        .lotus-icon.left {
-            left: -100px;
-        }
-        
-        .lotus-icon.right {
-            right: -100px;
-        }
-        
-        /* IMPROVED LOTUS FLOWER DESIGN */
-        .lotus-profile {
-            position: relative;
+            animation: dharmaFloat 8s ease-in-out infinite;
             width: 80px;
             height: 80px;
         }
         
-        .lotus-stem {
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 8px;
-            height: 50px;
-            background: linear-gradient(to top, #4a752c, #7cb15e);
-            border-radius: 4px;
-            z-index: 1;
+        .dharma-icon.left {
+            left: -100px;
         }
         
-        .lotus-leaf {
-            position: absolute;
-            bottom: 20px;
-            left: 50%;
-            width: 50px;
-            height: 30px;
-            background: linear-gradient(to right, #5d8c46, #7cb15e);
-            border-radius: 50% 0 50% 50%;
-            transform: translateX(-50%) rotate(15deg);
-            z-index: 0;
+        .dharma-icon.right {
+            right: -100px;
         }
         
-        /* Improved petal positioning and shape */
-        .lotus-petal {
+        /* Dharma Wheel Design */
+        .dharma-wheel {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .wheel-rim {
             position: absolute;
-            width: 35px;
-            height: 20px;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 5px solid var(--deep-red);
             border-radius: 50%;
-            background: linear-gradient(to bottom, #ffc2d1, #ff9eb5);
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            z-index: 2;
-            transform-origin: bottom center;
-            animation: lotusPulse 4s ease-in-out infinite;
         }
         
-        /* Fixed petal positions for circular arrangement */
-        .lotus-petal:nth-child(1) { 
-            top: 10px; left: 22px; 
-            transform: rotate(0deg);
-            animation-delay: 0s;
-        }
-        .lotus-petal:nth-child(2) { 
-            top: 15px; left: 40px; 
-            transform: rotate(45deg);
-            animation-delay: 0.2s;
-        }
-        .lotus-petal:nth-child(3) { 
-            top: 30px; left: 45px; 
-            transform: rotate(90deg);
-            animation-delay: 0.4s;
-        }
-        .lotus-petal:nth-child(4) { 
-            top: 45px; left: 40px; 
-            transform: rotate(135deg);
-            animation-delay: 0.6s;
-        }
-        .lotus-petal:nth-child(5) { 
-            top: 50px; left: 22px; 
-            transform: rotate(180deg);
-            animation-delay: 0.8s;
-        }
-        .lotus-petal:nth-child(6) { 
-            top: 45px; left: 5px; 
-            transform: rotate(225deg);
-            animation-delay: 1.0s;
-        }
-        .lotus-petal:nth-child(7) { 
-            top: 30px; left: 0px; 
-            transform: rotate(270deg);
-            animation-delay: 1.2s;
-        }
-        .lotus-petal:nth-child(8) { 
-            top: 15px; left: 5px; 
-            transform: rotate(315deg);
-            animation-delay: 1.4s;
-        }
-        
-        /* Improved center with gradient and shine */
-        .lotus-center {
+        .wheel-spoke {
             position: absolute;
             top: 50%;
             left: 50%;
-            width: 22px;
-            height: 22px;
-            transform: translate(-50%, -50%);
-            background: radial-gradient(circle at 30% 30%, #ffd700, #d4af37);
+            width: 100%;
+            height: 5px;
+            background: var(--gold);
+            transform-origin: left center;
+        }
+        
+        .wheel-spoke:nth-child(1) { transform: translate(-50%, -50%) rotate(0deg); }
+        .wheel-spoke:nth-child(2) { transform: translate(-50%, -50%) rotate(45deg); }
+        .wheel-spoke:nth-child(3) { transform: translate(-50%, -50%) rotate(90deg); }
+        .wheel-spoke:nth-child(4) { transform: translate(-50%, -50%) rotate(135deg); }
+        
+        .wheel-hub {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 25%;
+            height: 25%;
+            background: var(--deep-red);
             border-radius: 50%;
-            z-index: 3;
-            box-shadow: 
-                0 0 15px rgba(230, 199, 138, 0.8),
-                0 0 5px rgba(255, 215, 0, 0.6);
+            transform: translate(-50%, -50%);
+            box-shadow: 0 0 0 5px var(--gold);
+        }
+        
+        .wheel-center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 10%;
+            height: 10%;
+            background: var(--gold);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
         }
         
         .logo-text {
@@ -287,8 +224,7 @@
             margin: 60px 0;
             padding: 50px;
             background: 
-                linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.7) 100%),
-                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100" opacity="0.03"><path fill="%23e6c78a" d="M50,10 Q70,5 85,25 Q95,45 85,65 Q70,85 50,80 Q30,85 15,65 Q5,45 15,25 Q30,5 50,10Z"/></svg>');
+                linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.7) 100%);
             border-radius: 25px;
             box-shadow: 
                 0 20px 60px rgba(0, 0, 0, 0.1),
@@ -324,8 +260,7 @@
             width: 100%;
             height: 500px;
             background: 
-                linear-gradient(135deg, var(--deep-red) 0%, #6d0000 50%, var(--light-brown) 100%),
-                radial-gradient(circle at 30% 30%, rgba(230,199,138,0.2) 0%, transparent 60%);
+                linear-gradient(135deg, var(--deep-red) 0%, #6d0000 50%, var(--light-brown) 100%);
             border-radius: 12px;
             box-shadow: 
                 0 25px 50px rgba(0, 0, 0, 0.3),
@@ -484,8 +419,7 @@
             padding: 80px 40px;
             text-align: center;
             background: 
-                linear-gradient(135deg, rgba(139, 0, 0, 0.95) 0%, rgba(94, 40, 40, 0.9) 100%),
-                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200" opacity="0.1"><circle cx="100" cy="100" r="3" fill="%23f9f5f0"><animate attributeName="r" values="3;8;3" dur="4s" repeatCount="indefinite"/></circle><circle cx="50" cy="50" r="2" fill="%23e6c78a"><animate attributeName="r" values="2;6;2" dur="3s" repeatCount="indefinite"/></circle><circle cx="150" cy="150" r="2.5" fill="%23f9f5f0"><animate attributeName="r" values="2.5;7;2.5" dur="5s" repeatCount="indefinite"/></circle></svg>');
+                linear-gradient(135deg, rgba(139, 0, 0, 0.95) 0%, rgba(94, 40, 40, 0.9) 100%);
             color: var(--cream);
             margin: 80px 0;
             border-radius: 25px;
@@ -601,11 +535,10 @@
             z-index: 2;
         }
         
-        /* Enhanced Tribute Section - FIXED */
+        /* Enhanced Tribute Section */
         .tribute {
             background: 
-                linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.85) 100%),
-                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100" opacity="0.02"><path fill="%238b0000" d="M50,20 Q70,10 85,30 Q90,50 70,70 Q50,80 30,70 Q10,50 15,30 Q30,10 50,20Z"/></svg>');
+                linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.85) 100%);
             padding: 80px 50px;
             border-radius: 25px;
             margin: 80px 0;
@@ -618,7 +551,7 @@
         }
         
         .tribute::before {
-            content: "“";  /* Fixed quotation mark */
+            content: "“";
             position: absolute;
             top: 40px;
             left: 40px;
@@ -630,7 +563,7 @@
         }
         
         .tribute::after {
-            content: "”";  /* Fixed quotation mark */
+            content: "”";
             position: absolute;
             bottom: 40px;
             right: 40px;
@@ -683,8 +616,7 @@
             text-align: center;
             padding: 80px 40px;
             background: 
-                linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(249, 245, 240, 0.9) 100%),
-                radial-gradient(circle at 50% 50%, rgba(230,199,138,0.05) 0%, transparent 70%);
+                linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(249, 245, 240, 0.9) 100%);
             border-radius: 25px;
             margin: 80px 0;
             position: relative;
@@ -795,8 +727,7 @@
             text-align: center;
             padding: 60px 40px;
             background: 
-                linear-gradient(135deg, var(--dark-brown) 0%, #2c1810 100%),
-                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100" opacity="0.05"><circle cx="50" cy="50" r="20" fill="none" stroke="%23e6c78a" stroke-width="1"/><circle cx="50" cy="50" r="10" fill="none" stroke="%23e6c78a" stroke-width="0.5"/></svg>');
+                linear-gradient(135deg, var(--dark-brown) 0%, #2c1810 100%);
             color: var(--cream);
             margin-top: 80px;
             border-top: 5px solid var(--gold);
@@ -880,15 +811,10 @@
             margin-right: auto;
         }
         
-        /* Enhanced Animations */
+        /* Animations */
         @keyframes sacredRotate {
             from { transform: translate(-50%, -50%) rotate(0deg); }
             to { transform: translate(-50%, -50%) rotate(360deg); }
-        }
-        
-        @keyframes innerGlow {
-            0% { opacity: 0.3; transform: translate(-50%, -50%) scale(1); }
-            100% { opacity: 0.7; transform: translate(-50%, -50%) scale(1.1); }
         }
         
         @keyframes titleGlow {
@@ -937,28 +863,15 @@
             100% { transform: translateY(0px) rotate(360deg); opacity: 0.3; }
         }
         
-        /* New Animations */
         @keyframes rotateDharma {
             from { transform: rotate(0deg); }
             to { transform: rotate(360deg); }
         }
         
-        @keyframes lotusFloat {
+        @keyframes dharmaFloat {
             0% { transform: translateY(-50%) scale(1) rotate(0deg); }
-            50% { transform: translateY(-50%) scale(1.1) rotate(5deg); }
+            50% { transform: translateY(-50%) scale(1.1) rotate(15deg); }
             100% { transform: translateY(-50%) scale(1) rotate(0deg); }
-        }
-        
-        /* New animation for petals */
-        @keyframes lotusPulse {
-            0%, 100% { 
-                transform: scale(1) translateY(0);
-                opacity: 0.95;
-            }
-            50% { 
-                transform: scale(1.05) translateY(-2px);
-                opacity: 1;
-            }
         }
         
         /* Responsive Design */
@@ -971,29 +884,17 @@
                 font-size: 1.5rem;
             }
             
-            .lotus-icon {
+            .dharma-icon {
                 width: 50px;
                 height: 50px;
             }
             
-            .lotus-icon.left {
+            .dharma-icon.left {
                 left: -70px;
             }
             
-            .lotus-icon.right {
+            .dharma-icon.right {
                 right: -70px;
-            }
-            
-            .lotus-petal {
-                width: 30px;
-                height: 18px;
-            }
-            
-            .lotus-center {
-                width: 15px;
-                height: 15px;
-                top: 25px;
-                left: 20px;
             }
             
             .cover-title {
@@ -1037,7 +938,7 @@
                 margin: 10px;
             }
             
-            .lotus-container {
+            .mandala-container {
                 width: 300px;
                 height: 300px;
             }
@@ -1062,38 +963,17 @@
                 font-size: 1.3rem;
             }
             
-            .lotus-icon {
+            .dharma-icon {
                 width: 35px;
                 height: 35px;
             }
             
-            .lotus-icon.left {
+            .dharma-icon.left {
                 left: -45px;
             }
             
-            .lotus-icon.right {
+            .dharma-icon.right {
                 right: -45px;
-            }
-            
-            .lotus-petal {
-                width: 20px;
-                height: 12px;
-            }
-            
-            .lotus-center {
-                width: 10px;
-                height: 10px;
-                top: 17px;
-                left: 13px;
-            }
-            
-            .lotus-stem {
-                height: 35px;
-            }
-            
-            .lotus-leaf {
-                width: 35px;
-                height: 20px;
             }
             
             .hero {
@@ -1150,39 +1030,31 @@
 <body>
     <div class="container">
         <header class="header">
-            <div class="lotus-container">
-                <div class="lotus"></div>
+            <div class="mandala-container">
+                <div class="mandala"></div>
             </div>
             <div class="logo-container">
-                <div class="lotus-icon left">
-                    <div class="lotus-profile">
-                        <div class="lotus-stem"></div>
-                        <div class="lotus-leaf"></div>
-                        <div class="lotus-petal"></div>
-                        <div class="lotus-petal"></div>
-                        <div class="lotus-petal"></div>
-                        <div class="lotus-petal"></div>
-                        <div class="lotus-petal"></div>
-                        <div class="lotus-petal"></div>
-                        <div class="lotus-petal"></div>
-                        <div class="lotus-petal"></div>
-                        <div class="lotus-center"></div>
+                <div class="dharma-icon left">
+                    <div class="dharma-wheel">
+                        <div class="wheel-rim"></div>
+                        <div class="wheel-spoke"></div>
+                        <div class="wheel-spoke"></div>
+                        <div class="wheel-spoke"></div>
+                        <div class="wheel-spoke"></div>
+                        <div class="wheel-hub"></div>
+                        <div class="wheel-center"></div>
                     </div>
                 </div>
                 <div class="logo-text">Hội Hướng</div>
-                <div class="lotus-icon right">
-                    <div class="lotus-profile">
-                        <div class="lotus-stem"></div>
-                        <div class="lotus-leaf"></div>
-                        <div class="lotus-petal"></div>
-                        <div class="lotus-petal"></div>
-                        <div class="lotus-petal"></div>
-                        <div class="lotus-petal"></div>
-                        <div class="lotus-petal"></div>
-                        <div class="lotus-petal"></div>
-                        <div class="lotus-petal"></div>
-                        <div class="lotus-petal"></div>
-                        <div class="lotus-center"></div>
+                <div class="dharma-icon right">
+                    <div class="dharma-wheel">
+                        <div class="wheel-rim"></div>
+                        <div class="wheel-spoke"></div>
+                        <div class="wheel-spoke"></div>
+                        <div class="wheel-spoke"></div>
+                        <div class="wheel-spoke"></div>
+                        <div class="wheel-hub"></div>
+                        <div class="wheel-center"></div>
                     </div>
                 </div>
             </div>
@@ -1379,7 +1251,7 @@
             // Parallax effect for background elements
             window.addEventListener('scroll', () => {
                 const scrolled = window.pageYOffset;
-                const parallaxElements = document.querySelectorAll('.lotus-container');
+                const parallaxElements = document.querySelectorAll('.mandala-container');
                 
                 parallaxElements.forEach(element => {
                     const speed = 0.5;
