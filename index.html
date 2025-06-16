@@ -278,7 +278,6 @@
             text-shadow: 
                 0 0 20px rgba(230, 199, 138, 0.5),
                 0 4px 8px rgba(0, 0, 0, 0.3);
-            line-height: 1.2;
             animation: textGlow 4s ease-in-out infinite alternate;
             letter-spacing: 1px;
         }
@@ -1021,6 +1020,7 @@
             
             .subtitle {
                 font-size: 1.3rem;
+                padding: 0 15px;
             }
             
             .hero {
@@ -1034,7 +1034,7 @@
             }
             
             .cover-art {
-                height: 350px;
+                height: 320px;
                 padding: 20px;
             }
             
@@ -1055,7 +1055,7 @@
             }
             
             .section-title {
-                font-size: 2.3rem;
+                font-size: 2rem;
             }
             
             .dharma-wheel-container {
@@ -1065,8 +1065,8 @@
             }
             
             .hero-content p {
-                font-size: 1.4rem;
-                line-height: 2;
+                font-size: 1.1rem;
+                line-height: 1.7;
                 padding-left: 15px;
                 margin-bottom: 20px;
                 text-align: left;
@@ -1079,15 +1079,47 @@
             
             .global-title {
                 font-size: 2.2rem;
+                padding: 0 15px;
+            }
+            
+            .movement > p {
+                font-size: 1.2rem;
+                padding: 0 15px;
             }
             
             .step {
-                padding: 30px 20px;
+                padding: 25px 15px;
+            }
+            
+            .step-title {
+                font-size: 1.3rem;
+            }
+            
+            .step p {
+                font-size: 1rem;
             }
             
             .tribute-content {
-                font-size: 1.2rem;
+                font-size: 1.1rem;
                 line-height: 1.8;
+                padding: 20px;
+            }
+            
+            .tribute-author {
+                font-size: 1.3rem;
+            }
+            
+            .cta {
+                padding: 60px 20px;
+            }
+            
+            .cta-title {
+                font-size: 2rem;
+            }
+            
+            .cta-subtitle {
+                font-size: 1.2rem;
+                margin-bottom: 40px;
             }
             
             .dharma-divider {
@@ -1106,6 +1138,12 @@
             .footer p {
                 font-size: 1.1rem;
                 padding: 0 10px;
+            }
+            
+            .social-links a {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
             }
         }
     </style>
@@ -1146,21 +1184,21 @@
                             <line class="spoke" x1="50" y1="50" x2="50" y2="95" />
                             <line class="spoke" x1="50" y1="50" x2="5" y2="50" />
                             
-                            <!-- Diagonal spokes - corrected positions -->
-                            <line class="spoke" x1="50" y1="50" x2="73.5" y2="26.5" />
-                            <line class="spoke" x1="50" y1="50" x2="73.5" y2="73.5" />
-                            <line class="spoke" x1="50" y1="50" x2="26.5" y2="73.5" />
-                            <line class="spoke" x1="50" y1="50" x2="26.5" y2="26.5" />
+                            <!-- Diagonal spokes - fixed positions -->
+                            <line class="spoke" x1="50" y1="50" x2="81.82" y2="18.18" />
+                            <line class="spoke" x1="50" y1="50" x2="81.82" y2="81.82" />
+                            <line class="spoke" x1="50" y1="50" x2="18.18" y2="81.82" />
+                            <line class="spoke" x1="50" y1="50" x2="18.18" y2="18.18" />
                             
                             <!-- Spoke caps -->
                             <circle class="spoke-cap" cx="50" cy="5" r="4" />
                             <circle class="spoke-cap" cx="95" cy="50" r="4" />
                             <circle class="spoke-cap" cx="50" cy="95" r="4" />
                             <circle class="spoke-cap" cx="5" cy="50" r="4" />
-                            <circle class="spoke-cap" cx="73.5" cy="26.5" r="4" />
-                            <circle class="spoke-cap" cx="73.5" cy="73.5" r="4" />
-                            <circle class="spoke-cap" cx="26.5" cy="73.5" r="4" />
-                            <circle class="spoke-cap" cx="26.5" cy="26.5" r="4" />
+                            <circle class="spoke-cap" cx="81.82" cy="18.18" r="4" />
+                            <circle class="spoke-cap" cx="81.82" cy="81.82" r="4" />
+                            <circle class="spoke-cap" cx="18.18" cy="81.82" r="4" />
+                            <circle class="spoke-cap" cx="18.18" cy="18.18" r="4" />
                             
                             <circle class="inner-circle" cx="50" cy="50" r="15" />
                             <circle class="hub" cx="50" cy="50" r="8" />
@@ -1241,21 +1279,21 @@
                     <line class="spoke" x1="50" y1="50" x2="50" y2="95" />
                     <line class="spoke" x1="50" y1="50" x2="5" y2="50" />
                     
-                    <!-- Diagonal spokes - corrected positions -->
-                    <line class="spoke" x1="50" y1="50" x2="73.5" y2="26.5" />
-                    <line class="spoke" x1="50" y1="50" x2="73.5" y2="73.5" />
-                    <line class="spoke" x1="50" y1="50" x2="26.5" y2="73.5" />
-                    <line class="spoke" x1="50" y1="50" x2="26.5" y2="26.5" />
+                    <!-- Diagonal spokes - fixed positions -->
+                    <line class="spoke" x1="50" y1="50" x2="81.82" y2="18.18" />
+                    <line class="spoke" x1="50" y1="50" x2="81.82" y2="81.82" />
+                    <line class="spoke" x1="50" y1="50" x2="18.18" y2="81.82" />
+                    <line class="spoke" x1="50" y1="50" x2="18.18" y2="18.18" />
                     
                     <!-- Spoke caps -->
                     <circle class="spoke-cap" cx="50" cy="5" r="4" />
                     <circle class="spoke-cap" cx="95" cy="50" r="4" />
                     <circle class="spoke-cap" cx="50" cy="95" r="4" />
                     <circle class="spoke-cap" cx="5" cy="50" r="4" />
-                    <circle class="spoke-cap" cx="73.5" cy="26.5" r="4" />
-                    <circle class="spoke-cap" cx="73.5" cy="73.5" r="4" />
-                    <circle class="spoke-cap" cx="26.5" cy="73.5" r="4" />
-                    <circle class="spoke-cap" cx="26.5" cy="26.5" r="4" />
+                    <circle class="spoke-cap" cx="81.82" cy="18.18" r="4" />
+                    <circle class="spoke-cap" cx="81.82" cy="81.82" r="4" />
+                    <circle class="spoke-cap" cx="18.18" cy="81.82" r="4" />
+                    <circle class="spoke-cap" cx="18.18" cy="18.18" r="4" />
                     
                     <circle class="inner-circle" cx="50" cy="50" r="15" />
                     <circle class="hub" cx="50" cy="50" r="8" />
