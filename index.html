@@ -1049,16 +1049,22 @@
                 font-size: 1.3rem;
             }
             
-            /* FIXED CATALYST SECTION */
+            /* FIXED CATALYST SECTION - MOBILE OPTIMIZATION */
             .section-title-container {
                 flex-direction: column;
-                align-items: flex-start;
+                align-items: center; /* Center align on mobile */
                 gap: 15px;
                 margin-bottom: 25px;
             }
             
             .section-title {
                 font-size: 2rem;
+                text-align: center; /* Center title */
+            }
+            
+            .section-title::after {
+                left: 50%;
+                transform: translateX(-50%); /* Center underline */
             }
             
             .dharma-wheel-container {
@@ -1072,15 +1078,16 @@
                 line-height: 1.7;
                 padding-left: 15px;
                 margin-bottom: 20px;
-                text-align: left; /* Changed to left alignment */
-                text-align: justify; /* Removed justification on mobile */
-                hyphens: auto; /* Enable hyphenation */
-                word-break: break-word; /* Ensure long words break */
+                text-align: left; /* Changed to natural left alignment */
+                hyphens: none; /* Disable hyphenation */
+                word-break: normal; /* Use normal word breaking */
             }
             
             .hero-content p::before {
                 top: 8px;
                 bottom: 8px;
+                width: 2px; /* Thinner line on mobile */
+                background: var(--gold); /* Simplify gradient for mobile */
             }
             
             .global-title {
