@@ -941,6 +941,182 @@
             to { transform: rotate(360deg); }
         }
         
+        /* MONASTIC ENDORSEMENT STYLES */
+        .monastic-endorsement {
+            background: linear-gradient(135deg, rgba(247, 241, 229, 0.95) 0%, rgba(247, 241, 229, 0.9) 100%);
+            padding: 60px 40px;
+            text-align: center;
+            border-radius: 20px;
+            margin: 80px 0;
+            box-shadow: 0 15px 40px rgba(139, 0, 0, 0.1);
+            border: 1px solid rgba(230, 199, 138, 0.5);
+            position: relative;
+        }
+        
+        .endorsement-title {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 2.5rem;
+            color: var(--deep-red);
+            margin-bottom: 40px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .endorsement-title::after {
+            content: "";
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: var(--gold);
+        }
+        
+        .monasteries {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin: 40px 0;
+        }
+        
+        .temple {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-width: 200px;
+        }
+        
+        .temple-icon {
+            width: 80px;
+            height: 80px;
+            fill: var(--deep-red);
+            margin-bottom: 15px;
+            opacity: 0.8;
+        }
+        
+        .temple span {
+            font-family: 'Gentium Plus', serif;
+            font-size: 1.4rem;
+            color: var(--dark-brown);
+            font-weight: 600;
+        }
+        
+        .trust-note {
+            font-size: 1.3rem;
+            color: var(--light-brown);
+            font-style: italic;
+            margin-top: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* MERIT TRUST STYLES */
+        .merit-trust {
+            background: linear-gradient(135deg, rgba(247, 241, 229, 0.95) 0%, rgba(247, 241, 229, 0.9) 100%);
+            padding: 70px 40px;
+            text-align: center;
+            border-radius: 20px;
+            margin: 80px 0;
+            border: 1px solid rgba(165, 42, 42, 0.2);
+            box-shadow: 0 15px 40px rgba(139, 0, 0, 0.1);
+        }
+        
+        .trust-title {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 2.8rem;
+            color: var(--deep-red);
+            margin-bottom: 50px;
+            position: relative;
+        }
+        
+        .trust-title::after {
+            content: "";
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px;
+            height: 3px;
+            background: var(--gold);
+        }
+        
+        .merit-flow {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            max-width: 1000px;
+            margin: 0 auto 40px;
+        }
+        
+        .flow-step {
+            background: white;
+            border-radius: 15px;
+            padding: 25px 20px;
+            min-width: 150px;
+            box-shadow: 0 8px 25px rgba(139, 0, 0, 0.1);
+            border: 1px solid rgba(230, 199, 138, 0.5);
+            transition: all 0.4s ease;
+        }
+        
+        .flow-step:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(139, 0, 0, 0.2);
+        }
+        
+        .step-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            line-height: 1;
+        }
+        
+        .step-label {
+            font-family: 'Gentium Plus', serif;
+            font-size: 1.2rem;
+            color: var(--dark-brown);
+            font-weight: 600;
+        }
+        
+        .flow-arrow {
+            font-size: 2.5rem;
+            color: var(--light-brown);
+            opacity: 0.7;
+        }
+        
+        .trust-principle {
+            font-family: 'Gentium Plus', serif;
+            font-style: italic;
+            font-size: 1.8rem;
+            color: var(--deep-red);
+            max-width: 600px;
+            margin: 50px auto 0;
+            line-height: 1.6;
+            padding: 20px;
+            position: relative;
+        }
+        
+        .trust-principle::before,
+        .trust-principle::after {
+            content: '"';
+            font-size: 3rem;
+            color: var(--gold);
+            position: absolute;
+        }
+        
+        .trust-principle::before {
+            top: 0;
+            left: -15px;
+        }
+        
+        .trust-principle::after {
+            bottom: -30px;
+            right: -15px;
+        }
+        
         /* Responsive Design - Mobile Optimizations */
         @media (max-width: 768px) {
             .logo-text {
@@ -1013,6 +1189,15 @@
                 width: 160px;
                 height: 160px;
             }
+            
+            /* Monastic endorsement mobile styles */
+            .monasteries {
+                gap: 30px;
+            }
+            
+            .temple {
+                min-width: 150px;
+            }
         }
         
         @media (max-width: 480px) {
@@ -1049,22 +1234,21 @@
                 font-size: 1.3rem;
             }
             
-            /* FIXED CATALYST SECTION - MOBILE OPTIMIZATION */
             .section-title-container {
                 flex-direction: column;
-                align-items: center; /* Center align on mobile */
+                align-items: center;
                 gap: 15px;
                 margin-bottom: 25px;
             }
             
             .section-title {
                 font-size: 2rem;
-                text-align: center; /* Center title */
+                text-align: center;
             }
             
             .section-title::after {
                 left: 50%;
-                transform: translateX(-50%); /* Center underline */
+                transform: translateX(-50%);
             }
             
             .dharma-wheel-container {
@@ -1078,16 +1262,16 @@
                 line-height: 1.7;
                 padding-left: 15px;
                 margin-bottom: 20px;
-                text-align: left; /* Changed to natural left alignment */
-                hyphens: none; /* Disable hyphenation */
-                word-break: normal; /* Use normal word breaking */
+                text-align: left;
+                hyphens: none;
+                word-break: normal;
             }
             
             .hero-content p::before {
                 top: 8px;
                 bottom: 8px;
-                width: 2px; /* Thinner line on mobile */
-                background: var(--gold); /* Simplify gradient for mobile */
+                width: 2px;
+                background: var(--gold);
             }
             
             .global-title {
@@ -1116,13 +1300,13 @@
                 font-size: 1.1rem;
                 line-height: 1.8;
                 padding: 20px;
-                text-align: left; /* Changed to left alignment */
-                hyphens: auto; /* Enable hyphenation */
+                text-align: left;
+                hyphens: auto;
             }
             
             .tribute-author {
                 font-size: 1.3rem;
-                text-align: center; /* Center author attribution */
+                text-align: center;
                 padding-right: 0;
             }
             
@@ -1162,6 +1346,50 @@
                 width: 50px;
                 height: 50px;
                 font-size: 1.5rem;
+            }
+            
+            /* Monastic endorsement mobile styles */
+            .monastic-endorsement {
+                padding: 40px 20px;
+                margin: 60px 0;
+            }
+            
+            .endorsement-title {
+                font-size: 2rem;
+            }
+            
+            .monasteries {
+                flex-direction: column;
+                gap: 30px;
+            }
+            
+            .trust-note {
+                font-size: 1.1rem;
+                padding: 0 15px;
+            }
+            
+            /* Merit trust mobile styles */
+            .merit-trust {
+                padding: 50px 20px;
+                margin: 60px 0;
+            }
+            
+            .trust-title {
+                font-size: 2.2rem;
+            }
+            
+            .merit-flow {
+                flex-direction: column;
+            }
+            
+            .flow-arrow {
+                transform: rotate(0deg);
+                margin: 5px 0;
+            }
+            
+            .trust-principle {
+                font-size: 1.2rem;
+                padding: 0 15px;
             }
         }
     </style>
@@ -1258,6 +1486,35 @@
             </div>
         </div>
 
+        <!-- Monastic Endorsement Section -->
+        <div class="monastic-endorsement">
+            <div class="endorsement-title">With Blessings From</div>
+            <div class="monasteries">
+                <div class="temple">
+                    <svg class="temple-icon" viewBox="0 0 24 24">
+                        <path d="M12,1L3,5v6c0,5.55,3.84,10.74,9,12c5.16-1.26,9-6.45,9-12V5L12,1z M12,6.5c1.38,0,2.5,1.12,2.5,2.5
+                        c0,1.38-1.12,2.5-2.5,2.5S9.5,10.38,9.5,9C9.5,7.62,10.62,6.5,12,6.5z"/>
+                    </svg>
+                    <span>Chùa Từ Hiếu</span>
+                </div>
+                <div class="temple">
+                    <svg class="temple-icon" viewBox="0 0 24 24">
+                        <path d="M12,1L3,5v6c0,5.55,3.84,10.74,9,12c5.16-1.26,9-6.45,9-12V5L12,1z M12,6.5c1.38,0,2.5,1.12,2.5,2.5
+                        c0,1.38-1.12,2.5-2.5,2.5S9.5,10.38,9.5,9C9.5,7.62,10.62,6.5,12,6.5z"/>
+                    </svg>
+                    <span>Fo Guang Shan</span>
+                </div>
+                <div class="temple">
+                    <svg class="temple-icon" viewBox="0 0 24 24">
+                        <path d="M12,1L3,5v6c0,5.55,3.84,10.74,9,12c5.16-1.26,9-6.45,9-12V5L12,1z M12,6.5c1.38,0,2.5,1.12,2.5,2.5
+                        c0,1.38-1.12,2.5-2.5,2.5S9.5,10.38,9.5,9C9.5,7.62,10.62,6.5,12,6.5z"/>
+                    </svg>
+                    <span>Plum Village</span>
+                </div>
+            </div>
+            <div class="trust-note">All proceeds flow through Má's Merit Trust under monastic guidance</div>
+        </div>
+
         <!-- Redesigned Tribute Section -->
         <div class="tribute">
             <div class="tribal-border top"></div>
@@ -1281,6 +1538,50 @@
                 
                 <a href="#" class="btn">Notify Me on Release Day</a>
                 <a href="#" class="btn btn-outline">Share Your Story</a>
+            </div>
+        </div>
+        
+        <!-- Merit Trust Section -->
+        <div class="merit-trust">
+            <div class="trust-title">Má's Merit Trust</div>
+            
+            <div class="merit-flow">
+                <div class="flow-step">
+                    <div class="step-icon">📖</div>
+                    <div class="step-label">Book Sales</div>
+                </div>
+                
+                <div class="flow-arrow">→</div>
+                
+                <div class="flow-step">
+                    <div class="step-icon">💯</div>
+                    <div class="step-label">100% Profits</div>
+                </div>
+                
+                <div class="flow-arrow">→</div>
+                
+                <div class="flow-step">
+                    <div class="step-icon">🕉️</div>
+                    <div class="step-label">Monastic Trust</div>
+                </div>
+                
+                <div class="flow-arrow">→</div>
+                
+                <div class="flow-step">
+                    <div class="step-icon">🍚</div>
+                    <div class="step-label">Feed the Hungry</div>
+                </div>
+                
+                <div class="flow-arrow">→</div>
+                
+                <div class="flow-step">
+                    <div class="step-icon">🙏</div>
+                    <div class="step-label">Build Temples</div>
+                </div>
+            </div>
+            
+            <div class="trust-principle">
+                "Every purchase becomes dāna - a sacred act of generosity"
             </div>
         </div>
         
@@ -1334,6 +1635,15 @@
         
         <div class="copyright">
             &copy; 2025 Hội Hướng Global Movement. "Nguyên Tâm - The Heart That Shaped Me" by Nguyên Thủy is a tribute to maternal love and legacy.
+        </div>
+    </div>
+
+    <!-- Virtual Altar Element -->
+    <div id="virtual-altar" style="display:none; position:fixed; bottom:20px; right:20px; z-index:1000; transition: opacity 0.5s ease;">
+        <div style="background: var(--gold); color: var(--deep-red); padding:12px 20px; border-radius:50px; 
+                    box-shadow:0 5px 15px rgba(0,0,0,0.2); font-family: 'Noto Serif SC', serif; display:flex; align-items:center;">
+            <i class="fas fa-ring" style="margin-right:10px; font-size:1.2rem;"></i> 
+            <span>Writing for Nguyên Tâm (1947-2024)</span>
         </div>
     </div>
 
@@ -1442,6 +1752,22 @@
                     const speed = 0.5;
                     element.style.transform = `translate(-50%, -50%) translateY(${scrolled * speed}px)`;
                 });
+            });
+            
+            // Virtual altar reminder
+            document.addEventListener('keydown', function(e) {
+                if (e.target.matches('textarea, [contenteditable="true"]')) {
+                    const altar = document.getElementById('virtual-altar');
+                    altar.style.display = 'flex';
+                    altar.style.opacity = '1';
+                    
+                    setTimeout(() => {
+                        altar.style.opacity = '0';
+                        setTimeout(() => {
+                            altar.style.display = 'none';
+                        }, 500);
+                    }, 3000);
+                }
             });
             
             // Add CSS for ripple animation
