@@ -7,8 +7,1012 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Gentium+Plus:ital,wght@0,400;0,700;1,400;1,700&family=Noto+Serif+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* ... ALL OTHER STYLES UNCHANGED ... */
-
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --gold: #e6c78a;
+            --deep-red: #8b0000;
+            --soft-red: #a52a2a;
+            --cream: #f7f1e5;
+            --cream-dark: #e8dfcf;
+            --dark-brown: #3e2723;
+            --light-brown: #5d4037;
+            --text-color: #333;
+            --parchment: #f9f5f0;
+            --parchment-border: #d7c9b1;
+        }
+        
+        body {
+            font-family: 'Gentium Plus', serif;
+            background: linear-gradient(135deg, var(--cream) 0%, var(--cream-dark) 50%, var(--cream) 100%);
+            color: var(--text-color);
+            line-height: 1.8;
+            overflow-x: hidden;
+            position: relative;
+        }
+        
+        /* Background with mandala patterns */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 20%, rgba(230,199,138,0.03) 0%, transparent 50%),
+                radial-gradient(circle at 80% 40%, rgba(139,0,0,0.02) 0%, transparent 50%),
+                radial-gradient(circle at 40% 80%, rgba(230,199,138,0.03) 0%, transparent 50%),
+                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400" opacity="0.015"><path fill="%23e6c78a" d="M200,50 Q280,20 350,80 Q380,160 320,240 Q240,280 160,240 Q100,160 140,80 Q180,40 200,50Z M200,120 Q240,100 280,140 Q300,180 260,220 Q220,240 180,220 Q140,180 160,140 Q180,120 200,120Z"/></svg>');
+            z-index: -2;
+            pointer-events: none;
+        }
+        
+        /* Floating particles animation */
+        body::after {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="1000" viewBox="0 0 1000 1000"><circle cx="100" cy="100" r="1" fill="%23e6c78a" opacity="0.3"><animate attributeName="cy" values="100;900;100" dur="15s" repeatCount="indefinite"/></circle><circle cx="300" cy="200" r="1.5" fill="%238b0000" opacity="0.2"><animate attributeName="cy" values="200;800;200" dur="18s" repeatCount="indefinite"/></circle><circle cx="700" cy="150" r="1" fill="%23e6c78a" opacity="0.25"><animate attributeName="cy" values="150;850;150" dur="20s" repeatCount="indefinite"/></circle><circle cx="500" cy="300" r="1" fill="%235d4037" opacity="0.2"><animate attributeName="cy" values="300;700;300" dur="16s" repeatCount="indefinite"/></circle></svg>');
+            z-index: -1;
+            pointer-events: none;
+            animation: gentleFloat 25s ease-in-out infinite;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Header with mandala background */
+        .header {
+            text-align: center;
+            padding: 80px 20px 60px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Mandala background */
+        .mandala-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 500px;
+            height: 500px;
+            opacity: 0.08;
+            z-index: -1;
+        }
+        
+        .mandala {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(ellipse at center, transparent 30%, var(--gold) 35%, transparent 40%),
+                radial-gradient(ellipse at center, transparent 40%, var(--gold) 45%, transparent 50%),
+                radial-gradient(ellipse at center, transparent 50%, var(--gold) 55%, transparent 60%),
+                radial-gradient(ellipse at center, transparent 60%, var(--deep-red) 65%, transparent 70%);
+            border-radius: 50%;
+            animation: sacredRotate 120s linear infinite;
+        }
+        
+        .mandala::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 200px;
+            height: 200px;
+            transform: translate(-50%, -50%);
+            background: radial-gradient(circle, var(--gold) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: innerGlow 8s ease-in-out infinite alternate;
+        }
+        
+        .logo-container {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 30px;
+        }
+        
+        .logo-text {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 5rem;
+            color: var(--deep-red);
+            margin-bottom: 20px;
+            letter-spacing: 4px;
+            text-shadow: 
+                0 0 20px rgba(139, 0, 0, 0.3),
+                0 4px 8px rgba(0, 0, 0, 0.1);
+            animation: titleGlow 6s ease-in-out infinite alternate;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .logo-text::after {
+            content: "";
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            animation: underlineGlow 4s ease-in-out infinite;
+        }
+        
+        .subtitle {
+            font-size: 1.9rem;
+            color: var(--light-brown);
+            font-weight: 400;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            font-family: 'Noto Serif SC', serif;
+            opacity: 0.9;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: relative;
+            padding-bottom: 20px;
+        }
+        
+        .subtitle::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        }
+        
+        /* Enhanced Hero Section */
+        .hero {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 50px;
+            align-items: center;
+            margin: 60px 0;
+            padding: 50px;
+            background: 
+                linear-gradient(135deg, rgba(247, 241, 229, 0.95) 0%, rgba(247, 241, 229, 0.85) 100%);
+            border-radius: 25px;
+            box-shadow: 
+                0 20px 60px rgba(0, 0, 0, 0.05),
+                inset 0 1px 0 rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(230, 199, 138, 0.3);
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200" opacity="0.05"><path d="M20,20 Q40,10 50,30 Q60,10 80,20 Q90,40 70,50 Q90,60 80,80 Q60,90 50,70 Q40,90 20,80 Q10,60 30,50 Q10,40 20,20Z" fill="%238b0000"/></svg>');
+            z-index: -1;
+        }
+        
+        .book-cover {
+            flex: 1;
+            min-width: 350px;
+            position: relative;
+            perspective: 1200px;
+        }
+        
+        .cover-art {
+            width: 100%;
+            height: 500px;
+            background: 
+                linear-gradient(135deg, var(--deep-red) 0%, #6d0000 50%, var(--light-brown) 100%),
+                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100" opacity="0.05"><rect x="10" y="10" width="15" height="15" fill="%23ffffff" opacity="0.2"/><rect x="40" y="40" width="15" height="15" fill="%23ffffff" opacity="0.2"/><rect x="70" y="70" width="15" height="15" fill="%23ffffff" opacity="0.2"/></svg>');
+            border-radius: 12px;
+            box-shadow: 
+                0 25px 50px rgba(0, 0, 0, 0.2),
+                0 10px 20px rgba(139, 0, 0, 0.15),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: var(--gold);
+            padding: 50px;
+            text-align: center;
+            transform: rotateY(-8deg) rotateX(2deg);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cover-art::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: 
+                radial-gradient(circle at 40% 40%, rgba(230,199,138,0.15) 0%, transparent 50%),
+                linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.05) 50%, transparent 70%);
+            animation: coverShimmer 8s ease-in-out infinite;
+            z-index: 1;
+        }
+        
+        .cover-art::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100" opacity="0.1"><path d="M50,5 a45,45 0 1,0 0,90 a45,45 0 1,0 0,-90" fill="none" stroke="%23e6c78a" stroke-width="0.5"/><circle cx="50" cy="50" r="15" fill="none" stroke="%23e6c78a" stroke-width="0.5"/></svg>');
+            background-size: 200px 200px;
+            background-position: center;
+            z-index: 1;
+        }
+        
+        .cover-art:hover {
+            transform: rotateY(0deg) rotateX(0deg) scale(1.02);
+            box-shadow: 
+                0 30px 60px rgba(0, 0, 0, 0.25),
+                0 15px 30px rgba(139, 0, 0, 0.2);
+        }
+        
+        .cover-title {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 3.2rem;
+            margin-bottom: 25px;
+            z-index: 2;
+            text-shadow: 
+                0 0 20px rgba(230, 199, 138, 0.5),
+                0 4px 8px rgba(0, 0, 0, 0.3);
+            animation: textGlow 4s ease-in-out infinite alternate;
+            letter-spacing: 1px;
+        }
+        
+        .cover-subtitle {
+            font-size: 1.6rem;
+            font-family: 'Noto Serif SC', serif;
+            z-index: 2;
+            max-width: 300px;
+            opacity: 0.95;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            letter-spacing: 0.5px;
+            font-weight: 500;
+        }
+        
+        .cover-author {
+            position: absolute;
+            bottom: 40px;
+            font-size: 1.4rem;
+            z-index: 2;
+            font-family: 'Gentium Plus', serif;
+            opacity: 0.9;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            letter-spacing: 0.5px;
+            font-style: italic;
+        }
+        
+        .hero-content {
+            flex: 1;
+            min-width: 350px;
+        }
+        
+        .section-title-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+            margin-bottom: 35px;
+            gap: 25px;
+        }
+        
+        .section-title {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 2.8rem;
+            color: var(--deep-red);
+            position: relative;
+            display: inline-block;
+            letter-spacing: 0.5px;
+        }
+        
+        .section-title::after {
+            content: "";
+            position: absolute;
+            bottom: -15px;
+            left: 0;
+            width: 120px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--gold), var(--deep-red), var(--gold));
+            border-radius: 2px;
+            animation: titleUnderline 3s ease-in-out infinite;
+        }
+        
+        .dharma-wheel-container {
+            position: relative;
+            width: 70px;
+            height: 70px;
+            animation: rotateDharma 20s linear infinite;
+        }
+        
+        .dharma-wheel {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .dharma-wheel .rim {
+            fill: none;
+            stroke: var(--deep-red);
+            stroke-width: 4;
+            stroke-linecap: round;
+        }
+        
+        .dharma-wheel .spoke {
+            fill: none;
+            stroke: var(--gold);
+            stroke-width: 3;
+            stroke-linecap: round;
+        }
+        
+        .dharma-wheel .hub {
+            fill: var(--deep-red);
+            stroke: var(--gold);
+            stroke-width: 2;
+        }
+        
+        .dharma-wheel .inner-circle {
+            fill: none;
+            stroke: var(--gold);
+            stroke-width: 2;
+        }
+        
+        .dharma-wheel .spoke-cap {
+            fill: var(--gold);
+        }
+        
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 25px;
+            line-height: 1.9;
+            text-align: justify;
+            color: var(--dark-brown);
+            position: relative;
+            padding-left: 20px;
+        }
+        
+        .hero-content p::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 10px;
+            bottom: 10px;
+            width: 3px;
+            background: linear-gradient(to bottom, var(--gold), var(--deep-red), var(--gold));
+            border-radius: 2px;
+        }
+        
+        /* Enhanced Movement Section */
+        .movement {
+            padding: 80px 40px;
+            text-align: center;
+            background: 
+                linear-gradient(135deg, rgba(139, 0, 0, 0.95) 0%, rgba(94, 40, 40, 0.9) 100%),
+                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100" opacity="0.05"><rect x="10" y="10" width="15" height="15" fill="%23ffffff" opacity="0.2"/><rect x="40" y="40" width="15" height="15" fill="%23ffffff" opacity="0.2"/><rect x="70" y="70" width="15" height="15" fill="%23ffffff" opacity="0.2"/></svg>');
+            color: var(--cream);
+            margin: 80px 0;
+            border-radius: 25px;
+            box-shadow: 
+                0 20px 40px rgba(0, 0, 0, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(230, 199, 138, 0.3);
+        }
+        
+        .movement::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(230,199,138,0.1) 0%, transparent 70%);
+            animation: movementGlow 15s ease-in-out infinite;
+        }
+        
+        .global-title {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 4rem;
+            margin-bottom: 40px;
+            color: var(--gold);
+            letter-spacing: 3px;
+            text-shadow: 
+                0 0 30px rgba(230, 199, 138, 0.6),
+                0 4px 8px rgba(0, 0, 0, 0.3);
+            position: relative;
+            z-index: 2;
+        }
+        
+        .movement > p {
+            font-size: 1.4rem;
+            max-width: 800px;
+            margin: 0 auto 50px;
+            opacity: 0.95;
+            position: relative;
+            z-index: 2;
+            font-weight: 500;
+            line-height: 1.9;
+        }
+        
+        .movement-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            margin: 60px 0;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .step {
+            background: 
+                linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.05) 100%),
+                rgba(230, 199, 138, 0.08);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(230, 199, 138, 0.4);
+            border-radius: 20px;
+            padding: 40px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .step::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(230,199,138,0.2) 0%, transparent 50%, rgba(139,0,0,0.1) 100%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        
+        .step:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 
+                0 25px 50px rgba(0, 0, 0, 0.3),
+                0 10px 20px rgba(230, 199, 138, 0.2);
+            border-color: var(--gold);
+        }
+        
+        .step:hover::before {
+            opacity: 1;
+        }
+        
+        .step-number {
+            font-size: 3.5rem;
+            color: var(--gold);
+            margin-bottom: 20px;
+            font-family: 'Noto Serif SC', serif;
+            text-shadow: 0 0 20px rgba(230, 199, 138, 0.5);
+            position: relative;
+            z-index: 2;
+        }
+        
+        .step-title {
+            font-size: 1.6rem;
+            margin-bottom: 20px;
+            font-family: 'Noto Serif SC', serif;
+            position: relative;
+            z-index: 2;
+            letter-spacing: 0.5px;
+        }
+        
+        .step p {
+            font-family: 'Gentium Plus', serif;
+            font-size: 1.1rem;
+            line-height: 1.7;
+            position: relative;
+            z-index: 2;
+        }
+        
+        /* Enhanced Tribute Section - Parchment Design */
+        .tribute {
+            background: 
+                linear-gradient(135deg, rgba(247, 241, 229, 0.95) 0%, rgba(247, 241, 229, 0.9) 100%),
+                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200" opacity="0.05"><path d="M0,0 L200,0 L200,200 L0,200 Z" fill="none" stroke="%23a52a2a" stroke-width="1"/><path d="M20,20 L180,20 L180,180 L20,180 Z" fill="none" stroke="%23a52a2a" stroke-width="0.5"/></svg>');
+            padding: 80px 50px;
+            border-radius: 12px;
+            margin: 80px 0;
+            box-shadow: 
+                0 15px 40px rgba(139, 0, 0, 0.15),
+                inset 0 0 0 1px rgba(165, 42, 42, 0.3),
+                inset 0 0 30px rgba(165, 42, 42, 0.1);
+            position: relative;
+            border: 1px solid rgba(165, 42, 42, 0.2);
+            transform: perspective(1000px) rotateX(1deg);
+        }
+        
+        .tribute::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100" opacity="0.03"><path d="M20,20 Q40,10 50,30 Q60,10 80,20 Q90,40 70,50 Q90,60 80,80 Q60,90 50,70 Q40,90 20,80 Q10,60 30,50 Q10,40 20,20Z" fill="%238b0000"/></svg>');
+            z-index: -1;
+            border-radius: 12px;
+        }
+        
+        .tribal-border {
+            position: absolute;
+            width: 100%;
+            height: 30px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 20" preserveAspectRatio="none"><path d="M0,10 Q20,0 40,10 T60,10 Q80,0 100,10" fill="none" stroke="%23a52a2a" stroke-width="1" opacity="0.4"/></svg>');
+            background-size: auto 100%;
+        }
+        
+        .tribal-border.top {
+            top: -15px;
+        }
+        
+        .tribal-border.bottom {
+            bottom: -15px;
+            transform: rotate(180deg);
+        }
+        
+        .tribute-content {
+            font-size: 1.6rem;
+            line-height: 2;
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 3;
+            font-style: italic;
+            color: #5a2a2a;
+            text-align: center;
+            font-family: 'Gentium Plus', serif;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 8px;
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(165, 42, 42, 0.1);
+        }
+        
+        .tribute-author {
+            text-align: right;
+            margin-top: 40px;
+            font-size: 1.5rem;
+            font-style: normal;
+            color: var(--deep-red);
+            font-weight: 600;
+            font-family: 'Noto Serif SC', serif;
+            position: relative;
+            z-index: 3;
+            padding-right: 20px;
+        }
+        
+        .tribute-author::before {
+            content: "~";
+            position: absolute;
+            top: -15px;
+            right: 0;
+            width: 100px;
+            height: 2px;
+            color: var(--gold);
+            font-size: 2rem;
+            text-align: right;
+        }
+        
+        /* Enhanced Call to Action - Matching Parchment Design */
+        .cta {
+            text-align: center;
+            padding: 100px 40px;
+            background: 
+                linear-gradient(135deg, rgba(247, 241, 229, 0.95) 0%, rgba(247, 241, 229, 0.9) 100%),
+                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200" opacity="0.05"><path d="M0,0 L200,0 L200,200 L0,200 Z" fill="none" stroke="%23a52a2a" stroke-width="1"/><path d="M20,20 L180,20 L180,180 L20,180 Z" fill="none" stroke="%23a52a2a" stroke-width="0.5"/></svg>');
+            border-radius: 12px;
+            margin: 80px 0;
+            position: relative;
+            box-shadow: 
+                0 15px 40px rgba(139, 0, 0, 0.15),
+                inset 0 0 0 1px rgba(165, 42, 42, 0.3),
+                inset 0 0 30px rgba(165, 42, 42, 0.1);
+            border: 1px solid rgba(165, 42, 42, 0.2);
+            transform: perspective(1000px) rotateX(1deg);
+        }
+        
+        .cta::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100" opacity="0.03"><path d="M20,20 Q40,10 50,30 Q60,10 80,20 Q90,40 70,50 Q90,60 80,80 Q60,90 50,70 Q40,90 20,80 Q10,60 30,50 Q10,40 20,20Z" fill="%238b0000"/></svg>');
+            z-index: -1;
+            border-radius: 12px;
+        }
+        
+        .cta-content {
+            position: relative;
+            z-index: 3;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .cta-title {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 3.8rem;
+            color: var(--deep-red);
+            margin-bottom: 30px;
+            text-shadow: 
+                0 0 15px rgba(139, 0, 0, 0.1),
+                0 4px 8px rgba(0, 0, 0, 0.1);
+            position: relative;
+            letter-spacing: 1px;
+        }
+        
+        .cta-title::after {
+            content: "";
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, rgba(139, 0, 0, 0.5), transparent);
+        }
+        
+        .cta-subtitle {
+            font-size: 1.7rem;
+            color: var(--dark-brown);
+            margin-bottom: 60px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            font-family: 'Gentium Plus', serif;
+            line-height: 1.8;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: 
+                linear-gradient(135deg, var(--deep-red) 0%, #6d0000 100%),
+                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100" opacity="0.05"><rect x="10" y="10" width="15" height="15" fill="%23ffffff" opacity="0.2"/><rect x="40" y="40" width="15" height="15" fill="%23ffffff" opacity="0.2"/><rect x="70" y="70" width="15" height="15" fill="%23ffffff" opacity="0.2"/></svg>');
+            color: var(--cream);
+            padding: 22px 50px;
+            font-size: 1.4rem;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 2px solid rgba(139, 0, 0, 0.5);
+            font-family: 'Noto Serif SC', serif;
+            letter-spacing: 1px;
+            margin: 15px;
+            box-shadow: 
+                0 10px 25px rgba(139, 0, 0, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+            position: relative;
+            z-index: 2;
+            overflow: hidden;
+        }
+        
+        .btn::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.6s ease;
+        }
+        
+        .btn:hover::before {
+            left: 100%;
+        }
+        
+        .btn:hover {
+            background: linear-gradient(135deg, #a00000 0%, var(--deep-red) 100%);
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 
+                0 15px 35px rgba(139, 0, 0, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.4);
+        }
+        
+        .btn-outline {
+            background: 
+                var(--cream),
+                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100" opacity="0.05"><rect x="10" y="10" width="15" height="15" fill="%238b0000" opacity="0.2"/><rect x="40" y="40" width="15" height="15" fill="%238b0000" opacity="0.2"/><rect x="70" y="70" width="15" height="15" fill="%238b0000" opacity="0.2"/></svg>');
+            color: var(--deep-red);
+            border: 2px solid var(--deep-red);
+            box-shadow: 
+                0 8px 25px rgba(139, 0, 0, 0.15),
+                inset 0 1px 0 rgba(139, 0, 0, 0.1);
+        }
+        
+        .btn-outline:hover {
+            background: linear-gradient(135deg, var(--deep-red) 0%, #6d0000 100%);
+            color: var(--cream);
+            box-shadow: 
+                0 15px 35px rgba(139, 0, 0, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+        }
+        
+        /* Centerpiece Dharma Wheel */
+        .dharma-divider {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 300px;
+            position: relative;
+            margin: 60px 0;
+        }
+        
+        .dharma-divider .dharma-centerpiece {
+            width: 220px;
+            height: 220px;
+            animation: rotateDharma 40s linear infinite;
+        }
+        
+        .dharma-divider::before, 
+        .dharma-divider::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            width: 30%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        }
+        
+        .dharma-divider::before {
+            left: 0;
+            transform: translateY(-50%);
+        }
+        
+        .dharma-divider::after {
+            right: 0;
+            transform: translateY(-50%);
+        }
+        
+        /* Enhanced Deep Red Footer */
+        .footer {
+            text-align: center;
+            padding: 80px 40px 60px;
+            background: 
+                linear-gradient(135deg, rgba(139, 0, 0, 0.95) 0%, rgba(94, 40, 40, 0.9) 100%),
+                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100" opacity="0.05"><rect x="10" y="10" width="15" height="15" fill="%23ffffff" opacity="0.2"/><rect x="40" y="40" width="15" height="15" fill="%23ffffff" opacity="0.2"/><rect x="70" y="70" width="15" height="15" fill="%23ffffff" opacity="0.2"/></svg>');
+            background-size: 100px 100px;
+            color: var(--cream);
+            margin-top: 80px;
+            border-top: 5px solid var(--gold);
+            position: relative;
+            box-shadow: inset 0 1px 0 rgba(230, 199, 138, 0.2);
+        }
+        
+        .footer::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 10px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            opacity: 0.7;
+        }
+        
+        .footer-logo {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 3.5rem;
+            color: var(--gold);
+            margin-bottom: 25px;
+            text-shadow: 0 0 20px rgba(230, 199, 138, 0.4);
+            letter-spacing: 2px;
+        }
+        
+        .footer p {
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 50px 0;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: var(--cream);
+            color: var(--deep-red);
+            font-size: 2rem;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 2px solid var(--gold);
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .social-links a:hover {
+            background: var(--gold);
+            color: var(--deep-red);
+            transform: translateY(-8px) scale(1.1);
+            box-shadow: 
+                0 10px 20px rgba(230, 199, 138, 0.3),
+                0 0 30px rgba(230, 199, 138, 0.2);
+        }
+        
+        .copyright {
+            margin-top: 50px;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1.15rem;
+            font-family: 'Gentium Plus', serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Mandala Animations */
+        @keyframes sacredRotate {
+            from { transform: translate(-50%, -50%) rotate(0deg); }
+            to { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+        
+        @keyframes innerGlow {
+            0% { opacity: 0.3; transform: translate(-50%, -50%) scale(1); }
+            100% { opacity: 0.7; transform: translate(-50%, -50%) scale(1.1); }
+        }
+        
+        @keyframes titleGlow {
+            0% { text-shadow: 0 0 20px rgba(139, 0, 0, 0.3), 0 4px 8px rgba(0, 0, 0, 0.1); }
+            100% { text-shadow: 0 0 40px rgba(139, 0, 0, 0.5), 0 4px 8px rgba(0, 0, 0, 0.1); }
+        }
+        
+        @keyframes underlineGlow {
+            0% { opacity: 0.5; transform: translateX(-50%) scaleX(0.8); }
+            50% { opacity: 1; transform: translateX(-50%) scaleX(1.2); }
+            100% { opacity: 0.5; transform: translateX(-50%) scaleX(0.8); }
+        }
+        
+        @keyframes coverShimmer {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            50% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+            100% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+        }
+        
+        @keyframes textGlow {
+            0% { text-shadow: 0 0 20px rgba(230, 199, 138, 0.5), 0 4px 8px rgba(0, 0, 0, 0.3); }
+            100% { text-shadow: 0 0 40px rgba(230, 199, 138, 0.8), 0 4px 8px rgba(0, 0, 0, 0.3); }
+        }
+        
+        @keyframes titleUnderline {
+            0% { width: 120px; opacity: 0.7; }
+            50% { width: 160px; opacity: 1; }
+            100% { width: 120px; opacity: 0.7; }
+        }
+        
+        @keyframes movementGlow {
+            0% { transform: rotate(0deg) scale(1); opacity: 0.1; }
+            50% { transform: rotate(180deg) scale(1.1); opacity: 0.2; }
+            100% { transform: rotate(360deg) scale(1); opacity: 0.1; }
+        }
+        
+        @keyframes gentleFloat {
+            0% { transform: translateY(0px) rotate(0deg); opacity: 0.3; }
+            33% { transform: translateY(-10px) rotate(120deg); opacity: 0.5; }
+            66% { transform: translateY(5px) rotate(240deg); opacity: 0.3; }
+            100% { transform: translateY(0px) rotate(360deg); opacity: 0.3; }
+        }
+        
+        @keyframes rotateDharma {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        /* MONASTIC ENDORSEMENT STYLES */
+        .monastic-endorsement {
+            background: linear-gradient(135deg, rgba(247, 241, 229, 0.95) 0%, rgba(247, 241, 229, 0.9) 100%);
+            padding: 60px 40px;
+            text-align: center;
+            border-radius: 20px;
+            margin: 80px 0;
+            box-shadow: 0 15px 40px rgba(139, 0, 0, 0.1);
+            border: 1px solid rgba(230, 199, 138, 0.5);
+            position: relative;
+        }
+        
+        .endorsement-title {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 2.5rem;
+            color: var(--deep-red);
+            margin-bottom: 40px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .endorsement-title::after {
+            content: "";
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: var(--gold);
+        }
+        
+        .monasteries {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin: 40px 0;
+        }
+        
+        .temple {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-width: 200px;
+        }
+        
+        .temple-icon {
+            width: 80px;
+            height: 80px;
+            fill: var(--deep-red);
+            margin-bottom: 15px;
+            opacity: 0.8;
+        }
+        
+        .temple span {
+            font-family: 'Gentium Plus', serif;
+            font-size: 1.4rem;
+            color: var(--dark-brown);
+            font-weight: 600;
+        }
+        
+        .trust-note {
+            font-size: 1.3rem;
+            color: var(--light-brown);
+            font-style: italic;
+            margin-top: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
         /* MERIT TRUST STYLES */
         .merit-trust {
             background: linear-gradient(135deg, rgba(247, 241, 229, 0.95) 0%, rgba(247, 241, 229, 0.9) 100%);
@@ -95,12 +1099,10 @@
             position: relative;
         }
         
-        /* REMOVED THE LARGER QUOTES FROM BEFORE/AFTER */
+        /* REMOVED THE LARGE QUOTES */
         .trust-principle::before,
         .trust-principle::after {
-            content: ""; /* Changed from quotes to empty */
-            font-size: 3rem;
-            color: var(--gold);
+            content: "";
             position: absolute;
         }
         
@@ -114,56 +1116,676 @@
             right: -15px;
         }
         
-        /* ... REST OF THE STYLES UNCHANGED ... */
+        /* Responsive Design - Mobile Optimizations */
+        @media (max-width: 768px) {
+            .logo-text {
+                font-size: 3.5rem;
+            }
+            
+            .subtitle {
+                font-size: 1.5rem;
+                padding: 0 15px;
+            }
+            
+            .cover-title {
+                font-size: 2.5rem;
+            }
+            
+            .global-title {
+                font-size: 2.8rem;
+                padding: 0 15px;
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
+            }
+            
+            .dharma-wheel-container {
+                width: 55px;
+                height: 55px;
+            }
+            
+            .tribute-content {
+                font-size: 1.3rem;
+                padding: 20px;
+            }
+            
+            .cta-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero, .movement, .tribute, .cta {
+                padding: 40px 20px;
+                margin: 40px 0;
+            }
+            
+            .movement-steps {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .btn {
+                padding: 18px 35px;
+                font-size: 1.2rem;
+                margin: 10px;
+            }
+            
+            .mandala-container {
+                width: 300px;
+                height: 300px;
+            }
+            
+            .cover-art {
+                height: 400px;
+                padding: 30px;
+            }
+            
+            .dharma-divider {
+                height: 200px;
+            }
+            
+            .dharma-divider .dharma-centerpiece {
+                width: 160px;
+                height: 160px;
+            }
+            
+            /* Monastic endorsement mobile styles */
+            .monasteries {
+                gap: 30px;
+            }
+            
+            .temple {
+                min-width: 150px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .logo-text {
+                font-size: 2.8rem;
+                letter-spacing: 2px;
+            }
+            
+            .subtitle {
+                font-size: 1.3rem;
+                padding: 0 15px;
+            }
+            
+            .hero {
+                flex-direction: column;
+                gap: 30px;
+                padding: 30px 15px;
+            }
+            
+            .book-cover {
+                min-width: 280px;
+            }
+            
+            .cover-art {
+                height: 320px;
+                padding: 20px;
+            }
+            
+            .cover-title {
+                font-size: 2rem;
+            }
+            
+            .cover-subtitle {
+                font-size: 1.3rem;
+            }
+            
+            .section-title-container {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+                margin-bottom: 25px;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+                text-align: center;
+            }
+            
+            .section-title::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            
+            .dharma-wheel-container {
+                align-self: center;
+                width: 50px;
+                height: 50px;
+            }
+            
+            .hero-content p {
+                font-size: 1.1rem;
+                line-height: 1.7;
+                padding-left: 15px;
+                margin-bottom: 20px;
+                text-align: left;
+                hyphens: none;
+                word-break: normal;
+            }
+            
+            .hero-content p::before {
+                top: 8px;
+                bottom: 8px;
+                width: 2px;
+                background: var(--gold);
+            }
+            
+            .global-title {
+                font-size: 2.2rem;
+                padding: 0 15px;
+            }
+            
+            .movement > p {
+                font-size: 1.2rem;
+                padding: 0 15px;
+            }
+            
+            .step {
+                padding: 25px 15px;
+            }
+            
+            .step-title {
+                font-size: 1.3rem;
+            }
+            
+            .step p {
+                font-size: 1rem;
+            }
+            
+            .tribute-content {
+                font-size: 1.1rem;
+                line-height: 1.8;
+                padding: 20px;
+                text-align: left;
+                hyphens: auto;
+            }
+            
+            .tribute-author {
+                font-size: 1.3rem;
+                text-align: center;
+                padding-right: 0;
+            }
+            
+            .cta {
+                padding: 60px 20px;
+            }
+            
+            .cta-title {
+                font-size: 2rem;
+            }
+            
+            .cta-subtitle {
+                font-size: 1.2rem;
+                margin-bottom: 40px;
+                text-align: center;
+            }
+            
+            .dharma-divider {
+                height: 150px;
+            }
+            
+            .dharma-divider .dharma-centerpiece {
+                width: 120px;
+                height: 120px;
+            }
+            
+            .footer-logo {
+                font-size: 2.8rem;
+            }
+            
+            .footer p {
+                font-size: 1.1rem;
+                padding: 0 10px;
+            }
+            
+            .social-links a {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+            }
+            
+            /* Monastic endorsement mobile styles */
+            .monastic-endorsement {
+                padding: 40px 20px;
+                margin: 60px 0;
+            }
+            
+            .endorsement-title {
+                font-size: 2rem;
+            }
+            
+            .monasteries {
+                flex-direction: column;
+                gap: 30px;
+            }
+            
+            .trust-note {
+                font-size: 1.1rem;
+                padding: 0 15px;
+            }
+            
+            /* Merit trust mobile styles */
+            .merit-trust {
+                padding: 50px 20px;
+                margin: 60px 0;
+            }
+            
+            .trust-title {
+                font-size: 2.2rem;
+            }
+            
+            .merit-flow {
+                flex-direction: column;
+            }
+            
+            .flow-arrow {
+                transform: rotate(0deg);
+                margin: 5px 0;
+            }
+            
+            .trust-principle {
+                font-size: 1.2rem;
+                padding: 0 15px;
+            }
+        }
     </style>
 </head>
 <body>
-    <!-- ... ALL OTHER HTML UNCHANGED ... -->
+    <div class="container">
+        <header class="header">
+            <!-- Mandala Background -->
+            <div class="mandala-container">
+                <div class="mandala"></div>
+            </div>
+            
+            <div class="logo-container">
+                <div class="logo-text">Hội Hướng</div>
+            </div>
+            <div class="subtitle">A Global Movement Rooted in Love and Remembrance</div>
+        </header>
 
-    <!-- Merit Trust Section -->
-    <div class="merit-trust">
-        <div class="trust-title">Má’s Merit Trust</div>
-        
-        <div class="merit-flow">
-            <div class="flow-step">
-                <div class="step-icon">📖</div>
-                <div class="step-label">Book Sales</div>
+        <div class="hero">
+            <div class="book-cover">
+                <div class="cover-art">
+                    <div class="cover-title">Nguyên Tâm</div>
+                    <div class="cover-subtitle">“The Heart That Shaped Me”</div>
+                    <div class="cover-author">A Memoir by Nguyên Thủy</div>
+                </div>
             </div>
-            
-            <div class="flow-arrow">→</div>
-            
-            <div class="flow-step">
-                <div class="step-icon">💯</div>
-                <div class="step-label">100% Profits</div>
+            <div class="hero-content">
+                <div class="section-title-container">
+                    <h2 class="section-title">The Catalyst</h2>
+                    <div class="dharma-wheel-container">
+                        <svg class="dharma-wheel" viewBox="0 0 100 100">
+                            <!-- Fixed Dharma Wheel with all spokes touching rim -->
+                            <circle class="rim" cx="50" cy="50" r="45" />
+                            
+                            <!-- Cardinal spokes -->
+                            <line class="spoke" x1="50" y1="50" x2="50" y2="5" />
+                            <line class="spoke" x1="50" y1="50" x2="95" y2="50" />
+                            <line class="spoke" x1="50" y1="50" x2="50" y2="95" />
+                            <line class="spoke" x1="50" y1="50" x2="5" y2="50" />
+                            
+                            <!-- Diagonal spokes - fixed positions -->
+                            <line class="spoke" x1="50" y1="50" x2="81.82" y2="18.18" />
+                            <line class="spoke" x1="50" y1="50" x2="81.82" y2="81.82" />
+                            <line class="spoke" x1="50" y1="50" x2="18.18" y2="81.82" />
+                            <line class="spoke" x1="50" y1="50" x2="18.18" y2="18.18" />
+                            
+                            <!-- Spoke caps -->
+                            <circle class="spoke-cap" cx="50" cy="5" r="4" />
+                            <circle class="spoke-cap" cx="95" cy="50" r="4" />
+                            <circle class="spoke-cap" cx="50" cy="95" r="4" />
+                            <circle class="spoke-cap" cx="5" cy="50" r="4" />
+                            <circle class="spoke-cap" cx="81.82" cy="18.18" r="4" />
+                            <circle class="spoke-cap" cx="81.82" cy="81.82" r="4" />
+                            <circle class="spoke-cap" cx="18.18" cy="81.82" r="4" />
+                            <circle class="spoke-cap" cx="18.18" cy="18.18" r="4" />
+                            
+                            <circle class="inner-circle" cx="50" cy="50" r="15" />
+                            <circle class="hub" cx="50" cy="50" r="8" />
+                        </svg>
+                    </div>
+                </div>
+                <p>In loving memory of my mother, this is my love letter to the woman who taught me that love itself can be both salvation and suffering, and that sometimes the greatest courage is found not in fighting back, but in continuing to love despite everything that tries to stop you. I present “Nguyên Tâm - The Heart That Shaped Me”.</p>
+                <p>This memoir is more than my mother’s journey; it’s an invitation to discover the transformative power of maternal love and its capacity to shape lives across generations.</p>
+                <p>As we prepare to release this heartfelt tribute, we stand at the threshold of a global movement - a movement that seeks to honor the profound influence of those who shape our hearts and guide our paths.</p>
+                <p>The Hội Hướng Movement will awaken the world to the sacred connections that bind us, the legacies that sustain us, and the love that transcends even death itself.</p>
             </div>
+        </div>
+
+        <div class="movement">
+            <h2 class="global-title">The Global Hội Hướng Movement</h2>
+            <p>Born from the pages of “Nguyên Tâm - The Heart That Shaped Me”, the Hội Hướng Movement will inspire a worldwide awakening to the power of:</p>
             
-            <div class="flow-arrow">→</div>
-            
-            <div class="flow-step">
-                <div class="step-icon">🕉️</div>
-                <div class="step-label">Monastic Trust</div>
+            <div class="movement-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3 class="step-title">Sacred Remembrance</h3>
+                    <p>Honoring those who shaped our lives with rituals of gratitude</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3 class="step-title">Intergenerational Healing</h3>
+                    <p>Bridging past and future through shared stories</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3 class="step-title">Compassionate Legacy</h3>
+                    <p>Cultivating virtues that transform communities</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3 class="step-title">Global Connection</h3>
+                    <p>Uniting hearts across cultures through shared humanity</p>
+                </div>
             </div>
-            
-            <div class="flow-arrow">→</div>
-            
-            <div class="flow-step">
-                <div class="step-icon">🍚</div>
-                <div class="step-label">Feed the Hungry</div>
+        </div>
+
+        <!-- Monastic Endorsement Section -->
+        <div class="monastic-endorsement">
+            <div class="endorsement-title">With Blessings From</div>
+            <div class="monasteries">
+                <div class="temple">
+                    <svg class="temple-icon" viewBox="0 0 24 24">
+                        <path d="M12,1L3,5v6c0,5.55,3.84,10.74,9,12c5.16-1.26,9-6.45,9-12V5L12,1z M12,6.5c1.38,0,2.5,1.12,2.5,2.5
+                        c0,1.38-1.12,2.5-2.5,2.5S9.5,10.38,9.5,9C9.5,7.62,10.62,6.5,12,6.5z"/>
+                    </svg>
+                    <span>Chùa Từ Hiếu</span>
+                </div>
+                <div class="temple">
+                    <svg class="temple-icon" viewBox="0 0 24 24">
+                        <path d="M12,1L3,5v6c0,5.55,3.84,10.74,9,12c5.16-1.26,9-6.45,9-12V5L12,1z M12,6.5c1.38,0,2.5,1.12,2.5,2.5
+                        c0,1.38-1.12,2.5-2.5,2.5S9.5,10.38,9.5,9C9.5,7.62,10.62,6.5,12,6.5z"/>
+                    </svg>
+                    <span>Fo Guang Shan</span>
+                </div>
+                <div class="temple">
+                    <svg class="temple-icon" viewBox="0 0 24 24">
+                        <path d="M12,1L3,5v6c0,5.55,3.84,10.74,9,12c5.16-1.26,9-6.45,9-12V5L12,1z M12,6.5c1.38,0,2.5,1.12,2.5,2.5
+                        c0,1.38-1.12,2.5-2.5,2.5S9.5,10.38,9.5,9C9.5,7.62,10.62,6.5,12,6.5z"/>
+                    </svg>
+                    <span>Plum Village</span>
+                </div>
             </div>
+            <div class="trust-note">All proceeds flow through Má’s Merit Trust under monastic guidance</div>
+        </div>
+
+        <!-- Redesigned Tribute Section -->
+        <div class="tribute">
+            <div class="tribal-border top"></div>
+            <div class="tribal-border bottom"></div>
             
-            <div class="flow-arrow">→</div>
+            <div class="tribute-content">
+                “True merit lives in the spaces between grand gestures: in steam rising from a shared bowl of cháo, in crayon butterflies drawn by small hands, in the unbearable courage to chant through tears. This is how we turn altars into action—not by escaping the world, but by hallowing its every breath. For in the soil of the mundane, amid bus transfers and grief and bánh bò, the lotus of enlightenment takes root.” 
+                “For my Beloved mother, my first love, Nguyên Tâm (1947-2024) Who taught us that liberation smells of tiger balm, tastes of bún riêu, and sounds like a lullaby hummed between laundry loads. Your lotus blooms in every act of love we dedicate.”
+                <div class="tribute-author">— Nguyên Thủy, “Nguyên Tâm - The Heart That Shaped Me”</div>
+            </div>
+        </div>
+
+        <!-- Redesigned CTA Section with matching parchment design -->
+        <div class="cta">
+            <div class="tribal-border top"></div>
+            <div class="tribal-border bottom"></div>
             
-            <div class="flow-step">
-                <div class="step-icon">🙏</div>
-                <div class="step-label">Build Temples</div>
+            <div class="cta-content">
+                <h2 class="cta-title">Join the Awakening</h2>
+                <p class="cta-subtitle">Be among the first to know when “Nguyên Tâm - The Heart That Shaped Me” is released and the Hội Hướng Movement begins</p>
+                
+                <a href="#" class="btn">Notify Me on Release Day</a>
+                <a href="#" class="btn btn-outline">Share Your Story</a>
             </div>
         </div>
         
-        <div class="trust-principle">
-            “Every purchase becomes dāna - a sacred act of generosity”
+        <!-- Merit Trust Section -->
+        <div class="merit-trust">
+            <div class="trust-title">Má’s Merit Trust</div>
+            
+            <div class="merit-flow">
+                <div class="flow-step">
+                    <div class="step-icon">📖</div>
+                    <div class="step-label">Book Sales</div>
+                </div>
+                
+                <div class="flow-arrow">→</div>
+                
+                <div class="flow-step">
+                    <div class="step-icon">💯</div>
+                    <div class="step-label">100% Profits</div>
+                </div>
+                
+                <div class="flow-arrow">→</div>
+                
+                <div class="flow-step">
+                    <div class="step-icon">🕉️</div>
+                    <div class="step-label">Monastic Trust</div>
+                </div>
+                
+                <div class="flow-arrow">→</div>
+                
+                <div class="flow-step">
+                    <div class="step-icon">🍚</div>
+                    <div class="step-label">Feed the Hungry</div>
+                </div>
+                
+                <div class="flow-arrow">→</div>
+                
+                <div class="flow-step">
+                    <div class="step-icon">🙏</div>
+                    <div class="step-label">Build Temples</div>
+                </div>
+            </div>
+            
+            <div class="trust-principle">
+                “Every purchase becomes dāna - a sacred act of generosity”
+            </div>
+        </div>
+        
+        <!-- Centerpiece Dharma Wheel -->
+        <div class="dharma-divider">
+            <div class="dharma-centerpiece">
+                <svg class="dharma-wheel" viewBox="0 0 100 100">
+                    <!-- Fixed Dharma Wheel with all spokes touching rim -->
+                    <circle class="rim" cx="50" cy="50" r="45" />
+                    
+                    <!-- Cardinal spokes -->
+                    <line class="spoke" x1="50" y1="50" x2="50" y2="5" />
+                    <line class="spoke" x1="50" y1="50" x2="95" y2="50" />
+                    <line class="spoke" x1="50" y1="50" x2="50" y2="95" />
+                    <line class="spoke" x1="50" y1="50" x2="5" y2="50" />
+                    
+                    <!-- Diagonal spokes - fixed positions -->
+                    <line class="spoke" x1="50" y1="50" x2="81.82" y2="18.18" />
+                    <line class="spoke" x1="50" y1="50" x2="81.82" y2="81.82" />
+                    <line class="spoke" x1="50" y1="50" x2="18.18" y2="81.82" />
+                    <line class="spoke" x1="50" y1="50" x2="18.18" y2="18.18" />
+                    
+                    <!-- Spoke caps -->
+                    <circle class="spoke-cap" cx="50" cy="5" r="4" />
+                    <circle class="spoke-cap" cx="95" cy="50" r="4" />
+                    <circle class="spoke-cap" cx="50" cy="95" r="4" />
+                    <circle class="spoke-cap" cx="5" cy="50" r="4" />
+                    <circle class="spoke-cap" cx="81.82" cy="18.18" r="4" />
+                    <circle class="spoke-cap" cx="81.82" cy="81.82" r="4" />
+                    <circle class="spoke-cap" cx="18.18" cy="81.82" r="4" />
+                    <circle class="spoke-cap" cx="18.18" cy="18.18" r="4" />
+                    
+                    <circle class="inner-circle" cx="50" cy="50" r="15" />
+                    <circle class="hub" cx="50" cy="50" r="8" />
+                </svg>
+            </div>
         </div>
     </div>
-    
-    <!-- ... REST OF THE HTML UNCHANGED ... -->
+
+    <!-- Enhanced Deep Red Footer -->
+    <div class="footer">
+        <div class="footer-logo">Hội Hướng</div>
+        <p>The Global Movement of Heart-Shaped Legacies</p>
+        
+        <div class="social-links">
+            <a href="https://twitter.com/_hoihuong_" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        </div>
+        
+        <div class="copyright">
+            &copy; 2025 Hội Hướng Global Movement. “Nguyên Tâm - The Heart That Shaped Me” by Nguyên Thủy is a tribute to maternal love and legacy.
+        </div>
+    </div>
+
+    <!-- Virtual Altar Element -->
+    <div id="virtual-altar" style="display:none; position:fixed; bottom:20px; right:20px; z-index:1000; transition: opacity 0.5s ease;">
+        <div style="background: var(--gold); color: var(--deep-red); padding:12px 20px; border-radius:50px; 
+                    box-shadow:0 5px 15px rgba(0,0,0,0.2); font-family: 'Noto Serif SC', serif; display:flex; align-items:center;">
+            <i class="fas fa-ring" style="margin-right:10px; font-size:1.2rem;"></i> 
+            <span>Writing for Nguyên Tâm (1947-2024)</span>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Enhanced book cover interaction
+            const cover = document.querySelector('.cover-art');
+            if (cover) {
+                cover.addEventListener('mouseenter', function() {
+                    this.style.transform = 'rotateY(0deg) rotateX(0deg) scale(1.02)';
+                });
+                
+                cover.addEventListener('mouseleave', function() {
+                    this.style.transform = 'rotateY(-8deg) rotateX(2deg) scale(1)';
+                });
+            }
+            
+            // Staggered step animations
+            const steps = document.querySelectorAll('.step');
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry, index) => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => {
+                            entry.target.style.opacity = '1';
+                            entry.target.style.transform = 'translateY(0) scale(1)';
+                        }, index * 200);
+                    }
+                });
+            }, observerOptions);
+            
+            // Observe steps
+            steps.forEach((step, index) => {
+                step.style.opacity = '0';
+                step.style.transform = 'translateY(50px) scale(0.9)';
+                step.style.transition = 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
+                observer.observe(step);
+            });
+            
+            // Enhanced button interactions
+            const buttons = document.querySelectorAll('.btn');
+            buttons.forEach(button => {
+                button.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-5px) scale(1.05)';
+                });
+                
+                button.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+                
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Create ripple effect
+                    const ripple = document.createElement('span');
+                    const rect = this.getBoundingClientRect();
+                    const size = Math.max(rect.width, rect.height);
+                    const x = e.clientX - rect.left - size / 2;
+                    const y = e.clientY - rect.top - size / 2;
+                    
+                    ripple.style.cssText = `
+                        position: absolute;
+                        width: ${size}px;
+                        height: ${size}px;
+                        left: ${x}px;
+                        top: ${y}px;
+                        background: rgba(255, 255, 255, 0.5);
+                        border-radius: 50%;
+                        transform: scale(0);
+                        animation: ripple 0.6s ease-out;
+                        pointer-events: none;
+                    `;
+                    
+                    this.appendChild(ripple);
+                    
+                    setTimeout(() => {
+                        ripple.remove();
+                    }, 600);
+                });
+            });
+            
+            // Smooth scroll for internal links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+            
+            // Parallax effect for mandala background
+            window.addEventListener('scroll', () => {
+                const scrolled = window.pageYOffset;
+                const parallaxElements = document.querySelectorAll('.mandala-container');
+                
+                parallaxElements.forEach(element => {
+                    const speed = 0.5;
+                    element.style.transform = `translate(-50%, -50%) translateY(${scrolled * speed}px)`;
+                });
+            });
+            
+            // Virtual altar reminder
+            document.addEventListener('keydown', function(e) {
+                if (e.target.matches('textarea, [contenteditable="true"]')) {
+                    const altar = document.getElementById('virtual-altar');
+                    altar.style.display = 'flex';
+                    altar.style.opacity = '1';
+                    
+                    setTimeout(() => {
+                        altar.style.opacity = '0';
+                        setTimeout(() => {
+                            altar.style.display = 'none';
+                        }, 500);
+                    }, 3000);
+                }
+            });
+            
+            // Add CSS for ripple animation
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes ripple {
+                    to {
+                        transform: scale(2);
+                        opacity: 0;
+                    }
+                }
+                
+                .btn {
+                    position: relative;
+                    overflow: hidden;
+                }
+            `;
+            document.head.appendChild(style);
+        });
+    </script>
 </body>
 </html>
